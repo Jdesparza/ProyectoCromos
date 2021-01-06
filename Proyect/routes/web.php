@@ -29,5 +29,3 @@ Route::view('adminUsers', 'adminUsers')->name('adminUsers');
 Route::view('adminTematicas', 'adminTematicas')->name('adminTematicas');
 Route::view('uploadCromos', 'uploadCromos')->name('uploadCromos');
 Route::view('uploadPreguntas', 'uploadPreguntas')->name('uploadPreguntas');
-
-Route::
