@@ -1,5 +1,108 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-<h2>esta es la Page album</h2>
+
+<div class="contenedor">
+
+		<section class="grid" id="grid">
+			<div class="item" 
+		
+				 data-descripcion="1.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img1.jpg')}}" alt="">
+				</div>
+			</div>
+
+			<div class="item"
+				 
+				 data-descripcion="2.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img2.jpg')}}" alt="">
+				</div>
+			</div>
+
+			<div class="item"
+				 
+				 data-descripcion="3.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img3.jpg')}}" alt="">
+				</div>
+			</div>
+
+			<div class="item"
+				 
+				 data-descripcion="4.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img4.jpg')}}" alt="">
+				</div>
+			</div>
+
+			<div class="item"
+				 
+				 data-descripcion="5.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img5.jpg')}}" alt="">
+				</div>
+			</div>
+
+			<div class="item"
+				 
+				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img6.jpg')}}" alt="">
+				</div>
+            </div>
+            <div class="item"
+				 
+				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img7.jpg')}}" alt="">
+				</div>
+            </div>
+            <div class="item"
+				 
+				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img8.jpg')}}" alt="">
+				</div>
+            </div>
+            <div class="item"
+				 
+				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
+			>
+				<div class="item-contenido">
+					<img src="{{ asset('img/img9.jpg')}}" alt="">
+				</div>
+            </div>
+		</section>
+
+		<section class="overlay" id="overlay">
+			<div class="contenedor-img">
+				<button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
+				<img src="" alt="">
+			</div>
+            <p class="descripcion"></p>
+            
+        </section>
+        <section class = "boton">
+            <button>Siguiente</button>
+        </section>
+</div>
+
+
+    <script src="../../js/form.js"></script>
+	
+
 @endsection
+    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
+	<script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
