@@ -50,6 +50,18 @@
                 </div>
 
                 <div class="">
+                    <input id="rol" type="text" class="formularioInput" name="rol" value="{{ old('rol') }}" required autocomplete="rol">
+                    <label for="rol" class="formularioLabel">{{ __('Rol') }}</label>
+                    <div class="">
+                        @error('name')
+                            <span class="" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="">
                     <div class="">
                         <button type="submit" class="formularioSubmit">
                             {{ __('Register') }}
@@ -76,7 +88,7 @@
             <tbody class="tablaCuerpo">
                 <tr>
                     <td>{{ Auth::user()->name }}</td><td>{{ Auth::user()->email }}</td>
-                    <td>N/A</td><td><img src="../../img/trash-alt-regular 1.png" alt=""></td>
+                    <td>{{ Auth::user()->rol }}</td><td><img src="../../img/trash-alt-regular 1.png" alt=""></td>
                 </tr>
                 <tr>
                     <td>{{ Auth::user()->name }}</td><td>{{ Auth::user()->email }}</td>

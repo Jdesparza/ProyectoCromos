@@ -29,3 +29,9 @@ Route::view('adminUsers', 'adminUsers')->name('adminUsers');
 Route::view('adminTematicas', 'adminTematicas')->name('adminTematicas');
 Route::view('uploadCromos', 'uploadCromos')->name('uploadCromos');
 Route::view('uploadPreguntas', 'uploadPreguntas')->name('uploadPreguntas');
+
+//Route::get('/homeAdmin', [App\Http\Controllers\AdminController::class, 'indexAdmin']);
+//Route::get('/', [App\Http\Controllers\AdminUserController::class, 'usersAdmin']);
+//Route::get('/', [App\Http\Controllers\TematicaController::class, 'tematicasAdmin']);
+//Route::get('/', [App\Http\Controllers\CromController::class, 'cromosAdmin']);
+//Route::get('/', [App\Http\Controllers\PreguntController::class, 'preguntasAdmin']);

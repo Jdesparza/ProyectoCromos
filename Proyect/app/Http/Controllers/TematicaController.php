@@ -6,14 +6,8 @@ use Illuminate\Http\Request;
 
 class TematicaController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
+    public function tematicasAdmin(){
+        return view('adminTematicas');
     }
 
     /**
