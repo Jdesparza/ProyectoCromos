@@ -14,7 +14,7 @@
     </header>
     <nav class="menuPrincipalNavegando">
         <div class="menuPrincipal1">
-            <a href="{{ route('home') }}" class="menu1">
+            <a href="/home" class="menu1">
                 <img src="../../img/casa 1.png" alt="">
                 Inicio
             </a>

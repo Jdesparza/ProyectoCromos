@@ -3,36 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Hash;
+use App\Http\Requests\UserRequest;
+use Validator;
 
 class AdminUserController extends Controller
 {
-    public function usersAdmin(){
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('administrador');
+    }
+
+    public function index(){
         return view('adminUsers');
     }
 
-    protected function validator(array $data)
+    public function create(array $data)
     {
-        return Validator::make($data, [
+        //
+    }
+
+    public function store(Request $request){
+        $validator = Validator::make($request->all(),[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'rol'=>['required','string',  'max:50'],
         ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'rol' => $data['rol'],
-        ]);
+        if($validator -> fails()){
+            return back()
+            ->with('ErrorInsert', 'Error de inserción, complete los datos correctamente')
+            ->withErrors($validator);
+        }else{
+            $usuarios = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'rol' => $request->rol,
+            ]);
+            return back();
+        }
     }
 }

@@ -30,7 +30,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'rol',
         'remember_token',
     ];
 
@@ -42,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function admin(){
+        return $this->rol === 'administrador';
+    }
+
 }

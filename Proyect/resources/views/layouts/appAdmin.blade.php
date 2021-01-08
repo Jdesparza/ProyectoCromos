@@ -14,23 +14,23 @@
     </header>
     <nav class="menuPrincipalNavegando">
         <div class="menuPrincipal4">
-            <a href="{{ route('homeAdmin') }}" class="menu1">
+            <a href="/homeAdmin" class="menu1">
                 <img src="../../img/gerente 1.png" alt="">
                 Administración
             </a>
-            <a href="{{ route('adminUsers') }}">
+            <a href="/adminUsers">
                 <img src="../../img/users-solid 1.png" alt="">
                 Usuarios
             </a>
-            <a href="{{ route('adminTematicas') }}">
+            <a href="/adminTematicas">
                 <img src="../../img/controlador-de-gamepad 1.png" alt="">
                 Temáticas
             </a>
-            <a href="{{ route('uploadCromos') }}">
+            <a href="/uploadCromos">
                 <img src="../../img/cloud-solid 1.png" alt="">
                 Cromos
             </a>
-            <a href="{{ route('uploadPreguntas') }}">
+            <a href="/uploadPreguntas">
                 <img src="../../img/cloud-solid (1) 1.png" alt="">
                 Preguntas
             </a>

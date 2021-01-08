@@ -3,19 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-
 
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource
-     * 
-     * @return \Illuminate\Http\Response
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('administrador');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function indexAdmin()
     {
         return view('homeAdmin');
     }
-
 }

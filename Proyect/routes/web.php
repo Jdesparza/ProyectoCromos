@@ -19,19 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::view('welcome', 'welcome')->name('welcome');
-Route::view('home', 'home')->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
 Route::view('juego', 'juego')->name('juego');
 Route::view('album', 'album')->name('album');
 Route::view('intercambio', 'intercambio')->name('intercambio');
-Route::view('homeAdmin', 'homeAdmin')->name('homeAdmin');
-Route::view('adminUsers', 'adminUsers')->name('adminUsers');
-Route::view('adminTematicas', 'adminTematicas')->name('adminTematicas');
-Route::view('uploadCromos', 'uploadCromos')->name('uploadCromos');
-Route::view('uploadPreguntas', 'uploadPreguntas')->name('uploadPreguntas');
 
-//Route::get('/homeAdmin', [App\Http\Controllers\AdminController::class, 'indexAdmin']);
-//Route::get('/', [App\Http\Controllers\AdminUserController::class, 'usersAdmin']);
-//Route::get('/', [App\Http\Controllers\TematicaController::class, 'tematicasAdmin']);
-//Route::get('/', [App\Http\Controllers\CromController::class, 'cromosAdmin']);
-//Route::get('/', [App\Http\Controllers\PreguntController::class, 'preguntasAdmin']);
+
+Route::get('/homeAdmin', [App\Http\Controllers\AdminController::class, 'indexAdmin']);
+
+Route::resource('/adminUsers', 'App\Http\Controllers\AdminUserController');
+
+Route::get('/adminTematicas', [App\Http\Controllers\TematicaController::class, 'tematicasAdmin']);
+Route::get('/uploadCromos', [App\Http\Controllers\CromController::class, 'cromosAdmin']);
+Route::get('/uploadPreguntas', [App\Http\Controllers\PreguntController::class, 'preguntasAdmin']);

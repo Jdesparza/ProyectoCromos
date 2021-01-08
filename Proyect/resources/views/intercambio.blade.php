@@ -5,6 +5,6 @@
     <img src="../../img/mantenimiento.png" alt="mantenimiento">
     <p class="tituloMantenimiento">Página en Mantenimiento</p>
     <p class="mensajeMantenimiento">Esta seccion estara disponible en una actualización posterior de la página</p>
-    <a href="{{ route('home') }}">Ok</a>
+    <a href="/home">Ok</a>
 </section>
 @endsection
