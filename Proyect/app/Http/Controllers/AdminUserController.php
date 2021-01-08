@@ -37,7 +37,6 @@ class AdminUserController extends Controller
         ]);
         if($validator -> fails()){
             return back()
-            ->with('ErrorInsert', 'Error de inserción, complete los datos correctamente')
             ->withErrors($validator);
         }else{
             $usuarios = User::create([
