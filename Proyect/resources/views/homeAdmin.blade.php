@@ -4,23 +4,23 @@
 <section class="contenidoHomeAdmin">
     <p class="titulo1">Usuarios de la Página</p>
     <article class="informacionUsers">
-        <div class="titulo2">Admin</div>
+        <div class="titulo2">Administradores</div>
         <div class="apartado1">
             <img src="../../img/user-shield-solid 1.png" alt="">
         </div>
         <div class="apartado2">
-            <p class="apartado2_1">1</p>
-            <p class="apartado2_2">Register</p>
+            <p class="apartado2_1">{{ $userAdministrador->count() }}</p>
+            <p class="apartado2_2">Registrados</p>
         </div>
     </article>
     <article class="informacionUsers">
-        <div class="titulo2">Normal User</div>
+        <div class="titulo2">Usuarios Normales</div>
         <div class="apartado1">
             <img src="../../img/restroom-solid 1.png" alt="">
         </div>
         <div class="apartado2">
-            <p class="apartado2_1">7</p>
-            <p class="apartado2_2">Register</p>
+            <p class="apartado2_1">{{ $userNormal->count() }}</p>
+            <p class="apartado2_2">Registrados</p>
         </div>
     </article>
 </section>

@@ -25,10 +25,12 @@ Route::view('juego', 'juego')->name('juego');
 Route::view('album', 'album')->name('album');
 Route::view('intercambio', 'intercambio')->name('intercambio');
 
-
-Route::get('/homeAdmin', [App\Http\Controllers\AdminController::class, 'indexAdmin']);
-
-Route::resource('/adminUsers', 'App\Http\Controllers\AdminUserController');
+Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');
+Route::resource('/administrador/adminUsers', 'App\Http\Controllers\AdminUserController');
+Route::get('/administrador/adminUsers/{id}/destroy', 
+    ['uses' => 'App\Http\Controllers\AdminUserController@destroy',
+    'as' => 'adminUsers.destroy'
+]);
 
 Route::get('/adminTematicas', [App\Http\Controllers\TematicaController::class, 'tematicasAdmin']);
 Route::get('/uploadCromos', [App\Http\Controllers\CromController::class, 'cromosAdmin']);

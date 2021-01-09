@@ -11,10 +11,10 @@
                 @csrf
 
                 <div class="reg2">
-                    <label for="name" class="">{{ __('Nombre') }}</label>
+                    <label for="name" class="labelInicio">{{ __('Nombre') }}</label>
 
-                    <div class="col-md-6">
-                        <input id="name" type="text" class="" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ingrese nombre">
+                    <div class="reg4">
+                        <input id="name" type="text" class="inputInicio" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ingrese nombre">
 
                         @error('name')
                             <span class="" role="alert">
@@ -25,10 +25,10 @@
                 </div>
 
                 <div class="reg3">
-                    <label for="email" class="">{{ __('Dirección de Correo') }}</label>
+                    <label for="email" class="labelInicio">{{ __('Dirección de Correo') }}</label>
 
                     <div class="reg4">
-                        <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ingrese su correo">
+                        <input id="email" type="email" class="inputInicio" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ingrese su correo">
 
                         @error('email')
                             <span class="" role="alert">
@@ -39,10 +39,10 @@
                 </div>
 
                 <div class="reg5">
-                    <label for="password" class="">{{ __('Password') }}</label>
+                    <label for="password" class="labelInicio">{{ __('Password') }}</label>
 
                     <div class="reg6">
-                        <input id="password" type="password" class="" name="password" required autocomplete="new-password" placeholder="Ingrese su contraseña">
+                        <input id="password" type="password" class="inputInicio" name="password" required autocomplete="new-password" placeholder="Ingrese su contraseña">
 
                         @error('password')
                             <span class="" role="alert">
@@ -53,10 +53,10 @@
                 </div>
 
                 <div class="reg7">
-                    <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" class="labelInicio">{{ __('Confirm Password') }}</label>
 
                     <div class="reg8">
-                        <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme su contraseña">
+                        <input id="password-confirm" type="password" class="inputInicio" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme su contraseña">
                     </div>
                 </div>
 

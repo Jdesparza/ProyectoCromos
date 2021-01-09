@@ -8,7 +8,7 @@
             <form class="formulario" method="POST" action="">
                 @csrf
                 <div class="">
-                    <p class="subirImg">Subir Imagen</p>
+                    <label for="imgCromo" class="subirImg">Subir Imagen</label>
                     <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="" required autocomplete="imgCromo">
                     
                 </div>

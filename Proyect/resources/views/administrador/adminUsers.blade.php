@@ -11,6 +11,13 @@
             </section>
         </ul>
     @endif
+    @if ($message = Session::get('mensaje'))
+        <ul class="alertaUl">
+            <section class="alerta">
+            <p>{{ $message }}</p>
+            </section>
+        </ul>
+    @endif
 
     <p class="formularioTitulo">Registrar Usuario</p>
     <div class="">
@@ -39,8 +46,14 @@
                 </div>
 
                 <div class="">
-                    <input id="rol" type="text" class="formularioInput" name="rol" value="{{ old('rol') }}" required autocomplete="rol">
-                    <label for="rol" class="formularioLabel">{{ __('Rol') }}</label>
+                    <label for="rol" class="labelSelect">Rol</label>
+                    <section class="sectionOpciones">
+                        <select name="rol" id="rol" class="selectFormulario">
+                            <option value="">Selecciona un Rol..</option>
+                            <option value="usuario" {{ old('rol') == 'usuario' ? 'selected' : ''}}>usuario</option>
+                            <option value="administrador" {{ old('rol') == 'administrador' ? 'selected' : ''}}>administrador</option>
+                        </select>
+                    </section>
                 </div>
 
                 <div class="">
@@ -61,19 +74,31 @@
         <table>
             <thead class="tablaEncabezado">
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
                     <th>{{ __('Email') }}</th>
                     <th>{{ __('Rol') }}</th>
                     <th>Eliminar</th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody class="tablaCuerpo">
-                <tr>
-                    <td>{{ Auth::user()->name }}</td><td>{{ Auth::user()->email }}</td>
-                    <td>{{ Auth::user()->rol }}</td><td><img src="../../img/trash-alt-regular 1.png" alt=""></td>
-                </tr>
+                @foreach($usuarios as $usuario)
+                    <tr>
+                        <td>{{ $usuario->id}}</td>
+                        <td>{{ $usuario->name}}</td>
+                        <td>{{ $usuario->email}}</td>
+                        <td>{{ $usuario->rol}}</td>
+                        @method('DELETE')
+                        <td><a href="{{ route('adminUsers.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="botonEliminar"><img src="../../img/trash-alt-regular 1.png" alt="boton eliminar"></a></td>
+                        <td><a href="{{ route('adminUsers.edit', $usuario->id) }}" class="botonEditar"><img src="../../img/edit-solid 1.png" alt="boton editar"></a></td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
+        <section class="barraPaginacion">
+            {{ $usuarios->links() }}
+        </section>
     </div>
 </div>
 @endsection

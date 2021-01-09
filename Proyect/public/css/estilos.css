@@ -184,9 +184,11 @@ div.div3 input{
 	padding-bottom: 0.5em;
 	padding-top: 0.5em;
 	padding-left: 1em;
+	font-family: 'Quicksand', sans-serif;
 }
 div.div4 input{
-	padding-right: 18em;
+	padding-right: 1em;
+	font-family: 'Quicksand', sans-serif;
 }
 div.div5 {
 	margin-left: 4em;
@@ -199,11 +201,13 @@ div.div6{
 div.div6 button{
 	background-color: #42a5f5;
 	padding: 1em;
-	margin-left: 5em;
-	padding-left: 1.5em;
-	padding-right: 1.5em;
+	margin-left: 5.6em;
+	padding-left: 2em;
+	padding-right: 2em;
 	margin-right: 0.5em;
 	color: white;
+	font-size: 0.7em;
+	font-family: 'Quicksand', sans-serif;
 	border: white solid 1px;
 }
 div.div6 a{
@@ -219,6 +223,17 @@ div.VentanaRegistro {
 	background-color:white;
 	border-bottom: #000 solid 3px;
 	font-family: "Quando", serif;
+}
+div label.labelInicio{
+	padding-left: 0.6em;
+}
+.inputInicio{
+	width: 82%;
+	font-size: 1em;
+	font-family: 'Quicksand', sans-serif;
+}
+.inputInicio:focus{
+	outline: 1px solid rgba(0,0,0,0.7);
 }
 div.reg1 {
 	font-size: x-large;
@@ -244,10 +259,7 @@ div.reg3 {
 	margin-bottom: 1em;
 }
 div.reg4 input {
-	padding-right: 18em;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 1em;
+	padding-right: 0.5em;
 }
 div.reg5 {
 	margin-left: 4em;
@@ -255,10 +267,7 @@ div.reg5 {
 	margin-bottom: 1em;
 }
 div.reg6 input{
-	padding-right: 18em;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 1em;
+	padding-right: 0.5em;
 }
 div.reg7 {
 	margin-left: 4em;
@@ -266,23 +275,28 @@ div.reg7 {
 	margin-bottom: 1em;
 }
 div.reg8 input{
-	padding-right: 18em;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 1em;
+	padding-right: 0.5em;
 }
 div.reg9 button {
 	background-color: #42a5f5;
 	padding: 1em;
-	margin-left: 5em;
+	margin-left: 5.6em;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
 	margin-right: 0.5em;
 	margin-bottom: 1em;
 	color: white;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 0.7em;
 	border: white solid 1px;
 }
-
+div.reg9 button:hover,  div.div6 button:hover{
+	border: 1px solid black;
+}
+div.reg4 input, div.reg6 input, div.reg8 input{
+	padding-left: 0.7em;
+	padding-block: 0.4em;
+}
 section.contenidoHomeAdmin{
 	max-width: 100%;
 	text-align: center;
@@ -353,7 +367,7 @@ section.contenidoAdmin form.formulario{
 	position: relative;
 	font-family: 'JetBrains Mono', monospace;
 }
-section.contenidoAdmin p.formularioTitulo, div.tablaDatos p.tablaTitulo{
+section.contenidoAdmin p.formularioTitulo, p.formularioTituloEdit,div.tablaDatos p.tablaTitulo{
 	font-size: 2em;
 	text-align: center;
 	margin-top: 0;
@@ -363,8 +377,17 @@ section.contenidoAdmin p.formularioTitulo, div.tablaDatos p.tablaTitulo{
 	padding: 0.3em 0em 0.3em 0em;
 	font-family: 'JetBrains Mono', monospace;
 }
-section.contenidoAdmin p.formularioTitulo:hover, div.tablaDatos p.tablaTitulo:hover{
+section.contenidoAdmin p.formularioTitulo:hover,div.tablaDatos p.tablaTitulo:hover{
 	box-shadow: 0 59px  #ccff90 inset,
+				100px 0 yellow inset,
+				200px 0 red inset,
+				300px 0 rosybrown inset,
+				400px 0 skyblue inset,
+				500px 0 springgreen inset,
+				600px 0 #42a5f5 inset;
+}
+section.contenidoAdmin p.formularioTituloEdit:hover{
+	box-shadow: 0 100px  #ccff90 inset,
 				100px 0 yellow inset,
 				200px 0 red inset,
 				300px 0 rosybrown inset,
@@ -377,22 +400,31 @@ section.contenidoAdmin p.formularioTitulo:hover, div.tablaDatos p.tablaTitulo:ho
 	width: 100%;
 	font-size: 1.3em;
 }
-.formularioInput{
+.formularioInputDos, .formularioLabelDos{
+	display: block;
+	width: 100%;
+	font-size: 1.1em;
+	font-family: 'JetBrains Mono', monospace;
+}
+.formularioInput, .formularioInputDos{
 	width: 93.5%;
 }
-.formularioInput{
+.formularioInput, .formularioInputDos{
 	padding: 20px 15px 20px 15px;
 	border: 1px solid black;
 	margin-bottom: 40px;
 	background: transparent;
 }
-.formularioInput:focus{
+.formularioInput:focus, .formularioInputDos:focus{
 	outline: 1px solid rgba(0,0,0,0.7);
 }
 .formularioInput:focus + .formularioLabel{
 	margin-top: -135px;
 }
-.formularioLabel{
+.formularioInputDos + .formularioLabelDos{
+	margin-top: -135px;
+}
+.formularioLabel, .formularioLabelDos{
 	padding-left: 15px;
 	position: absolute;
 	margin-top: -85px;
@@ -405,7 +437,7 @@ section.contenidoAdmin p.formularioTitulo:hover, div.tablaDatos p.tablaTitulo:ho
 	color: white;
 	padding: 10px 20px;
 	cursor: pointer;
-	border: none;
+	border: 1px solid black;
 }
 .fijar {
 	margin-top: -135px;
@@ -420,6 +452,7 @@ table{
 	text-align: center;
 	width: 100%;
 	border-collapse: collapse;
+	margin-block-end: 1em;
 }
 th, td{
 	border: solid 1px black;
@@ -438,18 +471,38 @@ tr:hover td{
 	background-color: #bbdefb;
 }
 
-section.contenidoAdmin form.formulario p.subirImg{
+section.contenidoAdmin form.formulario label.subirImg, label.labelSelect{
 	font-size: 1.3em;
 	text-align: left;
-	padding: 0.5em;
+	padding: 0.5em 0em 0em 0.8em;
 	margin-top: 0;
 	color: black;
 	font-family: 'JetBrains Mono', monospace;
 }
 .cromoInput{
-	padding: 0em 0em 2.3em 0em;
+	padding: 1em 3.4em 1em 1em;
 	font-family: 'JetBrains Mono', monospace;
 	font-size: 1em;
+	margin-block-end: 2.3em;
+	border: 1px solid black;
+}
+section.contenidoAdmin form.formulario label.labelSelect{
+	padding: 0em 0em 0em 0.8em;
+}
+form.formulario section.sectionOpciones{
+	border: 1px solid black;
+	padding: 1em 0em 1em 1em;
+	margin-block-end: 2em;
+}
+form.formulario section.sectionOpciones select{
+	padding: 0.5em 7.85em;
+	background-color: rgba(243, 255, 133, 0.7);
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 1em;
+	text-align-last: center;
+}
+.cromoInput:focus, select:focus{
+	outline: 1px solid rgba(0,0,0,0.7);
 }
 section.actualizacionIntercambio{
 	margin: 0 auto;
@@ -498,4 +551,23 @@ section.alerta{
 	margin: 0 auto;
 	padding: 1.5em;
 	margin-block-end: 1em;
+}
+tbody.tablaCuerpo tr td a{
+	padding: 0.4em 2em;
+	border: 1px solid black;
+}
+tbody.tablaCuerpo tr td a.botonEliminar{
+	background-color: rgb(255, 53, 53);
+}
+tbody.tablaCuerpo tr td a.botonEditar{
+	background-color: rgb(44, 207, 44);
+}
+tbody.tablaCuerpo tr td a.botonEliminar:hover, tbody.tablaCuerpo tr td a.botonEditar:hover{
+	background-color: rgba(217, 255, 50, 0.7);
+}
+form label.labelSelect{
+	display: block;
+}
+form select.selectFormulario{
+	display: block;
 }

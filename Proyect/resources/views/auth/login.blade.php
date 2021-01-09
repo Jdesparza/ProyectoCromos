@@ -13,10 +13,10 @@
                 @csrf
 
                 <div class="div3">
-                    <label for="email" class="">{{ __('Usuario') }}</label>
+                    <label for="email" class="labelInicio">{{ __('Usuario') }}</label>
 
                     <div class="div4">
-                        <input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingrese su usuario">
+                        <input id="email" type="email" class="inputInicio" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingrese su usuario">
 
                         @error('email')
                             <span class="" role="alert">
@@ -27,10 +27,10 @@
                 </div>
 
                 <div class="div3">
-                    <label for="password" class="">{{ __('Clave') }}</label>
+                    <label for="password" class="labelInicio">{{ __('Clave') }}</label>
 
                     <div class="div4">
-                        <input id="password" type="password" class="" name="password" required autocomplete="current-password" placeholder="Ingrese su clave">
+                        <input id="password" type="password" class="inputInicio" name="password" required autocomplete="current-password" placeholder="Ingrese su clave">
 
                         @error('password')
                             <span class="" role="alert">
@@ -58,11 +58,13 @@
                             {{ __('Iniciar') }}
                         </button>
 
-                        @if (Route::has('password.request'))
-                            <a class="" href="{{ route('password.request') }}">
-                                {{ __('Olvido su Contraseña?') }}
-                            </a>
-                        @endif
+                        <!--
+                            @if (Route::has('password.request'))
+                                <a class="" href="{{ route('password.request') }}">
+                                    {{ __('Olvido su Contraseña?') }}
+                                </a>
+                            @endif
+                        -->
                     </div>
                 </div>
             </form>

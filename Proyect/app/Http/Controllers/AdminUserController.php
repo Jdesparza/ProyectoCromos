@@ -7,6 +7,9 @@ use App\Models\User;
 use Hash;
 use App\Http\Requests\UserRequest;
 use Validator;
+use Flash;
+use Delete;
+use Update;
 
 class AdminUserController extends Controller
 {
@@ -21,19 +24,23 @@ class AdminUserController extends Controller
     }
 
     public function index(){
-        return view('adminUsers');
+        $usuarios = \DB::table('users')
+            ->select('users.*')
+            ->orderBy('id', 'ASC')
+            ->simplePaginate(5);
+        return view('administrador/adminUsers')->with('usuarios', $usuarios);
     }
 
-    public function create(array $data)
-    {
-        //
+    public function create(){
+        return view('adminUsers.create');
     }
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:4'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'rol' => ['required'],
         ]);
         if($validator -> fails()){
             return back()
@@ -46,6 +53,38 @@ class AdminUserController extends Controller
                 'rol' => $request->rol,
             ]);
             return back();
+        }
+    }
+
+    public function destroy(User $id){
+        $usuario = User::find($id);
+        $usuario->each->delete();
+        
+        return back()
+        ->with('mensaje', 'El usuario a sido borrado con exito!');
+    }
+
+    public function edit(User $adminUser){
+        return view('administrador/editUser', compact('adminUser'));
+    }
+
+    public function update(Request $request, User $adminUser){
+        $validator = Validator::make($request->all(),[
+            'name' => ['required', 'string', 'min:4'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'rol' => ['required'],
+        ]);
+        if($validator -> fails()){
+            return back()
+            ->withErrors($validator);
+        }else{
+            $request->merge([
+                'password' => Hash::make($request->password)
+            ]);
+            $adminUser->update($request->all());
+            return redirect()->route('adminUsers.index')
+            ->with('mensaje', 'El usuario a sido editado con exito!');
         }
     }
 }
