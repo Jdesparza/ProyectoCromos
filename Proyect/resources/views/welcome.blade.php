@@ -1,6 +1,28 @@
 @extends('layouts.appInicio')
 
 @section('content')
+
+<section >
+    <ul class="slider">
+        <li>
+            <input type="radio" id="sbutton1" name="sradio" checked>
+            <label for="sbutton1"></label>
+            <img src="{{ asset('img/Frame1.png')}}" alt="">
+        </li>
+        <li>
+            <input type="radio" id="sbutton2" name="sradio">
+            <label for="sbutton2"></label>
+            <img src="{{ asset('img/Frame2.png')}}" alt="">
+        </li>
+        <li>
+            <input type="radio" id="sbutton3" name="sradio">
+            <label for="sbutton3"></label>
+            <img src="{{ asset('img/Frame3.png')}}" alt="">
+        </li>
+    </ul>
+</section> 
+
+
 <div class="imgCuerpo">
     <section class="sectionCuerpo">
         <h1>Temáticas</h1>
