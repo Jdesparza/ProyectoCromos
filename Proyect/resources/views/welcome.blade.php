@@ -1,6 +1,9 @@
 @extends('layouts.appInicio')
 
 @section('content')
+<br>
+<br>
+<br>
 
 <section >
     <ul class="slider">

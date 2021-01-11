@@ -674,7 +674,7 @@ section .info{
 	display: flex;
 }
 .slider{
-	padding: 28em 5em 10em 10em;
+	padding: 27em 5em 1em 5em;
 	position: relative;
 	list-style: none;
 	display: flex;
