@@ -23,6 +23,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::view('juego', 'juego')->name('juego');
 Route::view('album', 'album')->name('album');
+Route::view('macro', 'macro')->name('macro');
+Route::view('micro', 'micro')->name('micro');
+Route::view('lev1', 'lev1')->name('lev1');
+Route::view('econ', 'econ')->name('econ');
 Route::view('intercambio', 'intercambio')->name('intercambio');
 
 Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');

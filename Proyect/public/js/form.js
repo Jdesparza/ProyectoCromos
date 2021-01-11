@@ -8,8 +8,7 @@ for (var i = 0; i < input.length; i++) {
         }
     });
 }
-
-/* album*/
+/*album*/
 const grid = new Muuri('.grid', {
 	layout: {
 		rounding: false
@@ -38,3 +37,4 @@ document.querySelector('#btn-cerrar-popup').addEventListener('click', () => {
 overlay.addEventListener('click', (evento) => {
     evento.target.id === 'overlay' ? overlay.classList.remove('activo') : '';
 });
+
