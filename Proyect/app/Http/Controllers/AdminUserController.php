@@ -52,7 +52,8 @@ class AdminUserController extends Controller
                 'password' => Hash::make($request->password),
                 'rol' => $request->rol,
             ]);
-            return back();
+            return back()
+            ->with('mensaje', 'El usuario a sido creado con exito!');
         }
     }
 

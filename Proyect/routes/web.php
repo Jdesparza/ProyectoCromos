@@ -26,12 +26,19 @@ Route::view('album', 'album')->name('album');
 Route::view('intercambio', 'intercambio')->name('intercambio');
 
 Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');
+
 Route::resource('/administrador/adminUsers', 'App\Http\Controllers\AdminUserController');
 Route::get('/administrador/adminUsers/{id}/destroy', 
     ['uses' => 'App\Http\Controllers\AdminUserController@destroy',
     'as' => 'adminUsers.destroy'
 ]);
 
-Route::get('/adminTematicas', [App\Http\Controllers\TematicaController::class, 'tematicasAdmin']);
-Route::get('/uploadCromos', [App\Http\Controllers\CromController::class, 'cromosAdmin']);
-Route::get('/uploadPreguntas', [App\Http\Controllers\PreguntController::class, 'preguntasAdmin']);
+Route::resource('/administrador/adminTematicas', 'App\Http\Controllers\TematicaController');
+Route::get('/administrador/adminTematicas/{id}/destroy', 
+    ['uses' => 'App\Http\Controllers\TematicaController@destroy',
+    'as' => 'adminTematicas.destroy'
+]);
+
+Route::resource('/administrador/uploadCromos', 'App\Http\Controllers\CromController');
+
+Route::resource('/administrador/uploadPreguntas', 'App\Http\Controllers\PreguntController');

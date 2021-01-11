@@ -18,7 +18,7 @@
             </section>
         </ul>
     @endif
-    <p class="formularioTituloEdit">Editar Usuario</p>
+    <p class="formularioTituloEdit">Editar Usuario {{ $adminUser->name }}</p>
     <div class="">
         <div class="">
             <form class="formulario" method="POST" action="{{ route('adminUsers.update', $adminUser->id) }}">

@@ -17,7 +17,6 @@ class CreateBaulsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('idAlbum');
             $table->foreign('idAlbum')->references('id')->on('albums');
-            $table->integer('cromoRepeticiones');
             $table->timestamps();
         });
     }

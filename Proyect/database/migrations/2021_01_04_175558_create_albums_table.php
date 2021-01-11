@@ -18,7 +18,6 @@ class CreateAlbumsTable extends Migration
             $table->unsignedBigInteger('idUsuarios');
             $table->foreign('idUsuarios')->references('id')->on('users');
             $table->string('nombreAlbum');
-            $table->integer('cantidadCromos');
             $table->timestamps();
         });
     }

@@ -90,8 +90,12 @@
                         <td>{{ $usuario->email}}</td>
                         <td>{{ $usuario->rol}}</td>
                         @method('DELETE')
-                        <td><a href="{{ route('adminUsers.destroy', $usuario->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="botonEliminar"><img src="../../img/trash-alt-regular 1.png" alt="boton eliminar"></a></td>
-                        <td><a href="{{ route('adminUsers.edit', $usuario->id) }}" class="botonEditar"><img src="../../img/edit-solid 1.png" alt="boton editar"></a></td>
+                        <td><a href="{{ route('adminUsers.destroy', $usuario->id) }}" 
+                        onclick="return confirm('¿Seguro que deseas eliminar a {{ $usuario->name}}?')" class="botonEliminar">
+                        <img src="../../img/trash-alt-regular 1.png" alt="boton eliminar"></a></td>
+                        <td><a href="{{ route('adminUsers.edit', $usuario->id) }}" 
+                        onclick="return confirm('¿Seguro que deseas editar los datos de {{ $usuario->name}}?')" class="botonEditar">
+                        <img src="../../img/edit-solid 1.png" alt="boton editar"></a></td>
                     </tr>
                 @endforeach
             </tbody>

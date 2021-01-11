@@ -27,10 +27,10 @@ class CreatePreguntsTable extends Migration
             $table->string('respuestaError1');
             $table->string('respuestaError2');
             $table->string('respuestaError3');
-            $table->unsignedBigInteger('idTematica');
-            $table->foreign('idTematica')->references('id')->on('tematicas');
-            $table->unsignedBigInteger('idRespuestas');
-            $table->foreign('idRespuestas')->references('id')->on('respuests');
+            $table->unsignedBigInteger('id_tematica')->nullable();
+            $table->foreign('id_tematica')->references('id')->on('tematicas');
+            $table->unsignedBigInteger('id_respuestas')->nullable();
+            $table->foreign('id_respuestas')->references('id')->on('respuests');
             $table->timestamps();
         });
     }

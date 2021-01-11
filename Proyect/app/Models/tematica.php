@@ -7,20 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 use App\Providers\RouteServiceProvider;
 use App\Models\tematica;
 use App\Http\Controllers\Controller;
+use Illuminate\Notifications\Notifiable;
 
 class tematica extends Model
 {
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'imgTematica',
         'nombretematica',
     ];
 
     protected $hidden = [
-        'nombretematica',
     ];
 
     protected $casts = [
-        
+        //
     ];
+
+    public function crom(){
+        return $this->hasMany('App\Models\crom');
+    }
+
+    public function pregunt(){
+        return $this->hasMany('App\Models\pregunt');
+    }
 }

@@ -23,15 +23,15 @@
                 <img src="../../../img/users-solid 1.png" alt="">
                 Usuarios
             </a>
-            <a href="/adminTematicas">
+            <a href="/administrador/adminTematicas">
                 <img src="../../../img/controlador-de-gamepad 1.png" alt="">
                 Temáticas
             </a>
-            <a href="/uploadCromos">
+            <a href="/administrador/uploadCromos">
                 <img src="../../../img/cloud-solid 1.png" alt="">
                 Cromos
             </a>
-            <a href="/uploadPreguntas">
+            <a href="/administrador/uploadPreguntas">
                 <img src="../../../img/cloud-solid (1) 1.png" alt="">
                 Preguntas
             </a>
