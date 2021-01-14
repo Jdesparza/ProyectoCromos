@@ -4,7 +4,7 @@
 <h1 class='ti'>Macroeconomia</h1>
     <section class = "levels">
         <article class="lev">
-            <a href="lev1">1</a>
+            <a href="quiz">1</a>
             <a href="">2</a>
             <a href="">3</a>
             <a href="">4</a>

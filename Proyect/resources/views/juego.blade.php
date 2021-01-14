@@ -15,7 +15,7 @@
         <h5>Microeconomía</h5>
         </article>
         <article class="imagen">
-        <a href="econ"><img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica"></a>
+        <a href="econo"><img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica"></a>
         <h5>Econometría</h5>
         </article>
     </section>

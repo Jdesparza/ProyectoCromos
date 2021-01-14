@@ -59,7 +59,7 @@
         <!-- Here I've inserted Score Result from JavaScript -->
     </div>
     <div class="buttons">
-        <button class="restart"></button>
+        <button class="restart">Repetir</button>
         <button class="quit">Salir</button>
     </div>
 </div>
