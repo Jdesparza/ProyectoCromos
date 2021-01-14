@@ -4,7 +4,7 @@
 <div class="VentanaRegistro">
     <div class="">
         <div class="reg1">
-        <img src="../../img/usuario (1) 1.png" alt="">
+        <img src="../../img/usuario (1) 1.png" alt="registrarse">
             {{ __('Registro') }}</div>
         <div class="">
             <form method="POST" action="{{ route('register') }}">

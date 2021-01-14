@@ -7,29 +7,29 @@
     </section>
     <section class ="articulos">
         <article class ="imagen">
-            <a href="macro"><img src="../../img/macroeconomia 2 (1).png" alt=""></a>
+            <a href="macro"><img src="../../img/macroeconomia 2 (1).png" alt="tematica"></a>
         <h5>Macroeconomía</h5>
         </article>
         <article class="imagen">
-        <a href="micro"><img src="../../img/Microeconomia.png" alt=""></a>
+        <a href="micro"><img src="../../img/Microeconomia.png" alt="tematica"></a>
         <h5>Microeconomía</h5>
         </article>
         <article class="imagen">
-        <a href="econ"><img src="../../img/que-es-la-econometria-800x452 1.png" alt=""></a>
+        <a href="econ"><img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica"></a>
         <h5>Econometría</h5>
         </article>
     </section>
     <section class ="articulos">
         <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="">
+            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
         <h5>Macroeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="">
+        <img src="../../img/Microeconomia.png" alt="tematica">
         <h5>Microeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="">
+        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
         <h5>Econometría</h5>
         </article>
     </section>

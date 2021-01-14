@@ -4,7 +4,7 @@
 <div class="ventanaLogeo">
     <div class="div1">
         <div class="div2">
-        <img src="../../img/iniciar-sesion 1.png" alt="">
+        <img src="../../img/iniciar-sesion 1.png" alt="iniciar Sesion">
             {{ __('Iniciar Sesion') }}
         </div>
 

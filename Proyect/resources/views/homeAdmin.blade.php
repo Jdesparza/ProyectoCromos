@@ -6,7 +6,7 @@
     <article class="informacionUsers">
         <div class="titulo2">Administradores</div>
         <div class="apartado1">
-            <img src="../../img/user-shield-solid 1.png" alt="">
+            <img src="../../img/user-shield-solid 1.png" alt="contador administradores">
         </div>
         <div class="apartado2">
             <p class="apartado2_1">{{ $userAdministrador->count() }}</p>
@@ -16,7 +16,7 @@
     <article class="informacionUsers">
         <div class="titulo2">Usuarios Normales</div>
         <div class="apartado1">
-            <img src="../../img/restroom-solid 1.png" alt="">
+            <img src="../../img/restroom-solid 1.png" alt="contador usuarios normales">
         </div>
         <div class="apartado2">
             <p class="apartado2_1">{{ $userNormal->count() }}</p>

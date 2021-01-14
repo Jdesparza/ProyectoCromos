@@ -12,7 +12,7 @@
                             distribución y consumo de bienes y servicios, para satisfacer las necesidades humanas."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img1.jpg')}}" alt="">
+					<img src="{{ asset('img/img1.jpg')}}" alt="cromo">
 				</div>
 			</div>
 
@@ -21,7 +21,7 @@
 				 data-descripcion="2.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img2.jpg')}}" alt="">
+					<img src="{{ asset('img/img2.jpg')}}" alt="cromo">
 				</div>
 			</div>
 
@@ -30,7 +30,7 @@
 				 data-descripcion="3.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img3.jpg')}}" alt="">
+					<img src="{{ asset('img/img3.jpg')}}" alt="cromo">
 				</div>
 			</div>
 
@@ -39,7 +39,7 @@
 				 data-descripcion="4.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img4.jpg')}}" alt="">
+					<img src="{{ asset('img/img4.jpg')}}" alt="cromo">
 				</div>
 			</div>
 
@@ -48,7 +48,7 @@
 				 data-descripcion="5.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img class= "op1" src="{{ asset('img/img5.jpg')}}" alt="">
+					<img class= "op1" src="{{ asset('img/img5.jpg')}}" alt="cromo">
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img6.jpg')}}" alt="">
+					<img src="{{ asset('img/img6.jpg')}}" alt="cromo">
 				</div>
             </div>
             <div class="item"
@@ -65,7 +65,7 @@
 				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img class= "op1" src="{{ asset('img/img7.jpg')}}" alt="">
+					<img class= "op1" src="{{ asset('img/img7.jpg')}}" alt="cromo">
 				</div>
             </div>
             <div class="item"
@@ -73,7 +73,7 @@
 				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img8.jpg')}}" alt="">
+					<img src="{{ asset('img/img8.jpg')}}" alt="cromo">
 				</div>
             </div>
             <div class="item"
@@ -81,7 +81,7 @@
 				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
 			>
 				<div class="item-contenido">
-					<img src="{{ asset('img/img9.jpg')}}" alt="">
+					<img src="{{ asset('img/img9.jpg')}}" alt="cromo">
 				</div>
             </div>
 		</section>
@@ -90,7 +90,7 @@
 		<section class="overlay" id="overlay">
 			<div class="contenedor-img">
 				<button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
-				<img src="" alt="">
+				<img src="" alt="contenedor">
 			</div>
             <p class="descripcion"></p>
 		</section>

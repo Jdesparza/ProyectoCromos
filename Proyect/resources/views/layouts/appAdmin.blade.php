@@ -9,30 +9,30 @@
 </head>
 <body>
     <header class="encabezado">
-        <img src="../../../img/money-stack 1.png" alt="">
+        <img src="../../../img/money-stack 1.png" alt="logo">
         <h1>CroNomía</h1>
         <h2>La Economía Basada en Cromos</h2>
     </header>
     <nav class="menuPrincipalNavegando">
         <div class="menuPrincipal4">
             <a href="/homeAdmin" class="menu1">
-                <img src="../../../img/gerente 1.png" alt="">
+                <img src="../../../img/gerente 1.png" alt="munu principal Admin">
                 Administración
             </a>
             <a href="/administrador/adminUsers">
-                <img src="../../../img/users-solid 1.png" alt="">
+                <img src="../../../img/users-solid 1.png" alt="registro de usuarios Admin">
                 Usuarios
             </a>
             <a href="/administrador/adminTematicas">
-                <img src="../../../img/controlador-de-gamepad 1.png" alt="">
+                <img src="../../../img/controlador-de-gamepad 1.png" alt="registro de tematicas Admin">
                 Temáticas
             </a>
             <a href="/administrador/uploadCromos">
-                <img src="../../../img/cloud-solid 1.png" alt="">
+                <img src="../../../img/cloud-solid 1.png" alt="registro de cromos">
                 Cromos
             </a>
             <a href="/administrador/uploadPreguntas">
-                <img src="../../../img/cloud-solid (1) 1.png" alt="">
+                <img src="../../../img/cloud-solid (1) 1.png" alt="registro de preguntas">
                 Preguntas
             </a>
         </div>
@@ -70,17 +70,17 @@
         </p>
         <ul class="redesSociales">
             <li>
-                <img src="../../../img/facebook-brands 1.png" alt="">
+                <img src="../../../img/facebook-brands 1.png" alt="facebook">
             </li>
             <li>
-                <img src="../../../img/Twitter 1.png" alt="">
+                <img src="../../../img/Twitter 1.png" alt="twitter">
             </li>
             <li>
-                <img src="../../../img/instagram 1.png" alt="">
+                <img src="../../../img/instagram 1.png" alt="instagram">
             </li>
         </ul>
         <div class="utpl">
-            <img src="../../../img/ba.png" alt="">
+            <img src="../../../img/ba.png" alt="logo UTPL">
         </div>
     </footer>
 </body>

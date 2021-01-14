@@ -10,17 +10,17 @@
         <li>
             <input type="radio" id="sbutton1" name="sradio" checked>
             <label for="sbutton1"></label>
-            <img src="{{ asset('img/Frame1.png')}}" alt="">
+            <img src="{{ asset('img/Frame1.png')}}" alt="slider">
         </li>
         <li>
             <input type="radio" id="sbutton2" name="sradio">
             <label for="sbutton2"></label>
-            <img src="{{ asset('img/Frame2.png')}}" alt="">
+            <img src="{{ asset('img/Frame2.png')}}" alt="slider">
         </li>
         <li>
             <input type="radio" id="sbutton3" name="sradio">
             <label for="sbutton3"></label>
-            <img src="{{ asset('img/Frame3.png')}}" alt="">
+            <img src="{{ asset('img/Frame3.png')}}" alt="slider">
         </li>
     </ul>
 </section> 
@@ -32,29 +32,29 @@
     </section>
     <section class ="articulos">
         <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="">
+            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
         <h5>Macroeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="">
+        <img src="../../img/Microeconomia.png" alt="tematica">
         <h5>Microeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="">
+        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
         <h5>Econometría</h5>
         </article>
     </section>
     <section class ="articulos">
         <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="">
+            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
         <h5>Macroeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="">
+        <img src="../../img/Microeconomia.png" alt="tematica">
         <h5>Microeconomía</h5>
         </article>
         <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="">
+        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
         <h5>Econometría</h5>
         </article>
     </section>
