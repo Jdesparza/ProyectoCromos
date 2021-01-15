@@ -1,9 +1,7 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-<br>
-<br>
-<br>
+<br><br><br><br><br><br>
 
 <section >
     <ul class="slider">

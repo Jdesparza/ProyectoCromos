@@ -18,15 +18,15 @@
                 <img src="../../img/casa 1.png" alt="menu principal Navegando">
                 Inicio
             </a>
-            <a href="{{ route('juego') }}" class="menu1">
+            <a href="/usuario/juego" class="menu1">
                 <img src="../../img/controlador-de-gamepad 1.png" alt="menu juego">
                 Juego
             </a>
-            <a href="{{ route('album') }}" class="menu1">
+            <a href="/usuario/album" class="menu1">
                 <img src="../../img/album-de-fotos (1) 1.png" alt="menu album">
                 Album
             </a>
-            <a href="{{ route('intercambio') }}" class="menu1">
+            <a href="/usuario/intercambio" class="menu1">
                 <img src="../../img/intercambiar 1.png" alt="menu intercambio">
                 Intercambio
             </a>
@@ -38,6 +38,14 @@
                         <p class="nombreUser">{{ Auth::user()->name }}</p>
                     </a>
                     <ul>
+                        <li>
+                            <div class="menuLogout">
+                                <a class="menuLogout1" href="{{ route('home.edit', Auth::user()->id) }}">
+                                    Editar
+                                </a>
+
+                            </div>
+                        </li>
                         <li>
                             <div class="menuLogout">
                                 <a class="menuLogout1" href="{{ route('logout') }}"

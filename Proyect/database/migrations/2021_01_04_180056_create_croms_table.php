@@ -17,6 +17,8 @@ class CreateCromsTable extends Migration
             $table->id();
             $table->string('imgTematica')->unique();
             $table->string('nombretematica');
+            $table->unsignedBigInteger('id_album')->nullable();
+            $table->foreign('id_album')->references('id')->on('albums');
             $table->timestamps();
         });
         

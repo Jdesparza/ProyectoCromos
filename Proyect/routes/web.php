@@ -19,16 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+//RUTAS DEL USUARIO
+Route::resource('/home', 'App\Http\Controllers\UserNormalController');
+Route::resource('/usuario/juego', 'App\Http\Controllers\JuegoController');
+Route::resource('/usuario/album', 'App\Http\Controllers\AlbumUsuarioController');
+Route::resource('/usuario/intercambio', 'App\Http\Controllers\IntercambioController');
 
-Route::view('juego', 'juego')->name('juego');
-Route::view('album', 'album')->name('album');
 Route::view('macro', 'macro')->name('macro');
 Route::view('micro', 'micro')->name('micro');
 Route::view('quiz', 'quiz')->name('quiz');
 Route::view('econo', 'econo')->name('econo');
-Route::view('intercambio', 'intercambio')->name('intercambio');
 
+//RUTAS DEL ADMIN
 Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');
 
 Route::resource('/administrador/adminUsers', 'App\Http\Controllers\AdminUserController');
@@ -37,12 +39,18 @@ Route::get('/administrador/adminUsers/{id}/destroy',
     'as' => 'adminUsers.destroy'
 ]);
 
+Route::resource('/administrador/adminAlbum', 'App\Http\Controllers\AlbumController');
+
 Route::resource('/administrador/adminTematicas', 'App\Http\Controllers\TematicaController');
-Route::get('/administrador/adminTematicas/{id}/destroy', 
-    ['uses' => 'App\Http\Controllers\TematicaController@destroy',
-    'as' => 'adminTematicas.destroy'
-]);
 
 Route::resource('/administrador/uploadCromos', 'App\Http\Controllers\CromController');
+Route::get('/administrador/uploadCromos/{id}/destroy', 
+    ['uses' => 'App\Http\Controllers\CromController@destroy',
+    'as' => 'uploadCromos.destroy'
+]);
 
 Route::resource('/administrador/uploadPreguntas', 'App\Http\Controllers\PreguntController');
+Route::get('/administrador/uploadPreguntas/{id}/destroy', 
+    ['uses' => 'App\Http\Controllers\PreguntController@destroy',
+    'as' => 'uploadPreguntas.destroy'
+]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tematica;
+use App\Models\album;
 use Hash;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Str;
@@ -11,15 +12,25 @@ use Validator;
 use Flash;
 use Delete;
 use Update;
+use Illuminate\Support\Facades\Input;
 
 class TematicaController extends Controller
 {
     public function index(){
         $tematicas = \DB::table('tematicas')
-            ->select('tematicas.*')
-            ->orderBy('id', 'ASC')
+            ->join('albums', 'albums.id', '=', 'tematicas.id_album')
+            ->select('tematicas.id', 'tematicas.imgTematica', 'tematicas.nombretematica', 'albums.nombreAlbum')
+            ->orderBy('tematicas.id', 'ASC')
             ->simplePaginate(2);
-        return view('administrador/adminTematicas')->with('tematicas', $tematicas);
+
+        $albumes = \DB::table('albums')
+            ->select('albums.*')
+            ->orderBy('id', 'ASC')
+            ->get();
+
+        return view('administrador/adminTematicas')
+        ->with('tematicas', $tematicas)
+        ->with('albumes', $albumes);
     }
 
     public function create(){
@@ -30,6 +41,7 @@ class TematicaController extends Controller
         $validator = Validator::make($request->all(),[
             'imgTematica' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombretematica' => ['required', 'string', 'min:4'],
+            'id_album'=> ['required'],
         ]);
         if($validator -> fails()){
             return back()
@@ -41,6 +53,7 @@ class TematicaController extends Controller
             $tematicas = tematica::create([
                 'imgTematica' => $nameImg,
                 'nombretematica' => $request->nombretematica,
+                'id_album' => $request->id_album,
             ]);
             return back()
             ->with('mensaje', 'La temática a sido creada con exito!');
@@ -48,13 +61,18 @@ class TematicaController extends Controller
     }
 
     public function edit(tematica $adminTematica){
-        return view('administrador/editTematicas', compact('adminTematica'));
+        $albumes = \DB::table('albums')
+            ->select('albums.*')
+            ->orderBy('id', 'ASC')
+            ->get();
+        return view('administrador/editTematicas', compact('adminTematica', 'albumes'));
     }
 
     public function update(Request $request, tematica $adminTematica){
         $validator = Validator::make($request->all(),[
             'imgTematica' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombretematica' => ['required', 'string', 'min:4'],
+            'id_album'=> ['required'],
         ]);
         if($validator -> fails()){
             return back()

@@ -12,9 +12,9 @@
         </ul>
     @endif
     @if ($message = Session::get('mensaje'))
-        <ul class="alertaUl">
-            <section class="alerta">
-            <p>{{ $message }}</p>
+        <ul class="alertaUlCorrecto">
+            <section class="alertaCorrecto">
+                <p>{{ $message }}</p>
             </section>
         </ul>
     @endif
@@ -27,12 +27,26 @@
                 <br>
                 <div class="">
                     <label for="imgTematica" class="subirImg">Subir Imagen</label>
-                    <input id="imgTematica" type="file" class="cromoInput" name="imgTematica" value="{{ $adminTematica->imgtematica }}" required autocomplete="imgTematica">
+                    <input id="imgTematica" type="file" class="cromoInput" name="imgTematica" value="{{ old('imgTematica') }}" required autocomplete="imgTematica">
                     
                 </div>
                 <div class="">
-                    <input id="nombretematica" type="text" class="formularioInputDos" name="nombretematica" value="{{ $adminTematica->nombretematica }}" required autocomplete="nombretematica">
+                    <input id="nombretematica" type="text" class="formularioInputDos" name="nombretematica" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ $adminTematica->nombretematica }}" required autocomplete="nombretematica">
                     <label for="nombretematica" class="formularioLabelDos">Nombre</label>
+                </div>
+                <div class="">
+                    <label for="id_album" class="labelSelect">Álbum</label>
+                    <section class="sectionOpcionesAlbum">
+                        <select name="id_album" id="id_album" class="selectFormulario">
+                            <option value="">Selecciona un Álbum..</option>
+                            @foreach($albumes as $album)
+                                <option value="{{ $album -> id }}" {{ $album->id == '{$album -> id' ? 'selected' : ''}}>
+                                {{ $album -> nombreAlbum }}</option>
+                            @endforeach
+                        </select>
+                    </section>
                 </div>
                 <div class="">
                     <div class="">

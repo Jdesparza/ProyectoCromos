@@ -12,9 +12,9 @@
         </ul>
     @endif
     @if ($message = Session::get('mensaje'))
-        <ul class="alertaUl">
-            <section class="alerta">
-            <p>{{ $message }}</p>
+        <ul class="alertaUlCorrecto">
+            <section class="alertaCorrecto">
+                <p>{{ $message }}</p>
             </section>
         </ul>
     @endif
@@ -30,30 +30,37 @@
                 </div>
 
                 <div class="">
-                    <input id="respuestaCorrecta" type="text" class="formularioInput" name="respuestaCorrecta" value="{{ old('respuestaCorrecta') }}" required autocomplete="respuestaCorrecta">
+                    <input id="respuestaCorrecta" type="text" class="formularioInput" name="respuestaCorrecta" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ old('respuestaCorrecta') }}" required autocomplete="respuestaCorrecta">
                     <label for="respuestaCorrecta" class="formularioLabel">Respuesta</label>
                 </div>
 
                 <div class="">
-                    <input id="respuestaError1" type="text" class="formularioInput" name="respuestaError1" value="{{ old('respuestaError1') }}" required autocomplete="respuestaError1">
+                    <input id="respuestaError1" type="text" class="formularioInput" name="respuestaError1" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ old('respuestaError1') }}" required autocomplete="respuestaError1">
                     <label for="respuestaError1" class="formularioLabel">Respuesta Error 1</label>
                 </div>
                 <div class="">
-                    <input id="respuestaError2" type="text" class="formularioInput" name="respuestaError2" value="{{ old('respuestaError2') }}" required autocomplete="respuestaError2">
+                    <input id="respuestaError2" type="text" class="formularioInput" name="respuestaError2" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ old('respuestaError2') }}" required autocomplete="respuestaError2">
                     <label for="respuestaError2" class="formularioLabel">Respuesta Error 2</label>
                 </div>
                 <div class="">
-                    <input id="respuestaError3" type="text" class="formularioInput" name="respuestaError3" value="{{ old('respuestaError3') }}" required autocomplete="respuestaError3">
+                    <input id="respuestaError3" type="text" class="formularioInput" name="respuestaError3" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ old('respuestaError3') }}" required autocomplete="respuestaError3">
                     <label for="respuestaError3" class="formularioLabel">Respuesta Error 3</label>
                 </div>
 
                 <div class="">
                     <label for="id_tematica" class="labelSelect">Temática</label>
-                    <section class="sectionOpciones">
+                    <section class="sectionOpcionesTematica">
                         <select name="id_tematica" id="id_tematica" class="selectFormulario">
-                            <option value="">Selecciona un Rol..</option>
+                            <option value="">Selecciona una Temática..</option>
                             @foreach($tematicas as $tematica)
-                                $tematic = {{ $tematica->nombretematica}}
                                 <option value="{{ $tematica -> id }}" {{ $tematica->id == '{$tematica -> id' ? 'selected' : ''}}>
                                 {{ $tematica -> nombretematica }}</option>
                             @endforeach
@@ -62,8 +69,8 @@
                 </div>
 
                 <div class="">
-                    <input id="nivel" type="number" class="formularioInput" name="nivel" value="{{ old('nivel') }}" required autocomplete="nivel">
-                    <label for="nivel" class="formularioLabel">Nivel</label>
+                    <input id="nivel" type="number" class="formularioInputDos" name="nivel" value="{{ old('nivel') }}" required autocomplete="nivel">
+                    <label for="nivel" class="formularioLabelDos">Nivel</label>
                 </div>
 
                 <div class="">
@@ -78,4 +85,43 @@
     </div>
     <script src="../../../js/form.js"></script>
 </section>
+<div class="tablaDatos">
+    <p class="tablaTitulo">Registro de Preguntas</p>
+    <div class="tablaVisualizacionPreguntas">
+        <table>
+            <thead class="tablaEncabezado">
+                <tr>
+                    <th>ID</th>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                    <th>Temática</th>
+                    <th>Nivel</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody class="tablaCuerpo">
+                @foreach($preguntas as $pregunta)
+                    <tr>
+                        <td>{{ $pregunta->id}}</td>
+                        <td>{{ $pregunta->descripcion}}</td>
+                        <td>{{ $pregunta->respuestaCorrecta}}</td>
+                        <td>{{ $pregunta->nombretematica}}</td>
+                        <td>{{ $pregunta->nivel}}</td>
+                        @method('DELETE')
+                        <td><a href="{{ route('uploadPreguntas.destroy', $pregunta->id) }}" 
+                        onclick="return confirm('¿Seguro que deseas eliminar la pregunta {{ $pregunta->id}}?')" class="botonEliminar">
+                        <img src="../../img/trash-alt-regular 1.png" alt="boton eliminar"></a></td>
+                        <td><a href="{{ route('uploadPreguntas.edit', $pregunta->id) }}" 
+                        onclick="return confirm('¿Seguro que deseas editar los datos de la pregunta {{ $pregunta->id}}?')" class="botonEditar">
+                        <img src="../../img/edit-solid 1.png" alt="boton editar"></a></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <section class="barraPaginacion">
+            {{ $preguntas->links() }}
+        </section>
+    </div>
+</div>
 @endsection

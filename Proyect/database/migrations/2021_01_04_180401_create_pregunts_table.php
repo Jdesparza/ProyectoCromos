@@ -13,12 +13,6 @@ class CreatePreguntsTable extends Migration
      */
     public function up()
     {
-        Schema::create('respuests', function (Blueprint $table) {
-            $table->id();
-            $table->string('respuesta');
-            $table->timestamps();
-        });
-
         Schema::create('pregunts', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
@@ -29,8 +23,6 @@ class CreatePreguntsTable extends Migration
             $table->string('respuestaError3');
             $table->unsignedBigInteger('id_tematica')->nullable();
             $table->foreign('id_tematica')->references('id')->on('tematicas');
-            $table->unsignedBigInteger('id_respuestas')->nullable();
-            $table->foreign('id_respuestas')->references('id')->on('respuests');
             $table->timestamps();
         });
     }
@@ -42,7 +34,6 @@ class CreatePreguntsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('respuests');
         Schema::dropIfExists('pregunts');
     }
 }

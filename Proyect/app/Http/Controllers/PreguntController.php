@@ -19,7 +19,16 @@ class PreguntController extends Controller
             ->select('tematicas.*')
             ->orderBy('id', 'ASC')
             ->get();
-        return view('administrador/uploadPreguntas')->with('tematicas', $tematicas);
+        
+        $preguntas = \DB::table('pregunts')
+        ->join('tematicas', 'tematicas.id', '=', 'pregunts.id_tematica')
+        ->select('pregunts.id', 'pregunts.descripcion', 'pregunts.respuestaCorrecta', 'pregunts.nivel', 'tematicas.nombretematica')
+        ->orderBy('pregunts.id', 'ASC')
+        ->simplePaginate(5);
+
+        return view('administrador/uploadPreguntas')
+        ->with('tematicas', $tematicas)
+        ->with('preguntas', $preguntas);
     }
 
     public function create(){
@@ -51,6 +60,43 @@ class PreguntController extends Controller
             ]);
             return back()
             ->with('mensaje', 'La pregunta a sido subida con exito!');
+        }
+    }
+
+    public function destroy(pregunt $id){
+        $preguntas = pregunt::find($id);
+        $preguntas->each->delete();
+        
+        return back()
+        ->with('mensaje', 'La pregunta a sido borrado con exito!');
+    }
+
+    public function edit(pregunt $uploadPregunta){
+        $tematicas = \DB::table('tematicas')
+            ->select('tematicas.*')
+            ->orderBy('id', 'ASC')
+            ->get();
+
+        return view('administrador/editPreguntas', compact('uploadPregunta', 'tematicas'));
+    }
+
+    public function update(Request $request, pregunt $uploadPregunta){
+        $validator = Validator::make($request->all(),[
+            'descripcion' => ['required', 'string', 'min:4'],
+            'nivel' => ['required', 'integer'],
+            'respuestaCorrecta' => ['required', 'string', 'min:4'],
+            'respuestaError1' => ['required', 'string', 'min:4'],
+            'respuestaError2' => ['required', 'string', 'min:4'],
+            'respuestaError3' => ['required', 'string', 'min:4'],
+            'id_tematica' => ['required'],
+        ]);
+        if($validator -> fails()){
+            return back()
+            ->withErrors($validator);
+        }else{
+            $uploadPregunta->update($request->all());
+            return redirect()->route('uploadPreguntas.index')
+            ->with('mensaje', 'La pregunta a sido editada con exito!');
         }
     }
 }

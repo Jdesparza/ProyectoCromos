@@ -12,9 +12,9 @@
         </ul>
     @endif
     @if ($message = Session::get('mensaje'))
-        <ul class="alertaUl">
-            <section class="alerta">
-            <p>{{ $message }}</p>
+        <ul class="alertaUlCorrecto">
+            <section class="alertaCorrecto">
+                <p>{{ $message }}</p>
             </section>
         </ul>
     @endif

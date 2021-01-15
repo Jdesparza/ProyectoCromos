@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlbumsTable extends Migration
+class CreateRespuestasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
+        Schema::create('respuestas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreAlbum');
+            $table->string('respuesta');
+            $table->unsignedBigInteger('id_preguntas')->nullable();
+            $table->foreign('id_preguntas')->references('id')->on('pregunts');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        Schema::dropIfExists('respuestas');
     }
 }

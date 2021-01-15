@@ -62,7 +62,7 @@ nav div.menuPrincipal1{
 	display: inline-block;
 }
 nav div.menuPrincipal4{
-	width: 60.5%;
+	width: 71%;
 	display: inline-block;
 }
 nav div.menuPrincipal2, div.menuPrincipal3{
@@ -78,7 +78,7 @@ nav div.menuPrincipal3{
 nav div.menuPrincipal5{
 	width: 14.9%;
 	display: inline-block;
-	margin-left: 24%;
+	margin-left: 13.5%;
 }
 
 ul, ol{
@@ -238,9 +238,9 @@ div label.labelInicio{
 div.reg1 {
 	font-size: x-large;
 	padding: 1em;
-}
-div.reg1 img{
-	margin-left: 8em;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 div.reg2 {
 	margin-left: 4em;
@@ -447,6 +447,11 @@ div.tablaVisualizacion{
 	width: 1000px;
 	font-family: 'JetBrains Mono', monospace;
 }
+div.tablaVisualizacionPreguntas{
+	margin: 40px auto;
+	width: 1200px;
+	font-family: 'JetBrains Mono', monospace;
+}
 table{
 	background-color: white;
 	text-align: center;
@@ -489,13 +494,32 @@ section.contenidoAdmin form.formulario label.subirImg, label.labelSelect{
 section.contenidoAdmin form.formulario label.labelSelect{
 	padding: 0em 0em 0em 0.8em;
 }
-form.formulario section.sectionOpciones{
+form.formulario section.sectionOpciones, section.sectionOpcionesTematica, section.sectionOpcionesAlbum{
 	border: 1px solid black;
 	padding: 1em 0em 1em 1em;
 	margin-block-end: 2em;
 }
+form.formulario section.sectionOpcionesTematica{
+	border: 1px solid black;
+	padding: 1em 0em 1em 1em;
+	margin-block-end: 2.6em;
+}
 form.formulario section.sectionOpciones select{
 	padding: 0.5em 7.85em;
+	background-color: rgba(243, 255, 133, 0.7);
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 1em;
+	text-align-last: center;
+}
+form.formulario section.sectionOpcionesTematica select{
+	padding: 0.5em 6em;
+	background-color: rgba(243, 255, 133, 0.7);
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 1em;
+	text-align-last: center;
+}
+form.formulario section.sectionOpcionesAlbum select{
+	padding: 0.5em 7.25em;
 	background-color: rgba(243, 255, 133, 0.7);
 	font-family: 'JetBrains Mono', monospace;
 	font-size: 1em;
@@ -546,6 +570,18 @@ ul.alertaUl, li.alertaLi{
 section.alerta{
 	text-decoration: none;
 	background-color: rgba(255, 142, 142, 0.7);
+	width: 95%;
+	border: 1px solid black;
+	margin: 0 auto;
+	padding: 1.5em;
+	margin-block-end: 1em;
+}
+ul.alertaUlCorrecto{
+	list-style: square;
+}
+section.alertaCorrecto{
+	text-decoration: none;
+	background-color: rgba(128, 255, 116, 0.7);
 	width: 95%;
 	border: 1px solid black;
 	margin: 0 auto;

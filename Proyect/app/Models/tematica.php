@@ -16,6 +16,7 @@ class tematica extends Model
     protected $fillable = [
         'imgTematica',
         'nombretematica',
+        'id_album'
     ];
 
     protected $hidden = [
@@ -31,5 +32,8 @@ class tematica extends Model
 
     public function pregunt(){
         return $this->hasMany('App\Models\pregunt');
+    }
+    public function album(){
+        return $this->belongsTo('App\Models\album', 'id_album');
     }
 }

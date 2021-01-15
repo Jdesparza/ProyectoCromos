@@ -23,6 +23,10 @@
                 <img src="../../../img/users-solid 1.png" alt="registro de usuarios Admin">
                 Usuarios
             </a>
+            <a href="/administrador/adminAlbum">
+                <img src="../../../img/book-solid 1.png" alt="registro de tematicas Admin">
+                Álbumes
+            </a>
             <a href="/administrador/adminTematicas">
                 <img src="../../../img/controlador-de-gamepad 1.png" alt="registro de tematicas Admin">
                 Temáticas

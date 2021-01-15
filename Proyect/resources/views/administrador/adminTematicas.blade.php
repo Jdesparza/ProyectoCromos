@@ -12,9 +12,9 @@
         </ul>
     @endif
     @if ($message = Session::get('mensaje'))
-        <ul class="alertaUl">
-            <section class="alerta">
-            <p>{{ $message }}</p>
+        <ul class="alertaUlCorrecto">
+            <section class="alertaCorrecto">
+                <p>{{ $message }}</p>
             </section>
         </ul>
     @endif
@@ -30,8 +30,22 @@
                     
                 </div>
                 <div class="">
-                    <input id="nombretematica" type="text" class="formularioInput" name="nombretematica" value="{{ old('nombretematica') }}" required autocomplete="nombretematica">
+                    <input id="nombretematica" type="text" class="formularioInput" name="nombretematica" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ old('nombretematica') }}" required autocomplete="nombretematica">
                     <label for="nombretematica" class="formularioLabel">Nombre</label>
+                </div>
+                <div class="">
+                    <label for="id_album" class="labelSelect">Álbum</label>
+                    <section class="sectionOpcionesAlbum">
+                        <select name="id_album" id="id_album" class="selectFormulario">
+                            <option value="">Selecciona un Álbum..</option>
+                            @foreach($albumes as $album)
+                                <option value="{{ $album -> id }}" {{ $album->id == '{$album -> id' ? 'selected' : ''}}}>
+                                {{ $album -> nombreAlbum }}</option>
+                            @endforeach
+                        </select>
+                    </section>
                 </div>
                 <div class="">
                     <div class="">
@@ -54,6 +68,7 @@
                     <th>ID</th>
                     <th>Imagen</th>
                     <th>Nombre</th>
+                    <th>Álbum</th>
                     <th>Editar</th>
                 </tr>
             </thead>
@@ -63,10 +78,10 @@
                         <td>{{ $tematica->id}}</td>
                         <td>{{ $tematica->imgTematica}}</td>
                         <td>{{ $tematica->nombretematica}}</td>
-                        @method('DELETE')
+                        <td>{{ $tematica->nombreAlbum}}</td>
                         <td><a href="{{ route('adminTematicas.edit', $tematica->id) }}" 
                         onclick="return confirm('¿Seguro que deseas editar los datos de la temática {{ $tematica->nombretematica }}?')" class="botonEditar">
-                        <img src="../../img/edit-solid 1.png" alt="boton editar"></a></td>
+                        <img src="../../../img/edit-solid 1.png" alt="boton editar"></a></td>
                     </tr>
                 @endforeach
             </tbody>
