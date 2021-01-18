@@ -76,7 +76,7 @@
                 @foreach($tematicas as $tematica)
                     <tr>
                         <td>{{ $tematica->id}}</td>
-                        <td><img src="{{ asset('storage').'/'.$tematica->imgTematica}}" alt="tematicas"></td>
+                        <td><img src="{{ asset('storage').'/'.$tematica->imgTematica}}" alt="tematica" width="342px" height="172px"></td>
                         <td>{{ $tematica->nombretematica}}</td>
                         <td>{{ $tematica->nombreAlbum}}</td>
                         <td><a href="{{ route('adminTematicas.edit', $tematica->id) }}" 

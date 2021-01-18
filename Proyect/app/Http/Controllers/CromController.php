@@ -84,7 +84,7 @@ class CromController extends Controller
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
-            'imgCromo' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
+            'imgCromo' => ['', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombreCromo' => ['required', 'string', 'min:4'],
             'descripcion' => ['required', 'string', 'min:4'],
             'id_tematica' => ['required'],

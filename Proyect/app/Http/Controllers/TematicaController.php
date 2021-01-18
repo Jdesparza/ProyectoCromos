@@ -76,6 +76,7 @@ class TematicaController extends Controller
 
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
+            'imgTematica' => ['', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombretematica' => ['required', 'string', 'min:4'],
             'id_album'=> ['required'],
         ]);

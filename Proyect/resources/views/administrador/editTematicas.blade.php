@@ -27,9 +27,10 @@
                 {{ method_field('PATCH') }}
                 <br>
                 <div class="">
-                    <label for="imgTematica" class="subirImg">Subir Imagen</label>
+                    <label for="imgTematica" class="subirImg">
+                        Editar Imagen (No requerido)
+                    </label>
                     <input id="imgTematica" type="file" class="cromoInput" name="imgTematica" value="{{ $tematica->imgTematica }}">
-                    
                 </div>
                 <div class="">
                     <input id="nombretematica" type="text" class="formularioInputDos" name="nombretematica" 
@@ -38,7 +39,7 @@
                     <label for="nombretematica" class="formularioLabelDos">Nombre</label>
                 </div>
                 <div class="">
-                    <label for="id_album" class="labelSelect">Álbum</label>
+                    <label for="id_album" class="labelSelect">Álbum</p></label>
                     <section class="sectionOpcionesAlbum">
                         <select name="id_album" id="id_album" class="selectFormulario">
                             <option value="">Selecciona un Álbum..</option>

@@ -24,7 +24,7 @@
             <form class="formulario" method="POST" action="{{ route('uploadCromos.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="">
-                    <label for="imgCromo" class="subirImg">Subir Imagen</label>
+                    <label for="imgCromo" class="subirImg">Editar Imagen (No requerido)</label>
                     <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="{{ old('imgCromo') }}" required autocomplete="imgCromo">
                     
                 </div>
@@ -86,7 +86,7 @@
                     <tr>
                         <td>{{ $cromo->id}}</td>
                         <td>{{ $cromo->nombreCromo}}</td>
-                        <td><img src="{{ asset('storage').'/'.$cromo->imgCromo}}" alt=""></td>
+                        <td><img src="{{ asset('storage').'/'.$cromo->imgCromo}}" alt="cromo"></td>
                         <td>{{ $cromo->nombretematica}}</td>
                         @method('DELETE')
                         <td><a href="{{ route('uploadCromos.destroy', $cromo->id) }}" 
