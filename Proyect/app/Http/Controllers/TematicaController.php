@@ -13,6 +13,7 @@ use Flash;
 use Delete;
 use Update;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 
 class TematicaController extends Controller
 {
@@ -47,30 +48,34 @@ class TematicaController extends Controller
             return back()
             ->withErrors($validator);
         }else{
-            $file=$request->file('imgTematica');
-            $nameImg = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/imgTematicas', $nameImg);
-            $tematicas = tematica::create([
-                'imgTematica' => $nameImg,
-                'nombretematica' => $request->nombretematica,
-                'id_album' => $request->id_album,
-            ]);
+            $datos = request()->except('_token');
+
+            if($request->hasFile('imgTematica')){
+                $file = $request->file('imgTematica');
+                $nameImg = time().$file->getClientOriginalName();
+
+                $datos['imgTematica'] = $request->file('imgTematica')->storeAs('img/imgTematicas', $nameImg, 'public');
+            }
+            tematica::insert($datos);
+
             return back()
-            ->with('mensaje', 'La temática a sido creada con exito!');
+            ->with('mensaje', 'La temática ha sido creada con exito!');
         }
     }
 
-    public function edit(tematica $adminTematica){
+    public function edit($id){
         $albumes = \DB::table('albums')
             ->select('albums.*')
             ->orderBy('id', 'ASC')
             ->get();
-        return view('administrador/editTematicas', compact('adminTematica', 'albumes'));
+        
+        $tematica = tematica::findOrFail($id);
+
+        return view('administrador/editTematicas', compact('tematica', 'albumes'));
     }
 
-    public function update(Request $request, tematica $adminTematica){
+    public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
-            'imgTematica' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombretematica' => ['required', 'string', 'min:4'],
             'id_album'=> ['required'],
         ]);
@@ -78,15 +83,20 @@ class TematicaController extends Controller
             return back()
             ->withErrors($validator);
         }else{
-            $file=$request->file('imgTematica');
-            $nameImg = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/imgTematicas', $nameImg);
+            $datos = request()->except('_token', '_method');
 
-            $request->merge([
-                'imgTematica' => $nameImg
-            ]);
+            if($request->hasFile('imgTematica')){
+                $tematica = tematica::findOrFail($id);
+                Storage::delete('public/'.$tematica->imgTematica);
 
-            $adminTematica->update($request->all());
+                $file = $request->file('imgTematica');
+                $nameImg = time().$file->getClientOriginalName();
+
+                $datos['imgTematica'] = $request->file('imgTematica')->storeAs('img/imgTematicas', $nameImg, 'public');
+            }
+
+            tematica::where('id', '=', $id)->update($datos);
+            
             return redirect()->route('adminTematicas.index')
             ->with('mensaje', 'La temática a sido editada con exito!');
         }

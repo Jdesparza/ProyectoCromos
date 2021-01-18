@@ -18,22 +18,23 @@
             </section>
         </ul>
     @endif
-    <p class="formularioTituloEdit">Editar Temática {{ $adminTematica->nombretematica }}</p>
+    <p class="formularioTituloEdit">Editar Temática {{ $tematica->nombretematica }}</p>
     <div class="">
         <div class="">
-            <form class="formulario" method="POST" action="{{ route('adminTematicas.update', $adminTematica->id) }}" enctype="multipart/form-data">
+            <form class="formulario" method="POST" action="{{ route('adminTematicas.update', $tematica->id) }}" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
+                {{ csrf_field() }}
+                {{ method_field('PATCH') }}
                 <br>
                 <div class="">
                     <label for="imgTematica" class="subirImg">Subir Imagen</label>
-                    <input id="imgTematica" type="file" class="cromoInput" name="imgTematica" value="{{ old('imgTematica') }}" required autocomplete="imgTematica">
+                    <input id="imgTematica" type="file" class="cromoInput" name="imgTematica" value="{{ $tematica->imgTematica }}">
                     
                 </div>
                 <div class="">
                     <input id="nombretematica" type="text" class="formularioInputDos" name="nombretematica" 
                     onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
-                    value="{{ $adminTematica->nombretematica }}" required autocomplete="nombretematica">
+                    value="{{ $tematica->nombretematica }}" required autocomplete="nombretematica">
                     <label for="nombretematica" class="formularioLabelDos">Nombre</label>
                 </div>
                 <div class="">

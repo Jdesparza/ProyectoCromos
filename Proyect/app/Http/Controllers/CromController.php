@@ -11,6 +11,7 @@ use Validator;
 use Flash;
 use Delete;
 use Update;
+use Illuminate\Support\Facades\Storage;
 
 class CromController extends Controller
 {
@@ -46,39 +47,42 @@ class CromController extends Controller
             return back()
             ->withErrors($validator);
         }else{
-            $file = $request->file('imgCromo');
-            $nameImg = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/imgCromos', $nameImg);
+            $datos = request()->except('_token');
 
-            $cromos = crom::create([
-                'imgCromo' => $nameImg,
-                'nombreCromo' => $request->nombreCromo,
-                'descripcion' => $request->descripcion,
-                'id_tematica' => $request->id_tematica,
-            ]);
+            if($request->hasFile('imgCromo')){
+                $file = $request->file('imgCromo');
+                $nameImg = time().$file->getClientOriginalName();
+
+                $datos['imgCromo'] = $request->file('imgCromo')->storeAs('img/imgCromos', $nameImg, 'public');
+            }
+            crom::insert($datos);
+
             return back()
             ->with('mensaje', 'El cromo ha sido subido con exito!');
         }
     }
 
-    public function destroy(crom $id){
-        $cromos = crom::find($id);
-        $cromos->each->delete();
-        
+    public function destroy($id){
+        $cromo = crom::findOrFail($id);
+        if(Storage::delete('public/'.$cromo->imgCromo)){
+            crom::destroy($id);
+        }
+
         return back()
         ->with('mensaje', 'El cromo a sido borrado con exito!');
     }
 
-    public function edit(crom $uploadCromo){
+    public function edit($id){
         $tematicas = \DB::table('tematicas')
             ->select('tematicas.*')
             ->orderBy('id', 'ASC')
             ->get();
 
-        return view('administrador/editCromos', compact('uploadCromo', 'tematicas'));
+        $cromo = crom::findOrFail($id);
+        return view('administrador/editCromos', compact('cromo', 'tematicas'));
     }
 
-    public function update(Request $request, crom $uploadCromo){
+    public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'imgCromo' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
             'nombreCromo' => ['required', 'string', 'min:4'],
@@ -89,15 +93,20 @@ class CromController extends Controller
             return back()
             ->withErrors($validator);
         }else{
-            $file = $request->file('imgCromo');
-            $nameImg = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/imgCromos', $nameImg);
+            $datos = request()->except('_token', '_method');
 
-            $request->merge([
-                'imgCromo' => $nameImg
-            ]);
+            if($request->hasFile('imgCromo')){
+                $cromo = crom::findOrFail($id);
+                Storage::delete('public/'.$cromo->imgCromo);
 
-            $uploadCromo->update($request->all());
+                $file = $request->file('imgCromo');
+                $nameImg = time().$file->getClientOriginalName();
+
+                $datos['imgCromo'] = $request->file('imgCromo')->storeAs('img/imgCromos', $nameImg, 'public');
+            }
+
+            crom::where('id', '=', $id)->update($datos);
+
             return redirect()->route('uploadCromos.index')
             ->with('mensaje', 'El cromo a sido editado con exito!');
         }

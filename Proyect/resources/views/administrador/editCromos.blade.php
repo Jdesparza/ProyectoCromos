@@ -18,25 +18,26 @@
             </section>
         </ul>
     @endif
-    <p class="formularioTitulo">Editar Cromo {{ $uploadCromo->nombreCromo }}</p>
+    <p class="formularioTitulo">Editar Cromo {{ $cromo->nombreCromo }}</p>
     <div class="">
         <div class="">
-            <form class="formulario" method="POST" action="{{ route('uploadCromos.update', $uploadCromo->id) }}" enctype="multipart/form-data">
+            <form class="formulario" method="POST" action="{{ route('uploadCromos.update', $cromo->id) }}" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
+                {{ csrf_field() }}
+                {{ method_field('PATCH') }}
                 <div class="">
                     <label for="imgCromo" class="subirImg">Subir Imagen</label>
-                    <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="{{ $uploadCromo->imgCromo }}">
+                    <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="{{ $cromo->imgCromo }}">
                     
                 </div>
 
                 <div class="">
-                    <input id="nombreCromo" type="text" class="formularioInputDos" name="nombreCromo" value="{{ $uploadCromo->nombreCromo }}" required autocomplete="nombreCromo">
+                    <input id="nombreCromo" type="text" class="formularioInputDos" name="nombreCromo" value="{{ $cromo->nombreCromo }}" required autocomplete="nombreCromo">
                     <label for="nombreCromo" class="formularioLabelDos">Nombre del Cromo</label>
                 </div>
 
                 <div class="">
-                    <input id="descripcion" type="text" class="formularioInputDos" name="descripcion" value="{{ $uploadCromo->descripcion }}" required autocomplete="descripcion">
+                    <input id="descripcion" type="text" class="formularioInputDos" name="descripcion" value="{{ $cromo->descripcion }}" required autocomplete="descripcion">
                     <label for="descripcion" class="formularioLabelDos">Descripción</label>
                 </div>
 
