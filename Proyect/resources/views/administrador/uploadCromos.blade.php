@@ -24,7 +24,7 @@
             <form class="formulario" method="POST" action="{{ route('uploadCromos.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="">
-                    <label for="imgCromo" class="subirImg">Editar Imagen (No requerido)</label>
+                    <label for="imgCromo" class="subirImg">Subir Imagen</label>
                     <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="{{ old('imgCromo') }}" required autocomplete="imgCromo">
                     
                 </div>

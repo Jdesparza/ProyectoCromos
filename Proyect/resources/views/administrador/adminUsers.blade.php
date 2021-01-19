@@ -27,7 +27,7 @@
                 <br>
                 <div class="">
                     <input id="name" type="text" class="formularioInput" name="name" value="{{ old('name') }}" required autocomplete="name">
-                    <label for="name" class="formularioLabel">{{ __('Name') }}</label>
+                    <label for="name" class="formularioLabel">Nombre</label>
                 </div>
 
                 <div class="">
@@ -37,12 +37,12 @@
 
                 <div class="">
                     <input id="password" type="password" class="formularioInput" name="password" required autocomplete="new-password">
-                    <label for="password" class="formularioLabel">{{ __('Password') }}</label>
+                    <label for="password" class="formularioLabel">Contraseña</label>
                 </div>
 
                 <div class="">
                     <input id="password-confirm" type="password" class="formularioInput" name="password_confirmation" required autocomplete="new-password">
-                    <label for="password-confirm" class="formularioLabel">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" class="formularioLabel">Confirmar Contraseña</label>
                 </div>
 
                 <div class="">
@@ -59,7 +59,7 @@
                 <div class="">
                     <div class="">
                         <button type="submit" class="formularioSubmit">
-                            {{ __('Register') }}
+                            Registrar
                         </button>
                     </div>
                 </div>

@@ -26,7 +26,7 @@
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}
                 <div class="">
-                    <label for="imgCromo" class="subirImg">Subir Imagen</label>
+                    <label for="imgCromo" class="subirImg">Editar Imagen (No requerido)</label>
                     <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="{{ $cromo->imgCromo }}">
                     
                 </div>
