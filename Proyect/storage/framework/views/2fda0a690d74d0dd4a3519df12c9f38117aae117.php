@@ -24,38 +24,20 @@
 </section> 
 
 
-<div class="imgCuerpo">
-    <section class="sectionCuerpo">
+<section class="tematicas">
+    <section class="sectionTitulo">
         <h1>Temáticas</h1>
     </section>
-    <section class ="articulos">
-        <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
-        <h5>Macroeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="tematica">
-        <h5>Microeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
-        <h5>Econometría</h5>
-        </article>
+    <section class="articulos">
+        <?php $__currentLoopData = $tematicas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tematica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <article class="articulosTematica">
+                <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
+                <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
+                <h6 class="h6Parte1">Album:</h6>
+                <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
+            </article>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </section>
-    <section class ="articulos">
-        <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
-        <h5>Macroeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="tematica">
-        <h5>Microeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
-        <h5>Econometría</h5>
-        </article>
-    </section>
-</div>
+</section>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.appNavegando', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\aplicaciones\proyectoIntegrador\laravel\Nueva carpeta\ProyectoCromos\Proyect\resources\views/home.blade.php ENDPATH**/ ?>

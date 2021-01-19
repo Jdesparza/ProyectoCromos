@@ -24,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'f314c00b6ffcfdec24e294ddd0fb1d58f94321cf',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -463,12 +463,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'f314c00b6ffcfdec24e294ddd0fb1d58f94321cf',
     ),
     'laravel/sail' => 
     array (
@@ -708,12 +708,12 @@ private static $installed = array (
     ),
     'phpunit/phpunit' => 
     array (
-      'pretty_version' => '9.5.0',
-      'version' => '9.5.0.0',
+      'pretty_version' => '9.5.1',
+      'version' => '9.5.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8e16c225d57c3d6808014df6b1dd7598d0a5bbbe',
+      'reference' => 'e7bdf4085de85a825f4424eae52c99a1cec2f360',
     ),
     'psr/container' => 
     array (

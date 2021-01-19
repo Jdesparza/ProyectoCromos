@@ -19,8 +19,14 @@ class UserNormalController extends Controller
      */
     public function index()
     {
+        $tematicas = \DB::table('tematicas')
+            ->join('albums', 'albums.id', '=', 'tematicas.id_album')
+            ->select('tematicas.id', 'tematicas.imgTematica', 'tematicas.nombretematica', 'albums.nombreAlbum')
+            ->orderBy('tematicas.id', 'ASC')
+            ->get();
 
-        return view('home');
+        return view('home')
+        ->with('tematicas', $tematicas);
     }
 
     /**

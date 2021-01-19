@@ -27,7 +27,7 @@
                 <br>
                 <div class="">
                     <input id="name" type="text" class="formularioInputDos" name="name" value="{{ $adminUser->name }}">
-                    <label for="name" class="formularioLabelDos">{{ __('Name') }}</label>
+                    <label for="name" class="formularioLabelDos">Nombre</label>
                 </div>
 
                 <div class="">
@@ -37,12 +37,12 @@
 
                 <div class="">
                     <input id="password" type="password" class="formularioInputDos" name="password">
-                    <label for="password" class="formularioLabelDos">{{ __('Password') }}</label>
+                    <label for="password" class="formularioLabelDos">Contraseña</label>
                 </div>
 
                 <div class="">
                     <input id="password-confirm" type="password" class="formularioInputDos" name="password_confirmation">
-                    <label for="password-confirm" class="formularioLabelDos">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" class="formularioLabelDos">Confirmar Contraseña</label>
                 </div>
 
                 <div class="">

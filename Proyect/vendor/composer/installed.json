@@ -3311,17 +3311,17 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.0",
-            "version_normalized": "9.5.0.0",
+            "version": "9.5.1",
+            "version_normalized": "9.5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe"
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e7bdf4085de85a825f4424eae52c99a1cec2f360",
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360",
                 "shasum": ""
             },
             "require": {
@@ -3362,7 +3362,7 @@
                 "ext-soap": "*",
                 "ext-xdebug": "*"
             },
-            "time": "2020-12-04T05:05:53+00:00",
+            "time": "2021-01-17T07:42:25+00:00",
             "bin": [
                 "phpunit"
             ],
@@ -3401,7 +3401,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.1"
             },
             "funding": [
                 {
@@ -7707,7 +7707,6 @@
     ],
     "dev": true,
     "dev-package-names": [
-        "doctrine/instantiator",
         "facade/flare-client-php",
         "facade/ignition",
         "facade/ignition-contracts",
@@ -7716,36 +7715,6 @@
         "hamcrest/hamcrest-php",
         "laravel/sail",
         "mockery/mockery",
-        "myclabs/deep-copy",
-        "nunomaduro/collision",
-        "phar-io/manifest",
-        "phar-io/version",
-        "phpdocumentor/reflection-common",
-        "phpdocumentor/reflection-docblock",
-        "phpdocumentor/type-resolver",
-        "phpspec/prophecy",
-        "phpunit/php-code-coverage",
-        "phpunit/php-file-iterator",
-        "phpunit/php-invoker",
-        "phpunit/php-text-template",
-        "phpunit/php-timer",
-        "phpunit/phpunit",
-        "sebastian/cli-parser",
-        "sebastian/code-unit",
-        "sebastian/code-unit-reverse-lookup",
-        "sebastian/comparator",
-        "sebastian/complexity",
-        "sebastian/diff",
-        "sebastian/environment",
-        "sebastian/exporter",
-        "sebastian/global-state",
-        "sebastian/lines-of-code",
-        "sebastian/object-enumerator",
-        "sebastian/object-reflector",
-        "sebastian/recursion-context",
-        "sebastian/resource-operations",
-        "sebastian/type",
-        "sebastian/version",
-        "theseer/tokenizer"
+        "nunomaduro/collision"
     ]
 }
