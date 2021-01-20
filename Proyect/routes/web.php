@@ -23,11 +23,6 @@ Route::resource('/usuario/juego', 'App\Http\Controllers\JuegoController');
 Route::resource('/usuario/album', 'App\Http\Controllers\AlbumUsuarioController');
 Route::resource('/usuario/intercambio', 'App\Http\Controllers\IntercambioController');
 
-Route::view('macro', 'macro')->name('macro');
-Route::view('micro', 'micro')->name('micro');
-Route::view('quiz', 'quiz')->name('quiz');
-Route::view('econo', 'econo')->name('econo');
-
 //RUTAS DEL ADMIN
 Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');
 

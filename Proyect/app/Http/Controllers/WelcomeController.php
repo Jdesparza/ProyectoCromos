@@ -18,7 +18,7 @@ class WelcomeController extends Controller
         $tematicas = \DB::table('tematicas')
             ->join('albums', 'albums.id', '=', 'tematicas.id_album')
             ->select('tematicas.id', 'tematicas.imgTematica', 'tematicas.nombretematica', 'albums.nombreAlbum')
-            ->orderBy('tematicas.id', 'ASC')
+            ->orderBy('albums.id', 'ASC')
             ->get();
         
         return view('welcome')

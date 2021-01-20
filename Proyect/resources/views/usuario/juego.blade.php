@@ -1,38 +1,22 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-<div class="imgCuerpo">
-    <section class="sectionCuerpo">
-        <h1>Seleccionar Temáticas</h1>
+<section class="tematicas">
+    <section class="sectionTitulo">
+        <h1>Temáticas</h1>
     </section>
-    <section class ="articulos">
-        <article class ="imagen">
-            <a href="macro"><img src="../../img/macroeconomia 2 (1).png" alt="tematica"></a>
-        <h5>Macroeconomía</h5>
-        </article>
-        <article class="imagen">
-        <a href="micro"><img src="../../img/Microeconomia.png" alt="tematica"></a>
-        <h5>Microeconomía</h5>
-        </article>
-        <article class="imagen">
-        <a href="econo"><img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica"></a>
-        <h5>Econometría</h5>
-        </article>
+    <section class="articulos">
+        @foreach($tematicas as $tematica)
+            <a href="{{ route('juego.edit', $tematica->id) }}" class="navTematicas">
+                <article class="articulosTematica">
+                    <img src="{{ asset('storage').'/'.$tematica->imgTematica}}" width="342px" height="172px" alt="tematica">
+                    <h5 class="nombreTematica">{{ $tematica->nombretematica}}</h5>
+                    <h6 class="h6Parte1">Album:</h6>
+                    <h6 class="h6Parte2">{{ $tematica->nombreAlbum}}</h6>
+                </article>
+            </a>
+        @endforeach
     </section>
-    <section class ="articulos">
-        <article class ="imagen">
-            <img src="../../img/macroeconomia 2 (1).png" alt="tematica">
-        <h5>Macroeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/Microeconomia.png" alt="tematica">
-        <h5>Microeconomía</h5>
-        </article>
-        <article class="imagen">
-        <img src="../../img/que-es-la-econometria-800x452 1.png" alt="tematica">
-        <h5>Econometría</h5>
-        </article>
-    </section>
-</div>
+</section>
 
 @endsection

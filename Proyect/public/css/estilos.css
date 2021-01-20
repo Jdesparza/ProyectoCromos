@@ -122,6 +122,10 @@ section.tematicas section.articulos {
 	width: 100%;
 	text-align: center;
 }
+section.tematicas section.articulos a{
+	text-decoration: none;
+	color: black;
+}
 section.tematicas section.articulos article.articulosTematica{
 	margin: 3em;
 	background-color: #42a5f5;

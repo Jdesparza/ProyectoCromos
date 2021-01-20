@@ -1,60 +1,16 @@
 // creating an array and passing the number, questions, options, and answers
 let questions = [
     {
-    numb: 1,
-    question: "Doctrina Basa en el Capital Economico",
-    answer: "Capitalismo",
-    options: [
-      "Socialismo",
-      "Capitalismo",
-      "Comunismo",
-      "Centralismo"
-    ]
-  },
-    {
-    numb: 2,
-    question: "Economia donde el estado toma control de la producción",
-    answer: "Economia Autoritaria",
-    options: [
-      "Economia Teorica",
-      "Economia Mixta",
-      "Economia de libre mercado",
-      "Economia Autoritaria"
-    ]
-  },
-    {
-    numb: 3,
-    question: "¿Factor que determina la conducta del comprador?",
-    answer: "Los precios de los bienes relacionados.",
-    options: [
-      "Los precios de los bienes relacionados.",
-      "Las rentas de los consumidores.",
-      "Los gustos de los consumidores.",
-      "Los precios futuros esperados."
-    ]
-  },
-    {
-    numb: 4,
-    question: "¿Factor que influye en los costos de los vendedores?",
-    answer: "Los activos productivos duraderos.",
-    options: [
-      "Inflación",
-      "La tecnología existente.",
-      "Los precios de los factores variables.",
-      "Los activos productivos duraderos."
-    ]
-  },
-    {
-    numb: 5,
-    question: "relación entre la cantidad ofrecida de un bien y su precio.",
-    answer: "Función de oferta",
-    options: [
-      "Función de oferta",
-      "Función de demanda",
-      "Curva de oferta",
-      "Precio de Equilibrio"
-    ]
-  },
+        numb: 1,
+        question: "Doctrina Basa en el Capital Economico",
+        answer: "Capitalismo",
+        options: [
+        "Socialismo",
+        "Capitalismo",
+        "Comunismo",
+        "Centralismo"
+        ]
+    },
 ];
 //selecting all required elements
 const start_btn = document.querySelector(".start_btn button");
