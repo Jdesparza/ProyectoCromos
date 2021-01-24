@@ -726,53 +726,91 @@ div.item img.op1{
 	top: -20px;
 }
 
-/*SLIDER*/
-section .info{
-	margin: 1em 5em 10em 5em;
-	display: flex;
-}
-.slider{
-	padding: 27em 5em 1em 5em;
-	position: relative;
-	list-style: none;
-	display: flex;
+/*----------------SLIDER------------------*/
 
-	justify-content: center;
-	align-items: flex-end;
+.home{
+	height: 70vh;
+	overflow:hidden;
+	position: relative;
 }
-.slider img{
-	width: 100%;
+
+.home .slide{
 	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	z-index:1; 
+	display:none;
+	padding:0 15px;
+	animation: slide 2s ease;
 }
-.slider input[type="radio"]{
-	display: none;
-}
-
-.slider input[type="radio"]:checked ~ img{
-	opacity: 1;
-}
-
-.slider input[type="radio"] + label{
-	position: relative;
-	z-index: 50;
-	margin: 10px;
-
-	display: block;
-	width: 20px;
-	height: 20px;
-	background: white;
-	border-radius: 50%;
-	border: 2px solid black;
-	cursor: pointer;
+.home .slide.active{
+	display: flex;
 }
 
-.slider input[type="radio"]:checked + label{
-	background: black;
-	border: 2px solid white;
+
+.home .controls .prev,
+.home .controls .next{
+ position: absolute;
+ z-index:2;
+ top:50%;
+ height:40px;
+ width: 40px;
+ margin-top: -20px;
+ color:#ffffff;
+ background-color: #FF5722;
+ text-align: center;
+ line-height: 40px;
+ font-size:20px;
+ cursor:pointer;
+ transition: all .5s ease;
 }
+.home .controls .prev:hover,
+.home .controls .next:hover{
+	background-color: #000000;
+}
+.home .controls .prev{
+ left:0;
+}
+.home .controls .next{
+ right:0;
+}
+
+.home .indicator{
+	position: absolute;
+	left:50%;
+	bottom:30px;
+	z-index: 2;
+	transform: translateX(-50%);
+}
+
+.home .indicator div{
+	display: inline-block;
+	width:25px;
+	height: 25px;
+	color:#ffffff;
+	background-color: #FF5722;
+	border-radius:50%;
+	text-align: center;
+	line-height: 25px;
+	margin:0 3px;
+}
+
+.home .indicator div.active{
+ background-color: #000;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+	.controls{
+		display: none;
+	}
+}
+/*---------------------------------------*/
+
 
 section.articulos article.imagen a:hover{
 	filter: opacity(.5);

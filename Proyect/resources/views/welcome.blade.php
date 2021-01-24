@@ -5,25 +5,28 @@
 <br>
 <br>
 
-<section >
-    <ul class="slider">
-        <li>
-            <input type="radio" id="sbutton1" name="sradio" checked>
-            <label for="sbutton1"></label>
-            <img src="{{ asset('img/Frame1.png')}}" alt="slider">
-        </li>
-        <li>
-            <input type="radio" id="sbutton2" name="sradio">
-            <label for="sbutton2"></label>
-            <img src="{{ asset('img/Frame2.png')}}" alt="slider">
-        </li>
-        <li>
-            <input type="radio" id="sbutton3" name="sradio">
-            <label for="sbutton3"></label>
-            <img src="{{ asset('img/Frame3.png')}}" alt="slider">
-        </li>
-    </ul>
-</section> 
+<section class="home">
+    <section class="slider">
+        <div class="slide active" style="background-image: url('{{ asset('img/Frame1.png')}}')">     
+        </div>
+        <div class="slide" style="background-image: url('{{ asset('img/Frame2.png')}}')"> 
+        </div>
+        <div class="slide" style="background-image: url('{{ asset('img/Frame3.png')}}')">
+        </div>
+    </section>
+
+    <!-- controls  -->
+    <section class="controls">
+        <div class="prev"><</div>
+        <div class="next">></div>
+    </section>
+
+    <!-- indicators -->
+    <section class="indicator">
+    </section>
+
+</section>
+
 
 <section class="tematicas">
     <section class="sectionTitulo">
@@ -40,4 +43,6 @@
         @endforeach
     </section>
 </section>
+
+<script src="../../js/slider.js"></script>
 @endsection
