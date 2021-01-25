@@ -3,88 +3,24 @@
 @section('content')
 
 
-<div class="contenedor">
+
+<section class="contenedor">
 
 		<section class="grid" id="grid">
-			<div class="item" 
-		
-				 data-descripcion="La economía es la ciencia que estudia los recursos, la creación de riqueza y la producción, 
-                            distribución y consumo de bienes y servicios, para satisfacer las necesidades humanas."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img1.jpg')}}" alt="cromo">
+			<!-- Cromos -->
+			@foreach($croms as $crom)
+				<div class="item" data-descripcion= "{{$crom->descripcion}}">
+					<article class="item-contenido">
+						<img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo">
+					</article>
 				</div>
-			</div>
-
-			<div class="item"
-				 
-				 data-descripcion="2.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img2.jpg')}}" alt="cromo">
-				</div>
-			</div>
-
-			<div class="item"
-				 
-				 data-descripcion="3.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img3.jpg')}}" alt="cromo">
-				</div>
-			</div>
-
-			<div class="item"
-				 
-				 data-descripcion="4.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img4.jpg')}}" alt="cromo">
-				</div>
-			</div>
-
-			<div class="item"
-				 
-				 data-descripcion="5.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img class= "op1" src="{{ asset('img/img5.jpg')}}" alt="cromo">
-				</div>
-			</div>
-
-			<div class="item"
-				 
-				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img6.jpg')}}" alt="cromo">
-				</div>
-            </div>
-            <div class="item"
-				 
-				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img class= "op1" src="{{ asset('img/img7.jpg')}}" alt="cromo">
-				</div>
-            </div>
-            <div class="item"
-				 
-				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img8.jpg')}}" alt="cromo">
-				</div>
-            </div>
-            <div class="item"
-				 
-				 data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
-			>
-				<div class="item-contenido">
-					<img src="{{ asset('img/img9.jpg')}}" alt="cromo">
-				</div>
-            </div>
+			@endforeach
 		</section>
+		
+		<section class="barraPaginacion">
+            {{ $croms->links() }}
+        </section>
+
 
 		
 		<section class="overlay" id="overlay">
@@ -95,14 +31,13 @@
             <p class="descripcion"></p>
 		</section>
 		
-</div>
+</section>
 
 
-    <script src="../../js/form.js"></script>
+    <script src="../../js/main.js"></script>
 	
 
 @endsection
     <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
 	<script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
-    <script src="main.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>

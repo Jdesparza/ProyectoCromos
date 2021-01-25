@@ -22,6 +22,7 @@ Route::resource('/home', 'App\Http\Controllers\UserNormalController');
 Route::resource('/usuario/juego', 'App\Http\Controllers\JuegoController');
 Route::resource('/usuario/album', 'App\Http\Controllers\AlbumUsuarioController');
 Route::resource('/usuario/intercambio', 'App\Http\Controllers\IntercambioController');
+Route::resource('/usuario/crearAlbum', 'App\Http\Controllers\CrearAlbumController');
 
 //RUTAS DEL ADMIN
 Route::resource('/homeAdmin', 'App\Http\Controllers\AdminController');

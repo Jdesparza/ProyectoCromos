@@ -86,7 +86,7 @@
                     <tr>
                         <td>{{ $cromo->id}}</td>
                         <td>{{ $cromo->nombreCromo}}</td>
-                        <td><img src="{{ asset('storage').'/'.$cromo->imgCromo}}" alt="cromo" width="342px" height="172px"></td>
+                        <td><img src="{{ asset('storage').'/'.$cromo->imgCromo}}" alt="cromo" width="200px" height="200px"></td>
                         <td>{{ $cromo->nombretematica}}</td>
                         @method('DELETE')
                         <td><a href="{{ route('uploadCromos.destroy', $cromo->id) }}" 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CroNomía</title>
     <link rel="stylesheet" href="../../../css/estilos.css">
+    <link rel="stylesheet" href="../../../css/appPaginacion.css">
 </head>
 <body>
     <header class="encabezado">
@@ -86,5 +87,9 @@
             <img src="../../../img/ba.png" alt="logo UTPL">
         </div>
     </footer>
+
+    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
+	<script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
 </body>
 </html>

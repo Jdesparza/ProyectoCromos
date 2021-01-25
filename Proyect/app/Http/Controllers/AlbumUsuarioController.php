@@ -13,7 +13,15 @@ class AlbumUsuarioController extends Controller
      */
     public function index()
     {
-        return view('usuario/album');
+        /*Cromos*/
+        $croms = \DB::table('croms')
+            ->select('croms.id','croms.descripcion', 'croms.imgCromo', 'croms.nombreCromo')
+            ->orderBy('croms.id', 'ASC')
+            ->simplePaginate(9);
+        
+        return view('/usuario/album')
+        ->with('croms', $croms);
+        
     }
 
     /**
@@ -34,7 +42,21 @@ class AlbumUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'id_album' => ['required'],
+        ]);
+        if($validator -> fails()){
+            return back()
+            ->withErrors($validator);
+        }else{
+            $album = album::create([
+                'id_album' => $request->id_album,
+            ]);
+            return back()
+            ->with('mensaje', 'El álbum a sido creado con exito!');
+        }
+        return view('/usuario/album')
+        ->with('mensaje', 'Has obtenido el álbum con exito!');
     }
 
     /**
