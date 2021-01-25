@@ -638,6 +638,7 @@ form select.selectFormulario{
 section.contenedor{
 	width: 100%;
 }
+
 section.contenedor section.barraPaginacion{
 	text-align: center;
 	margin-block-start: 1em;
@@ -652,6 +653,12 @@ section.contenedor section.grid{
 section.contenedor section.grid div.item {
 	margin: 1em;
 	display: inline-block;
+}
+
+.grid .item img {
+	cursor: pointer;
+	vertical-align: top;
+	border-style: solid;
 }
 
 /* ------------------------- */
@@ -675,6 +682,7 @@ section.contenedor section.grid div.item {
 .overlay.activo {
 	display: flex;
 }
+
 
 .overlay img {
 	max-width: 100%;

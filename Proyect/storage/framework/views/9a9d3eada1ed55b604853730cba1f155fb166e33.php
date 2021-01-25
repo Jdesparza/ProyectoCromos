@@ -23,7 +23,7 @@
         </section>
 
 
-		
+			
 		<section class="overlay" id="overlay">
 			<div class="contenedor-img">
 				<button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
@@ -35,7 +35,8 @@
 </section>
 
 
-    <script src="../../js/main.js"></script>
+    <script src="../../js/main.js"></script> 
+	
 	
 
 <?php $__env->stopSection(); ?>
