@@ -1,6 +1,6 @@
-@extends('layouts.appNavegando')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <!-- start Quiz button -->
   <div class="start_btn"><button>Comenzar</button></div>
@@ -67,23 +67,23 @@
 <!-- Inside this JavaScript file I've inserted Questions and Options only -->
 
 <script class="preguntasQuiz" id="preguntasQuiz">
-    const preguntas = {!! json_encode($preguntas) !!};
+    const preguntas = <?php echo json_encode($preguntas); ?>;
     let questionN = 0;
     // creating an array and passing the number, questions, options, and answers
     let questions = [
-        @foreach($preguntas as $pregunta)
+        <?php $__currentLoopData = $preguntas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pregunta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             {
                 numb: questionN = questionN +1,
-                question: "{{ $pregunta->descripcion}}",
-                answer: "{{ $pregunta->respuestaCorrecta}}",
+                question: "<?php echo e($pregunta->descripcion); ?>",
+                answer: "<?php echo e($pregunta->respuestaCorrecta); ?>",
                 options: [
-                    "{{ $pregunta->opcion1}}",
-                    "{{ $pregunta->opcion2}}",
-                    "{{ $pregunta->opcion3}}",
-                    "{{ $pregunta->opcion4}}"
+                    "<?php echo e($pregunta->opcion1); ?>",
+                    "<?php echo e($pregunta->opcion2); ?>",
+                    "<?php echo e($pregunta->opcion3); ?>",
+                    "<?php echo e($pregunta->opcion4); ?>"
                 ]
             },
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     ];
     //selecting all required elements
     const start_btn = document.querySelector(".start_btn button");
@@ -291,4 +291,5 @@
     }
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.appNavegando', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\aplicaciones\laravel\ProyectoCromos\Proyect\resources\views/usuario/quiz.blade.php ENDPATH**/ ?>

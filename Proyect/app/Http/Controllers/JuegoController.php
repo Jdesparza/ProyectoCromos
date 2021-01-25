@@ -73,6 +73,9 @@ class JuegoController extends Controller
             'pregunts.respuestaError3 AS opcion4', 'pregunts.nivel', 'tematicas.id','tematicas.nombretematica')
         ->where('tematicas.id', '=', $id)
         ->orderBy('pregunts.nivel', 'ASC')
+        ->orderByRaw("RAND()")
+        ->skip(0)
+        ->take(5)
         ->get();
         
         $tematica = tematica::findOrFail($id);
