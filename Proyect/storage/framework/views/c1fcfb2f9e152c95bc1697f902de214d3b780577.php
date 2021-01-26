@@ -2,28 +2,29 @@
 
 <?php $__env->startSection('content'); ?>
 <?php if($message = Session::get('mensaje')): ?>
-	<ul class="alertaUlCorrecto">
-		<section class="alertaCorrecto">
+	<ul class="alertaU2Correcto">
+		<section class="alertaCorrecto2">
 			<p><?php echo e($message); ?></p>
 		</section>
 	</ul>
 <?php endif; ?>
-<section>
+<section class="sectionTitulo">
+    <h1>Álbumes</h1>
+</section>
+<section class="sectionObtenerAlbum">
 	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
 </section>
-
-<section class="tematicas">
-    <section class="sectionTitulo">
-        <h1>Álbumes</h1>
-    </section>
-    <section class="articulos">
+<section class="mostrarAlbum">
+    <section class="articulosAlbum">
         <?php $__currentLoopData = $albumes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <a href="<?php echo e(route('mostrarAlbum.show', $album->id)); ?>" class="navTematicas">
-                <article class="articulosTematica">
-                    <img src="" alt="album">
-                    <h5 class="nombreTematica"><?php echo e($album->nombreAlbum); ?></h5>
-                </article>
-            </a>
+            <article class="articulosMostrarAlbum">
+                <a href="<?php echo e(route('mostrarAlbum.show', $album->id)); ?>" class="navAlbum">
+                    <img src="../../../img/mostrarAlbum.png" alt="album">
+                    <section>
+                        <h5 class="nombreTematica"><?php echo e($album->nombreAlbum); ?></h5>
+                    </section>
+                </a>
+            </article>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </section>
 </section>

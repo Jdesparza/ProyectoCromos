@@ -28,7 +28,7 @@
                 <?php echo e(method_field('PATCH')); ?>
 
                 <div class="">
-                    <label for="imgCromo" class="subirImg">Subir Imagen</label>
+                    <label for="imgCromo" class="subirImg">Editar Imagen (No requerido)</label>
                     <input id="imgCromo" type="file" class="cromoInput" name="imgCromo" value="<?php echo e($cromo->imgCromo); ?>">
                     
                 </div>

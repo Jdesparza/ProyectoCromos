@@ -41,7 +41,7 @@ class TematicaController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'imgTematica' => ['required', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
-            'nombretematica' => ['required', 'string', 'min:4'],
+            'nombretematica' => ['required', 'string', 'min:4', 'max:25'],
             'id_album'=> ['required'],
         ]);
         if($validator -> fails()){
@@ -77,7 +77,7 @@ class TematicaController extends Controller
     public function update(Request $request, $id){
         $validator = Validator::make($request->all(),[
             'imgTematica' => ['', 'image', 'mimes:jpg,png,jpeg,svg','max:10000'],
-            'nombretematica' => ['required', 'string', 'min:4'],
+            'nombretematica' => ['required', 'string', 'min:4', 'max:25'],
             'id_album'=> ['required'],
         ]);
         if($validator -> fails()){

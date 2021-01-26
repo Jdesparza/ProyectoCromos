@@ -2,28 +2,29 @@
 
 @section('content')
 @if ($message = Session::get('mensaje'))
-	<ul class="alertaUlCorrecto">
-		<section class="alertaCorrecto">
+	<ul class="alertaU2Correcto">
+		<section class="alertaCorrecto2">
 			<p>{{ $message }}</p>
 		</section>
 	</ul>
 @endif
-<section>
+<section class="sectionTitulo">
+    <h1>Álbumes</h1>
+</section>
+<section class="sectionObtenerAlbum">
 	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
 </section>
-
-<section class="tematicas">
-    <section class="sectionTitulo">
-        <h1>Álbumes</h1>
-    </section>
-    <section class="articulos">
+<section class="mostrarAlbum">
+    <section class="articulosAlbum">
         @foreach($albumes as $album)
-            <a href="{{ route('mostrarAlbum.show', $album->id) }}" class="navTematicas">
-                <article class="articulosTematica">
-                    <img src="" alt="album">
-                    <h5 class="nombreTematica">{{ $album->nombreAlbum}}</h5>
-                </article>
-            </a>
+            <article class="articulosMostrarAlbum">
+                <a href="{{ route('mostrarAlbum.show', $album->id) }}" class="navAlbum">
+                    <img src="../../../img/mostrarAlbum.png" alt="album">
+                    <section>
+                        <h5 class="nombreTematica">{{ $album->nombreAlbum}}</h5>
+                    </section>
+                </a>
+            </article>
         @endforeach
     </section>
 </section>

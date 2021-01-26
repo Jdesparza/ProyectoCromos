@@ -29,7 +29,7 @@ class AlbumController extends Controller
 
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
-            'nombreAlbum' => ['required', 'string', 'min:4'],
+            'nombreAlbum' => ['required', 'string', 'min:4', 'max:25'],
         ]);
         if($validator -> fails()){
             return back()
@@ -49,7 +49,7 @@ class AlbumController extends Controller
 
     public function update(Request $request, album $adminAlbum){
         $validator = Validator::make($request->all(),[
-            'nombreAlbum' => ['required', 'string', 'min:4'],
+            'nombreAlbum' => ['required', 'string', 'min:4', 'max:25'],
         ]);
         if($validator -> fails()){
             return back()

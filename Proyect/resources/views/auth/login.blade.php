@@ -17,7 +17,7 @@
 
                     <div class="div4">
                         <input id="email" type="email" class="inputInicio" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Ingrese su usuario">
-
+                        <br>
                         @error('email')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
 
                     <div class="div4">
                         <input id="password" type="password" class="inputInicio" name="password" required autocomplete="current-password" placeholder="Ingrese su clave">
-
+                        <br>
                         @error('password')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>

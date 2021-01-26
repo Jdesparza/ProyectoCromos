@@ -15,7 +15,7 @@
 
                     <div class="reg4">
                         <input id="name" type="text" class="inputInicio" name="name" value="<?php echo e(old('name')); ?>" required autocomplete="name" autofocus placeholder="Ingrese nombre">
-
+                        <br>
                         <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -36,7 +36,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="reg4">
                         <input id="email" type="email" class="inputInicio" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" placeholder="Ingrese su correo">
-
+                        <br>
                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -57,7 +57,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="reg6">
                         <input id="password" type="password" class="inputInicio" name="password" required autocomplete="new-password" placeholder="Ingrese su contraseña">
-
+                        <br>
                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

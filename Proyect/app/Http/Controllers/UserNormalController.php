@@ -82,7 +82,7 @@ class UserNormalController extends Controller
     public function update(Request $request, User $home)
     {
         $validator = Validator::make($request->all(),[
-            'name' => ['required', 'string', 'min:4'],
+            'name' => ['required', 'string', 'min:4', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);

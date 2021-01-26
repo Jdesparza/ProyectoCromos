@@ -32,14 +32,16 @@
     </section>
     <section class="articulos">
         @foreach($tematicas as $tematica)
-            <a href="/usuario/juego" class="navTematicas">
-                <article class="articulosTematica">
+            <article class="articulosTematica">
+                <a href="/usuario/juego" class="navTematicas">
                     <img src="{{ asset('storage').'/'.$tematica->imgTematica}}" width="342px" height="172px" alt="tematica">
-                    <h5 class="nombreTematica">{{ $tematica->nombretematica}}</h5>
-                    <h6 class="h6Parte1">Album:</h6>
-                    <h6 class="h6Parte2">{{ $tematica->nombreAlbum}}</h6>
-                </article>
-            </a>
+                    <section>
+                        <h5 class="nombreTematica">{{ $tematica->nombretematica}}</h5>
+                        <h6 class="h6Parte1">Album:</h6>
+                        <h6 class="h6Parte2">{{ $tematica->nombreAlbum}}</h6>
+                    </section>
+                </a>
+            </article>
         @endforeach
     </section>
 </section>

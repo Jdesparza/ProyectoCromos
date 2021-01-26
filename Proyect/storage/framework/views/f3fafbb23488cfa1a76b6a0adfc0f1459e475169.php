@@ -12,8 +12,8 @@
         </ul>
     <?php endif; ?>
     <?php if($message = Session::get('mensaje')): ?>
-        <ul class="alertaUl">
-            <section class="alerta">
+        <ul class="alertaUlCorrecto">
+            <section class="alertaCorrecto">
                 <p><?php echo e($message); ?></p>
             </section>
         </ul>

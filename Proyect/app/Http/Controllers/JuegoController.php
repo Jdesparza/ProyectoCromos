@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\tematica;
 use App\Models\pregunt;
 use App\Models\album;
+use App\Models\cromo_usuario;
 use App\Http\Controllers\Auth;
 
 class JuegoController extends Controller
@@ -49,7 +50,12 @@ class JuegoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cromosUsuarios= cromo_usuario::create([
+            'id_albumUsuario' => $request->id_albumUsuario,
+            'id_cromos' => $request->id_cromos
+        ]);
+        return back()
+        ->with('mensaje', 'El álbum a sido creado con exito!');
     }
 
     /**

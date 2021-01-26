@@ -15,7 +15,7 @@
 
                     <div class="reg4">
                         <input id="name" type="text" class="inputInicio" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ingrese nombre">
-
+                        <br>
                         @error('name')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
 
                     <div class="reg4">
                         <input id="email" type="email" class="inputInicio" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ingrese su correo">
-
+                        <br>
                         @error('email')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
 
                     <div class="reg6">
                         <input id="password" type="password" class="inputInicio" name="password" required autocomplete="new-password" placeholder="Ingrese su contraseña">
-
+                        <br>
                         @error('password')
                             <span class="" role="alert">
                                 <strong>{{ $message }}</strong>

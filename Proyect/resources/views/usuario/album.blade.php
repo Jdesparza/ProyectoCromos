@@ -4,7 +4,7 @@
 <section class="contenedor">
 	<section class="grid" id="grid">
 		@foreach($albumes as $album)
-			<p>{{$album -> nombreAlbum }}</p>
+			<p class="nombreAlbumCromos">{{$album -> nombreAlbum }}</p>
 			@foreach($croms as $crom)
 				<div class="item" data-descripcion= "{{$crom->descripcion}}">
 					<article class="item-contenido">

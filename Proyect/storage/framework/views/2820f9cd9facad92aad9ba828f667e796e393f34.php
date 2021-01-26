@@ -4,7 +4,7 @@
 <section class="contenedor">
 	<section class="grid" id="grid">
 		<?php $__currentLoopData = $albumes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-			<p><?php echo e($album -> nombreAlbum); ?></p>
+			<p class="nombreAlbumCromos"><?php echo e($album -> nombreAlbum); ?></p>
 			<?php $__currentLoopData = $croms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $crom): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				<div class="item" data-descripcion= "<?php echo e($crom->descripcion); ?>">
 					<article class="item-contenido">

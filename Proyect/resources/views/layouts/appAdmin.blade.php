@@ -74,13 +74,19 @@
         </p>
         <ul class="redesSociales">
             <li>
-                <img src="../../../img/facebook-brands 1.png" alt="facebook">
+                <a href="https://es-la.facebook.com/utpl.loja/" target="_BLANK">
+                    <img src="../../../img/facebook-brands 1.png" alt="facebook">
+                </a>
             </li>
             <li>
-                <img src="../../../img/Twitter 1.png" alt="twitter">
+                <a href="https://twitter.com/utpl?lang=es" target="_BLANK">
+                    <img src="../../../img/Twitter 1.png" alt="twitter">
+                </a>
             </li>
             <li>
-                <img src="../../../img/instagram 1.png" alt="instagram">
+                <a href="https://www.instagram.com/utpl/?hl=es-la" target="_BLANK">
+                    <img src="../../../img/instagram 1.png" alt="instagram">
+                </a>
             </li>
         </ul>
         <div class="utpl">

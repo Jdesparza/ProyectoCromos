@@ -10,17 +10,18 @@
         </section>
     </ul>
 @endif
-<div class="VentanaRegistro">
+<div class="ventanaObtenerAlbum">
+    <div class="obtenerAlbumTitulo">
+        <img src="../../../img/book-reader-solid 1.png" alt="registrarse">
+        Obtener Álbum
+    </div>
     <div class="">
-        <div class="reg1">
-        <img src="../../img/usuario (1) 1.png" alt="registrarse">
-            Crear Album</div>
-        <div class="">
-            <form method="POST" action="{{ route('mostrarAlbum.store')  }}">
-                @csrf
+        <form method="POST" action="{{ route('mostrarAlbum.store')  }}">
+            @csrf
 
-                <div class="reg2">
-                    <label for="id_album" class="labelInicio">Album</label>
+            <div class="obtenerAlbum">
+                <label for="id_album" class="labelObtenerAlbum">Album</label>
+                <section class="sectionSelectObtenerAlbum">
                     <select name="id_album" id="id_album">
                         <option value="">Selecciona un Album..</option>
                         @foreach($albums as $album)
@@ -28,17 +29,15 @@
                                 {{ $album -> nombreAlbum }}</option>
                         @endforeach
                     </select>
-                </div>
+                </section>
+            </div>
 
-                <div class="">
-                    <div class="reg9">
-                        <button type="submit" class="">
-                            Obtener
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+            <div class="botonObtenerAlbum">
+                <button type="submit" class="">
+                    Obtener
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 @endsection
