@@ -91,8 +91,17 @@ class AlbumUsuarioController extends Controller
             ->orderBy('cromos_usuarios.id', 'ASC')
             ->simplePaginate(9);
 
+        $albumes = \DB::table('album_usuarios')
+        ->join('albums', 'album_usuarios.id_album', '=', 'albums.id')
+        ->select('albums.id', 'albums.nombreAlbum')
+        ->where('album_usuarios.id_usuario', '=', $usuario)
+        ->where('albums.id', '=', $id)
+        ->orderBy('albums.id', 'ASC')
+        ->get();
+
         return view('/usuario/album')
-        ->with('croms', $croms);
+        ->with('croms', $croms)
+        ->with('albumes', $albumes);
     }
 
     /**

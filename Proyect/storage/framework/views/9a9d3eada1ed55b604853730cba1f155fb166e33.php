@@ -1,29 +1,22 @@
 
 
 <?php $__env->startSection('content'); ?>
-<?php if($message = Session::get('mensaje')): ?>
-	<ul class="alertaUlCorrecto">
-		<section class="alertaCorrecto">
-			<p><?php echo e($message); ?></p>
-		</section>
-	</ul>
-<?php endif; ?>
-<section>
-	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
-</section>
+
 
 <section class="contenedor">
 
 	<section class="grid" id="grid">
-		
-		<?php $__currentLoopData = $croms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $crom): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-			<div class="item" data-descripcion= "<?php echo e($crom->descripcion); ?>">
-				<article class="item-contenido">
-					<img src="<?php echo e(asset('storage').'/'.$crom->imgCromo); ?>" alt="cromo" width="200px" height="200px">
-				</article>
-			</div>
-		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-	</section>
+        <?php $__currentLoopData = $albumes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <p class="mayuscula"><?php echo e($album -> nombreAlbum); ?></p>
+            <?php $__currentLoopData = $croms; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $crom): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="item" data-descripcion= "<?php echo e($crom->descripcion); ?>">
+                    <article class="item-contenido">
+                        <img src="<?php echo e(asset('storage').'/'.$crom->imgCromo); ?>" alt="cromo" width="200px" height="200px">
+                    </article>
+                </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </section>
 	
 	<section class="barraPaginacion">
 		<?php echo e($croms->links()); ?>

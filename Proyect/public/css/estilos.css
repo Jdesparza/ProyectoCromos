@@ -116,6 +116,7 @@ nav.menuPrincipalNavegando div.menuPrincipal3 p.nombreUser, div.menuPrincipal5 p
 	overflow: hidden;
 	display: flex;
 }
+/*---Temáticas*/
 section.tematicas{
 	width: 100%;
 }
@@ -156,6 +157,7 @@ section.tematicas section.articulos article.articulosTematica h6{
 section.tematicas section.articulos article.articulosTematica h5:first-letter, h6.h6Parte2::first-letter{
 	text-transform: uppercase;
 }
+
 
 footer.piePagina{
 	display: flex;
@@ -323,6 +325,7 @@ section.contenidoHomeAdmin p.titulo1{
 	padding: 0.4em 0em 0.4em 0em;
 	align-items: center;
 	text-align: center;
+	font-weight: 900;
 }
 section.contenidoHomeAdmin p.titulo1:hover{
 	box-shadow: 0 47px  #ccff90 inset,
@@ -387,6 +390,7 @@ section.contenidoAdmin p.formularioTitulo, p.formularioTituloEdit,div.tablaDatos
 	color: black;
 	margin: 0em 30% 0em 30%;
 	padding: 0.3em 0em 0.3em 0em;
+	font-weight: 900;
 }
 section.contenidoAdmin p.formularioTitulo:hover,div.tablaDatos p.tablaTitulo:hover{
 	box-shadow: 0 59px  #ccff90 inset,
@@ -615,6 +619,47 @@ form select.selectFormulario{
 
 
 
+/*Titulo Album*/
+section.tematicas{
+	width: 100%;
+}
+section.tematicas section.sectionTitulo h1{
+	text-align: center;
+	margin-block-start: 1em;
+	font-size: 1.6em;
+}
+section.tematicas section.articulos {
+	width: 100%;
+	text-align: center;
+}
+section.tematicas section.articulos a{
+	text-decoration: none;
+	color: black;
+}
+section.tematicas section.articulos article.articulosTematica{
+	margin: 3em;
+	background-color: #42a5f5;
+	display: inline-block;
+}
+section.tematicas section.articulos article.articulosTematica:hover{
+	background-color: #2396f5;
+	border: 1px solid black;
+}
+section.tematicas section.articulos article.articulosTematica h5{
+	padding-block: 0.5em;
+	font-size: larger;
+}
+section.tematicas section.articulos article.articulosTematica img{
+	display: block;
+}
+section.tematicas section.articulos article.articulosTematica h6{
+	padding-block-end: 0.5em;
+	font-size: 1em;
+	display: inline-block;
+}
+section.tematicas section.articulos article.articulosTematica h5:first-letter, h6.h6Parte2::first-letter{
+	text-transform: uppercase;
+}
 
 /*Album*/
 
@@ -632,6 +677,12 @@ section.contenedor section.grid{
 	margin-left: auto;
 	margin-right: auto;
 	margin-block-end: 1em;
+}
+section.contenedor section.grid p.mayuscula{
+	text-transform: uppercase;
+	text-align: center;
+	font-size:2em;
+
 }
 section.contenedor section.grid div.item {
 	margin: 1em;
@@ -849,7 +900,29 @@ section.levels article.lev a:hover {
 	margin: 6em;
 	display: block;
     margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
+	text-decoration: none;
+}
+.start_btn button a{
+    color: black;
+	text-decoration: none;
+}
+
+.start_btn1 button{
+    font-size: 25px;
+    font-weight: 500;
+	color:white;
+	background-color: #42a5f5;
+    padding: 15px 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+	cursor: pointer;
+	margin: 1em;
+}
+.start_btn1 button a{
+    color: black;
+	text-decoration: none;
 }
 
 .info_box{

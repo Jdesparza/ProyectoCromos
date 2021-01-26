@@ -1,29 +1,22 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-@if ($message = Session::get('mensaje'))
-	<ul class="alertaUlCorrecto">
-		<section class="alertaCorrecto">
-			<p>{{ $message }}</p>
-		</section>
-	</ul>
-@endif
-<section>
-	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
-</section>
+
 
 <section class="contenedor">
 
 	<section class="grid" id="grid">
-		
-		@foreach($croms as $crom)
-			<div class="item" data-descripcion= "{{$crom->descripcion}}">
-				<article class="item-contenido">
-					<img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo" width="200px" height="200px">
-				</article>
-			</div>
-		@endforeach
-	</section>
+        @foreach($albumes as $album)
+            <p class="mayuscula">{{$album -> nombreAlbum }}</p>
+            @foreach($croms as $crom)
+                <div class="item" data-descripcion= "{{$crom->descripcion}}">
+                    <article class="item-contenido">
+                        <img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo" width="200px" height="200px">
+                    </article>
+                </div>
+            @endforeach
+        @endforeach
+    </section>
 	
 	<section class="barraPaginacion">
 		{{ $croms->links() }}

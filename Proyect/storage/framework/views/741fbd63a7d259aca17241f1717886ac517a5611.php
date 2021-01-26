@@ -8,8 +8,8 @@
 		</section>
 	</ul>
 <?php endif; ?>
-<section>
-	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
+<section class="start_btn1">
+<button><a href="/usuario/obtenerAlbum">Obtener Álbum</a></button>
 </section>
 
 <section class="tematicas">
@@ -20,7 +20,7 @@
         <?php $__currentLoopData = $albumes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <a href="<?php echo e(route('mostrarAlbum.show', $album->id)); ?>" class="navTematicas">
                 <article class="articulosTematica">
-                    <img src="" alt="album">
+                    <img src="<?php echo e(asset('img/album.png')); ?>" alt="album">
                     <h5 class="nombreTematica"><?php echo e($album->nombreAlbum); ?></h5>
                 </article>
             </a>
