@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\tematica;
 use App\Models\pregunt;
 use App\Models\album;
+use App\Http\Controllers\Auth;
 
 class JuegoController extends Controller
 {
@@ -16,9 +17,13 @@ class JuegoController extends Controller
      */
     public function index()
     {
+        $usuario = \Auth::user()->id;
+
         $tematicas = \DB::table('tematicas')
             ->join('albums', 'albums.id', '=', 'tematicas.id_album')
+            ->join('album_usuarios', 'albums.id', '=', 'album_usuarios.id_album')
             ->select('tematicas.id', 'tematicas.imgTematica', 'tematicas.nombretematica', 'albums.nombreAlbum')
+            ->where('album_usuarios.id_usuario', '=', $usuario)
             ->orderBy('albums.id', 'ASC')
             ->get();
 
@@ -55,17 +60,6 @@ class JuegoController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
         $preguntas = \DB::table('pregunts')
         ->join('tematicas', 'tematicas.id', '=', 'pregunts.id_tematica')
         ->select('pregunts.id', 'pregunts.descripcion', 'pregunts.respuestaCorrecta', 
@@ -81,6 +75,17 @@ class JuegoController extends Controller
         $tematica = tematica::findOrFail($id);
 
         return view('usuario/quiz', compact('preguntas', 'tematica'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
