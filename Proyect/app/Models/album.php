@@ -21,6 +21,7 @@ class album extends Model
     protected $casts = [
         //
     ];
+
     public function albumUsuario(){
         return $this->hasMany('App\Models\AlbumUsuario');
     }

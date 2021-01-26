@@ -1,29 +1,24 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-
-
 <section class="contenedor">
-
 	<section class="grid" id="grid">
-        @foreach($albumes as $album)
-            <p class="mayuscula">{{$album -> nombreAlbum }}</p>
-            @foreach($croms as $crom)
-                <div class="item" data-descripcion= "{{$crom->descripcion}}">
-                    <article class="item-contenido">
-                        <img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo" width="200px" height="200px">
-                    </article>
-                </div>
-            @endforeach
-        @endforeach
-    </section>
+		@foreach($albumes as $album)
+			<p>{{$album -> nombreAlbum }}</p>
+			@foreach($croms as $crom)
+				<div class="item" data-descripcion= "{{$crom->descripcion}}">
+					<article class="item-contenido">
+						<img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo" width="200px" height="200px">
+					</article>
+				</div>
+			@endforeach
+		@endforeach
+	</section>
 	
 	<section class="barraPaginacion">
 		{{ $croms->links() }}
 	</section>
 
-
-		
 	<section class="overlay" id="overlay">
 		<div class="contenedor-img">
 			<button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>

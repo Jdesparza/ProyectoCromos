@@ -73,7 +73,7 @@
     let questions = [
         <?php $__currentLoopData = $preguntas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pregunta): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             {
-                numb: ,
+                numb: questionN = questionN +1,
                 question: "<?php echo e($pregunta->descripcion); ?>",
                 answer: "<?php echo e($pregunta->respuestaCorrecta); ?>",
                 options: [
@@ -231,11 +231,18 @@
         const scoreText = result_box.querySelector(".score_text");
         if (userScore > 3){ // if user scored more than 3
             //creating a new span tag and passing the user score number and total question number
-            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>';
+            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
         }
         else if(userScore > 1){ // if user scored more than 1
-            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>';
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
+            scoreText.innerHTML = scoreTag;
+        }
+        else if(userScore > 2){ // if user scored more than 1
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;
         }
         else{ // if user scored less than 1

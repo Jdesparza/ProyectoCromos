@@ -33,4 +33,3 @@ class album_usuario extends Model
         return $this->belongsTo('App\Models\User', 'id_usuario');
     }
 }
-

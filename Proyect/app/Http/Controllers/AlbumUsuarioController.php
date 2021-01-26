@@ -81,6 +81,15 @@ class AlbumUsuarioController extends Controller
     public function show($id)
     {
         $usuario = \Auth::user()->id;
+
+        $albumes = \DB::table('album_usuarios')
+            ->join('albums', 'album_usuarios.id_album', '=', 'albums.id')
+            ->select('albums.id', 'albums.nombreAlbum')
+            ->where('album_usuarios.id_usuario', '=', $usuario)
+            ->where('albums.id', '=', $id)
+            ->orderBy('albums.id', 'ASC')
+            ->get();
+
         /*Cromos*/
         $croms = \DB::table('cromos_usuarios')
             ->join('croms', 'cromos_usuarios.id_cromos', '=', 'croms.id')
@@ -90,14 +99,6 @@ class AlbumUsuarioController extends Controller
             ->where('album_usuarios.id_album', '=', $id)
             ->orderBy('cromos_usuarios.id', 'ASC')
             ->simplePaginate(9);
-
-        $albumes = \DB::table('album_usuarios')
-        ->join('albums', 'album_usuarios.id_album', '=', 'albums.id')
-        ->select('albums.id', 'albums.nombreAlbum')
-        ->where('album_usuarios.id_usuario', '=', $usuario)
-        ->where('albums.id', '=', $id)
-        ->orderBy('albums.id', 'ASC')
-        ->get();
 
         return view('/usuario/album')
         ->with('croms', $croms)

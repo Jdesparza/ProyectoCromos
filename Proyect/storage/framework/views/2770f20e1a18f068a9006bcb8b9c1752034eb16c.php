@@ -88,7 +88,7 @@
                     <tr>
                         <td><?php echo e($cromo->id); ?></td>
                         <td><?php echo e($cromo->nombreCromo); ?></td>
-                        <td><img src="<?php echo e(asset('storage').'/'.$cromo->imgCromo); ?>" alt="cromo"></td>
+                        <td><img src="<?php echo e(asset('storage').'/'.$cromo->imgCromo); ?>" alt="cromo" width="200px" height="200px"></td>
                         <td><?php echo e($cromo->nombretematica); ?></td>
                         <?php echo method_field('DELETE'); ?>
                         <td><a href="<?php echo e(route('uploadCromos.destroy', $cromo->id)); ?>" 

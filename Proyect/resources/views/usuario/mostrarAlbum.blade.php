@@ -8,8 +8,8 @@
 		</section>
 	</ul>
 @endif
-<section class="start_btn1">
-<button><a href="/usuario/obtenerAlbum">Obtener Álbum</a></button>
+<section>
+	<a href="/usuario/obtenerAlbum">Obtener Álbum</a>
 </section>
 
 <section class="tematicas">
@@ -20,7 +20,7 @@
         @foreach($albumes as $album)
             <a href="{{ route('mostrarAlbum.show', $album->id) }}" class="navTematicas">
                 <article class="articulosTematica">
-                    <img src="{{ asset('img/album.png')}}" alt="album">
+                    <img src="" alt="album">
                     <h5 class="nombreTematica">{{ $album->nombreAlbum}}</h5>
                 </article>
             </a>

@@ -7,7 +7,7 @@
     </section>
     <section class="articulos">
         <?php $__currentLoopData = $tematicas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tematica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <a href="<?php echo e(route('juego.edit', $tematica->id)); ?>" class="navTematicas">
+            <a href="<?php echo e(route('juego.show', $tematica->id)); ?>" class="navTematicas">
                 <article class="articulosTematica">
                     <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
                     <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>

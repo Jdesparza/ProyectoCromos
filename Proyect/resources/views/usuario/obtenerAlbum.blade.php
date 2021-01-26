@@ -16,27 +16,23 @@
         <img src="../../img/usuario (1) 1.png" alt="registrarse">
             Crear Album</div>
         <div class="">
-            <form  action="{{ route('mostrarAlbum.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('mostrarAlbum.store')  }}">
                 @csrf
-                
-                <div class="">
-                    <label for="id_album" class="labelSelect">Álbum</p></label>
-                    <section class="">
-                        <select name="id_album" id="id_album" class="selectFormulario">
-                            <option value="">Selecciona un Álbum..</option>
-                            @foreach($albums as $album)
-                                <option value="{{ $album -> id }}" {{ $album->id == '{$album -> id' ? 'selected' : ''}}>
+
+                <div class="reg2">
+                    <label for="id_album" class="labelInicio">Album</label>
+                    <select name="id_album" id="id_album">
+                        <option value="">Selecciona un Album..</option>
+                        @foreach($albums as $album)
+                                <option value="{{ $album -> id }}" {{ $album->id == '{$album -> id' ? 'selected' : ''}}}>
                                 {{ $album -> nombreAlbum }}</option>
-                            @endforeach
-                        </select>
-                    </section>
+                        @endforeach
+                    </select>
                 </div>
 
-
-
                 <div class="">
-                    <div class="">
-                        <button type="submit" class="formularioSubmit">
+                    <div class="reg9">
+                        <button type="submit" class="">
                             Obtener
                         </button>
                     </div>
