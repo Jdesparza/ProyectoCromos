@@ -23,7 +23,7 @@
                 <img src="../../../img/controlador-de-gamepad 1.png" alt="menu juego">
                 Juego
             </a>
-            <a href="/usuario/album" class="menu1">
+            <a href="/usuario/mostrarAlbum" class="menu1">
                 <img src="../../../img/album-de-fotos (1) 1.png" alt="menu album">
                 Album
             </a>

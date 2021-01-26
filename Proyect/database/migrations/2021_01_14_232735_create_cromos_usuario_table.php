@@ -13,10 +13,10 @@ class CreateCromosUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('cromosUsuario', function (Blueprint $table) {
+        Schema::create('cromos_usuarios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_albumUsuario')->nullable();
-            $table->foreign('id_albumUsuario')->references('id')->on('albumUsuario');
+            $table->foreign('id_albumUsuario')->references('id')->on('album_usuarios');
             $table->unsignedBigInteger('id_cromos')->nullable();
             $table->foreign('id_cromos')->references('id')->on('croms');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateCromosUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cromosUsuario');
+        Schema::dropIfExists('cromos_usuarios');
     }
 }

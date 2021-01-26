@@ -46,4 +46,8 @@ class User extends Authenticatable
         return $this->rol === 'administrador';
     }
 
+    public function albumUsuario(){
+        return $this->hasMany('App\Models\AlbumUsuario');
+    }
+
 }

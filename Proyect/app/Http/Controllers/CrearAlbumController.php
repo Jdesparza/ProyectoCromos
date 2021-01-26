@@ -14,7 +14,7 @@ class CrearAlbumController extends Controller
             ->orderBy('albums.id', 'ASC')
             ->get();
             
-        return view('/usuario/crearAlbum')
+        return view('/usuario/obtenerAlbum')
         ->with('albums', $albums);
     }
             

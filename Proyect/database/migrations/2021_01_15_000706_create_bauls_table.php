@@ -16,7 +16,7 @@ class CreateBaulsTable extends Migration
         Schema::create('bauls', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_cromosUsuario');
-            $table->foreign('id_cromosUsuario')->references('id')->on('cromosUsuario');
+            $table->foreign('id_cromosUsuario')->references('id')->on('cromos_usuarios');
             $table->timestamps();
         });
     }

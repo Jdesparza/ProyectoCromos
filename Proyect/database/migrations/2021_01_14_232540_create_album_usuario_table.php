@@ -13,7 +13,7 @@ class CreateAlbumUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('albumUsuario', function (Blueprint $table) {
+        Schema::create('album_usuarios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users');
@@ -30,6 +30,6 @@ class CreateAlbumUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albumUsuario');
+        Schema::dropIfExists('album_usuarios');
     }
 }

@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\album_usuario;
+use App\Models\User;
+use Validator;
+use App\Http\Controllers\Auth;
+use Flash;
+use Delete;
+use Update;
+use App\Http\Requests\UserRequest;
 
 class AlbumUsuarioController extends Controller
 {
@@ -13,14 +21,17 @@ class AlbumUsuarioController extends Controller
      */
     public function index()
     {
-        /*Cromos*/
-        $croms = \DB::table('croms')
-            ->select('croms.id','croms.descripcion', 'croms.imgCromo', 'croms.nombreCromo')
-            ->orderBy('croms.id', 'ASC')
-            ->simplePaginate(9);
-        
-        return view('/usuario/album')
-        ->with('croms', $croms);
+        $usuario = \Auth::user()->id;
+
+        $albumes = \DB::table('album_usuarios')
+            ->join('albums', 'album_usuarios.id_album', '=', 'albums.id')
+            ->select('albums.id', 'albums.nombreAlbum')
+            ->where('album_usuarios.id_usuario', '=', $usuario)
+            ->orderBy('albums.id', 'ASC')
+            ->get();
+
+        return view('usuario/mostrarAlbum')
+        ->with('albumes', $albumes);
         
     }
 
@@ -49,14 +60,16 @@ class AlbumUsuarioController extends Controller
             return back()
             ->withErrors($validator);
         }else{
-            $album = album::create([
+            $usuario = \Auth::user()->id;
+
+            $albumUser = album_usuario::create([
                 'id_album' => $request->id_album,
+                'id_usuario' => $usuario
             ]);
-            return back()
-            ->with('mensaje', 'El álbum a sido creado con exito!');
+
+            return redirect()->route('mostrarAlbum.index')
+            ->with('mensaje', 'Has obtenido el álbum con exito!');
         }
-        return view('/usuario/album')
-        ->with('mensaje', 'Has obtenido el álbum con exito!');
     }
 
     /**
@@ -67,7 +80,19 @@ class AlbumUsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $usuario = \Auth::user()->id;
+        /*Cromos*/
+        $croms = \DB::table('cromos_usuarios')
+            ->join('croms', 'cromos_usuarios.id_cromos', '=', 'croms.id')
+            ->join('album_usuarios', 'cromos_usuarios.id_albumUsuario', '=', 'album_usuarios.id')
+            ->select('cromos_usuarios.id', 'croms.descripcion', 'croms.imgCromo', 'croms.nombreCromo')
+            ->where('album_usuarios.id_usuario', '=', $usuario)
+            ->where('album_usuarios.id_album', '=', $id)
+            ->orderBy('cromos_usuarios.id', 'ASC')
+            ->simplePaginate(9);
+
+        return view('/usuario/album')
+        ->with('croms', $croms);
     }
 
     /**
