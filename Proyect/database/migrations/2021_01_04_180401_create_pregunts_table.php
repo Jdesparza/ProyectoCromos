@@ -16,7 +16,6 @@ class CreatePreguntsTable extends Migration
         Schema::create('pregunts', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->integer('nivel');
             $table->string('respuestaCorrecta');
             $table->string('respuestaError1');
             $table->string('respuestaError2');

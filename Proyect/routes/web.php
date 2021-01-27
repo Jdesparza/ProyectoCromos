@@ -20,6 +20,8 @@ Auth::routes();
 //RUTAS DEL USUARIO
 Route::resource('/home', 'App\Http\Controllers\UserNormalController');
 Route::resource('/usuario/juego', 'App\Http\Controllers\JuegoController');
+Route::pattern('/usuario/juego', '[0-9]+');
+Route::get('/usuario/juego/{obtener}', 'App\Http\Controllers\JuegoController@obtener')->name('juego.obtener');
 Route::resource('/usuario/mostrarAlbum', 'App\Http\Controllers\AlbumUsuarioController');
 Route::resource('/usuario/intercambio', 'App\Http\Controllers\IntercambioController');
 Route::resource('/usuario/obtenerAlbum', 'App\Http\Controllers\CrearAlbumController');

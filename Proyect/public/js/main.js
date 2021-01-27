@@ -18,9 +18,11 @@ window.addEventListener('load', () => {
 	document.querySelectorAll('.grid .item img').forEach((elemento) => {
 		elemento.addEventListener('click', () => {
 			const ruta = elemento.getAttribute('src');
+			const titulo = elemento.parentNode.parentNode.dataset.titulo;
 			const descripcion = elemento.parentNode.parentNode.dataset.descripcion;
 
 			overlay.classList.add('activo');
+			document.querySelector('#overlay .titulo').innerHTML = titulo;
 			document.querySelector('#overlay img').src = ruta;
 			document.querySelector('#overlay .descripcion').innerHTML = descripcion;
 		});

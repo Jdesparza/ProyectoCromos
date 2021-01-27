@@ -22,7 +22,7 @@ class PreguntController extends Controller
         
         $preguntas = \DB::table('pregunts')
         ->join('tematicas', 'tematicas.id', '=', 'pregunts.id_tematica')
-        ->select('pregunts.id', 'pregunts.descripcion', 'pregunts.respuestaCorrecta', 'pregunts.nivel', 'tematicas.nombretematica')
+        ->select('pregunts.id', 'pregunts.descripcion', 'pregunts.respuestaCorrecta', 'tematicas.nombretematica')
         ->orderBy('pregunts.id', 'ASC')
         ->simplePaginate(5);
 
@@ -38,7 +38,6 @@ class PreguntController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'descripcion' => ['required', 'string', 'min:4'],
-            'nivel' => ['required', 'integer'],
             'respuestaCorrecta' => ['required', 'string', 'min:4'],
             'respuestaError1' => ['required', 'string', 'min:4'],
             'respuestaError2' => ['required', 'string', 'min:4'],
@@ -51,7 +50,6 @@ class PreguntController extends Controller
         }else{
             $preguntas = pregunt::create([
                 'descripcion' => $request->descripcion,
-                'nivel' => $request->nivel,
                 'respuestaCorrecta' => $request->respuestaCorrecta,
                 'respuestaError1' => $request->respuestaError1,
                 'respuestaError2' => $request->respuestaError2,
@@ -83,7 +81,6 @@ class PreguntController extends Controller
     public function update(Request $request, pregunt $uploadPregunta){
         $validator = Validator::make($request->all(),[
             'descripcion' => ['required', 'string', 'min:4'],
-            'nivel' => ['required', 'integer'],
             'respuestaCorrecta' => ['required', 'string', 'min:4'],
             'respuestaError1' => ['required', 'string', 'min:4'],
             'respuestaError2' => ['required', 'string', 'min:4'],

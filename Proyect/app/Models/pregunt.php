@@ -12,7 +12,6 @@ class pregunt extends Model
 
     protected $fillable = [
         'descripcion',
-        'nivel',
         'respuestaCorrecta',
         'respuestaError1',
         'respuestaError2',

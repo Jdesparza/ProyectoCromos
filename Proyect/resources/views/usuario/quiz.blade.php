@@ -59,14 +59,13 @@
         <!-- Here I've inserted Score Result from JavaScript -->
     </div>
     <div class="buttons">
-    <button class = restart><a href="/usuario/mostrarAlbum">Ir a mi Colección</a></button>
+        <button class = restart><a href="/usuario/mostrarAlbum">Ir a mi Colección</a></button>
         <button class="quit">Salir</button>
     </div>
 </div>
 
 <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-
-<script class="preguntasQuiz" id="preguntasQuiz">
+<script class="preguntasQuiz" id="preguntasQuiz" type="text/javascript">
     const preguntas = {!! json_encode($preguntas) !!};
     let questionN = 0;
     // creating an array and passing the number, questions, options, and answers
@@ -126,20 +125,14 @@
     let widthValue = 0;
 
 
-    const quit_quiz = result_box.querySelector(".buttons .quit");
-
-
-    // if quitQuiz button clicked
-    quit_quiz.onclick = ()=>{
-        window.location.reload(); //reload the current window
-    }
+    
 
     const next_btn = document.querySelector("footer .next_btn");
     const bottom_ques_counter = document.querySelector("footer .total_que");
 
     // if Next Que button clicked
     next_btn.onclick = ()=>{
-        if(que_count < questions.length - 1){ //if question count is less than total question length
+        if(que_count < 5 - 1){ //if question count is less than total question length
             que_count++; //increment the que_count value
             que_numb++; //increment the que_numb value
             showQuetions(que_count); //calling showQestions function
@@ -210,6 +203,14 @@
         next_btn.classList.add("show"); //show the next button if user selected any option
     }
 
+    const quit_quiz = result_box.querySelector(".buttons .quit");
+
+
+    // if quitQuiz button clicked
+    quit_quiz.onclick = ()=>{
+        window.location.reload(); //reload the current window
+    }
+
     function showResult(){
         info_box.classList.remove("activeInfo"); //hide info box
         quiz_box.classList.remove("activeQuiz"); //hide quiz box
@@ -217,22 +218,22 @@
         const scoreText = result_box.querySelector(".score_text");
         if (userScore > 3){ // if user scored more than 3
             //creating a new span tag and passing the user score number and total question number
-            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
         }
         else if(userScore > 1){ // if user scored more than 1
-            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;
         }
         else if(userScore > 2){ // if user scored more than 1
-            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;
         }
         else{ // if user scored less than 1
-            let scoreTag = '<span>Lo Sentimos 😐, Solo haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>';
+            let scoreTag = '<span>Lo Sentimos 😐, Solo haz acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>';
             scoreText.innerHTML = scoreTag;
         }
     }
@@ -272,7 +273,7 @@
 
     function queCounter(index){
         //creating a new span tag and passing the question number and total question
-        let totalQueCounTag = '<span><p>'+ index +'</p> de <p>'+ questions.length +'</p> Preguntas</span>';
+        let totalQueCounTag = '<span><p>'+ index +'</p> de <p>'+ 5+'</p> Preguntas</span>';
         bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
     }
 </script>

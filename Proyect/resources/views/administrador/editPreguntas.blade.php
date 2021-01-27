@@ -26,7 +26,9 @@
                 @method('PUT')
                 <br>
                 <div class="">
-                    <input id="descripcion" type="text" class="formularioInputDos" name="descripcion" value="{{ $uploadPregunta->descripcion }}" required autocomplete="descripcion">
+                    <input id="descripcion" type="text" class="formularioInputDos" name="descripcion" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="{{ $uploadPregunta->descripcion }}" required autocomplete="descripcion">
                     <label for="descripcion" class="formularioLabelDos">Pregunta</label>
                 </div>
 
@@ -67,11 +69,6 @@
                             @endforeach
                         </select>
                     </section>
-                </div>
-
-                <div class="">
-                    <input id="nivel" type="number" class="formularioInputDos" name="nivel" value="{{ $uploadPregunta->nivel }}" required autocomplete="nivel">
-                    <label for="nivel" class="formularioLabelDos">Nivel</label>
                 </div>
 
                 <div class="">

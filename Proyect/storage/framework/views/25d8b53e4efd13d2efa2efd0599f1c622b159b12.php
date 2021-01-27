@@ -59,14 +59,13 @@
         <!-- Here I've inserted Score Result from JavaScript -->
     </div>
     <div class="buttons">
-        <button class="restart">Repetir</button>
+        <button class = restart><a href="/usuario/mostrarAlbum">Ir a mi Colección</a></button>
         <button class="quit">Salir</button>
     </div>
 </div>
 
 <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-
-<script class="preguntasQuiz" id="preguntasQuiz">
+<script class="preguntasQuiz" id="preguntasQuiz" type="text/javascript">
     const preguntas = <?php echo json_encode($preguntas); ?>;
     let questionN = 0;
     // creating an array and passing the number, questions, options, and answers
@@ -125,39 +124,15 @@
     let counterLine;
     let widthValue = 0;
 
-    const restart_quiz = result_box.querySelector(".buttons .restart");
-    const quit_quiz = result_box.querySelector(".buttons .quit");
 
-    // if restartQuiz button clicked
-    restart_quiz.onclick = ()=>{
-        quiz_box.classList.add("activeQuiz"); //show quiz box
-        result_box.classList.remove("activeResult"); //hide result box
-        timeValue = 15; 
-        que_count = 0;
-        que_numb = 1;
-        userScore = 0;
-        widthValue = 0;
-        showQuetions(que_count); //calling showQestions function
-        queCounter(que_numb); //passing que_numb value to queCounter
-        clearInterval(counter); //clear counter
-        clearInterval(counterLine); //clear counterLine
-        startTimer(timeValue); //calling startTimer function
-        startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Time Left"; //change the text of timeText to Time Left
-        next_btn.classList.remove("show"); //hide the next button
-    }
-
-    // if quitQuiz button clicked
-    quit_quiz.onclick = ()=>{
-        window.location.reload(); //reload the current window
-    }
+    
 
     const next_btn = document.querySelector("footer .next_btn");
     const bottom_ques_counter = document.querySelector("footer .total_que");
 
     // if Next Que button clicked
     next_btn.onclick = ()=>{
-        if(que_count < questions.length - 1){ //if question count is less than total question length
+        if(que_count < 5 - 1){ //if question count is less than total question length
             que_count++; //increment the que_count value
             que_numb++; //increment the que_numb value
             showQuetions(que_count); //calling showQestions function
@@ -174,17 +149,21 @@
             showResult(); //calling showResult function
         }
     }
+    get_random = function (list) {
+    return list[Math.floor((Math.random()*list.length))];
+        } 
 
     // getting questions and options from array
     function showQuetions(index){
         const que_text = document.querySelector(".que_text");
-
+        var lista = [0,1,2,3];
+        lista = lista.sort(function() {return Math.random() - 0.5});
         //creating a new span and div tag for question and option and passing the value using array index
         let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-        let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
+        let option_tag = '<div class="option"><span>'+ questions[index].options[lista[1]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[0]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[2]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[3]] +'</span></div>';
         que_text.innerHTML = que_tag; //adding new span tag inside que_tag
         option_list.innerHTML = option_tag; //adding new div tag inside option_tag
         
@@ -224,6 +203,14 @@
         next_btn.classList.add("show"); //show the next button if user selected any option
     }
 
+    const quit_quiz = result_box.querySelector(".buttons .quit");
+
+
+    // if quitQuiz button clicked
+    quit_quiz.onclick = ()=>{
+        window.location.reload(); //reload the current window
+    }
+
     function showResult(){
         info_box.classList.remove("activeInfo"); //hide info box
         quiz_box.classList.remove("activeQuiz"); //hide quiz box
@@ -231,22 +218,22 @@
         const scoreText = result_box.querySelector(".score_text");
         if (userScore > 3){ // if user scored more than 3
             //creating a new span tag and passing the user score number and total question number
-            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Felicitaciones 🎉, Haz acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
         }
         else if(userScore > 1){ // if user scored more than 1
-            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;
         }
         else if(userScore > 2){ // if user scored more than 1
-            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>'
+            let scoreTag = '<span>Buen Trabajo 😎, Haz Acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>'
             +'<span>Haz Obtenido <p>'+ userScore +'</p> Cromos <p>';
             scoreText.innerHTML = scoreTag;
         }
         else{ // if user scored less than 1
-            let scoreTag = '<span>Lo Sentimos 😐, Solo haz acertado <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>';
+            let scoreTag = '<span>Lo Sentimos 😐, Solo haz acertado <p>'+ userScore +'</p> de <p>'+ 5 +'</p></span>';
             scoreText.innerHTML = scoreTag;
         }
     }
@@ -286,7 +273,7 @@
 
     function queCounter(index){
         //creating a new span tag and passing the question number and total question
-        let totalQueCounTag = '<span><p>'+ index +'</p> de <p>'+ questions.length +'</p> Preguntas</span>';
+        let totalQueCounTag = '<span><p>'+ index +'</p> de <p>'+ 5+'</p> Preguntas</span>';
         bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
     }
 </script>

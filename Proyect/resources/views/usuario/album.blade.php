@@ -6,7 +6,7 @@
 		@foreach($albumes as $album)
 			<p class="nombreAlbumCromos">{{$album -> nombreAlbum }}</p>
 			@foreach($croms as $crom)
-				<div class="item" data-descripcion= "{{$crom->descripcion}}">
+				<div class="item" data-descripcion= "{{$crom->descripcion}}" data-titulo="{{$crom->nombreCromo}}">
 					<article class="item-contenido">
 						<img src="{{ asset('storage').'/'.$crom->imgCromo}}" alt="cromo" width="200px" height="200px">
 					</article>
@@ -22,6 +22,7 @@
 	<section class="overlay" id="overlay">
 		<div class="contenedor-img">
 			<button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
+			<p class="titulo"></p>
 			<img src="" alt="contenedor">
 		</div>
 		<p class="descripcion"></p>

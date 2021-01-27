@@ -58,6 +58,10 @@ class JuegoController extends Controller
         ->with('mensaje', 'El álbum a sido creado con exito!');
     }
 
+    public function obtener($obtener){
+        
+    }
+
     /**
      * Display the specified resource.
      *
@@ -70,12 +74,9 @@ class JuegoController extends Controller
         ->join('tematicas', 'tematicas.id', '=', 'pregunts.id_tematica')
         ->select('pregunts.id', 'pregunts.descripcion', 'pregunts.respuestaCorrecta', 
             'pregunts.respuestaCorrecta AS opcion1', 'pregunts.respuestaError1 AS opcion2', 'pregunts.respuestaError2 AS opcion3',
-            'pregunts.respuestaError3 AS opcion4', 'pregunts.nivel', 'tematicas.id','tematicas.nombretematica')
+            'pregunts.respuestaError3 AS opcion4', 'tematicas.id','tematicas.nombretematica')
         ->where('tematicas.id', '=', $id)
-        ->orderBy('pregunts.nivel', 'ASC')
         ->orderByRaw("RAND()")
-        ->skip(0)
-        ->take(5)
         ->get();
         
         $tematica = tematica::findOrFail($id);

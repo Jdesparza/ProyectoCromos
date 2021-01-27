@@ -744,6 +744,8 @@ section.contenedor section.grid div.item {
 
 .overlay img {
 	max-width: 100%;
+	display: block;
+	margin: auto;
 }
 
 .overlay .descripcion {
@@ -754,6 +756,16 @@ section.contenedor section.grid div.item {
 	margin-top: 5px;
 	border-radius: 10px;
 	max-width: 50%;
+}
+
+.overlay .titulo {
+	text-align: center;
+	font-size: 1.5em;
+	color: white;
+	margin: 1em;
+}
+.overlay .titulo::first-letter{
+	text-transform: uppercase;
 }
 
 .contenedor-img {
