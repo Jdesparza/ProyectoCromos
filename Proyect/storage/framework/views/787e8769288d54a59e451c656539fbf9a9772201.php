@@ -59,7 +59,7 @@
         <!-- Here I've inserted Score Result from JavaScript -->
     </div>
     <div class="buttons">
-        <button class="restart">Repetir</button>
+    <button class = restart><a href="/usuario/mostrarAlbum">Ir a mi Colección</a></button>
         <button class="quit">Salir</button>
     </div>
 </div>
@@ -125,27 +125,9 @@
     let counterLine;
     let widthValue = 0;
 
-    const restart_quiz = result_box.querySelector(".buttons .restart");
+
     const quit_quiz = result_box.querySelector(".buttons .quit");
 
-    // if restartQuiz button clicked
-    restart_quiz.onclick = ()=>{
-        quiz_box.classList.add("activeQuiz"); //show quiz box
-        result_box.classList.remove("activeResult"); //hide result box
-        timeValue = 15; 
-        que_count = 0;
-        que_numb = 1;
-        userScore = 0;
-        widthValue = 0;
-        showQuetions(que_count); //calling showQestions function
-        queCounter(que_numb); //passing que_numb value to queCounter
-        clearInterval(counter); //clear counter
-        clearInterval(counterLine); //clear counterLine
-        startTimer(timeValue); //calling startTimer function
-        startTimerLine(widthValue); //calling startTimerLine function
-        timeText.textContent = "Time Left"; //change the text of timeText to Time Left
-        next_btn.classList.remove("show"); //hide the next button
-    }
 
     // if quitQuiz button clicked
     quit_quiz.onclick = ()=>{
@@ -174,17 +156,21 @@
             showResult(); //calling showResult function
         }
     }
+    get_random = function (list) {
+    return list[Math.floor((Math.random()*list.length))];
+        } 
 
     // getting questions and options from array
     function showQuetions(index){
         const que_text = document.querySelector(".que_text");
-
+        var lista = [0,1,2,3];
+        lista = lista.sort(function() {return Math.random() - 0.5});
         //creating a new span and div tag for question and option and passing the value using array index
         let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-        let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
-        + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
+        let option_tag = '<div class="option"><span>'+ questions[index].options[lista[1]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[0]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[2]] +'</span></div>'
+        + '<div class="option"><span>'+ questions[index].options[lista[3]] +'</span></div>';
         que_text.innerHTML = que_tag; //adding new span tag inside que_tag
         option_list.innerHTML = option_tag; //adding new div tag inside option_tag
         

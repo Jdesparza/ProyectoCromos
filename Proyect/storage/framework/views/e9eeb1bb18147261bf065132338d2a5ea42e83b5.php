@@ -32,14 +32,16 @@
     </section>
     <section class="articulos">
         <?php $__currentLoopData = $tematicas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tematica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <a href="/usuario/juego" class="navTematicas">
-                <article class="articulosTematica">
+            <article class="articulosTematica">
+                <a href="/usuario/juego" class="navTematicas">
                     <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
-                    <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
-                    <h6 class="h6Parte1">Album:</h6>
-                    <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
-                </article>
-            </a>
+                    <section>
+                        <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
+                        <h6 class="h6Parte1">Album:</h6>
+                        <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
+                    </section>
+                </a>
+            </article>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </section>
 </section>

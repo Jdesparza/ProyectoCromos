@@ -1241,10 +1241,12 @@ footer button.show{
     color: #fff;
     background: #007bff;
 }
-
-.buttons button.restart:hover{
-    background: #0263ca;
+.buttons button.restart a{
+    color: #fff;
+	background: #007bff;
+	text-decoration: none;
 }
+
 
 .buttons button.quit{
     color: #007bff;
