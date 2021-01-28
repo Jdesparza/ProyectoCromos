@@ -8,6 +8,7 @@ use App\Models\pregunt;
 use App\Models\album;
 use App\Models\cromo_usuario;
 use App\Http\Controllers\Auth;
+use App\Models\crom;
 
 class JuegoController extends Controller
 {
@@ -50,17 +51,35 @@ class JuegoController extends Controller
      */
     public function store(Request $request)
     {
-        $cromosUsuarios= cromo_usuario::create([
-            'id_albumUsuario' => $request->id_albumUsuario,
-            'id_cromos' => $request->id_cromos
-        ]);
-        return back()
-        ->with('mensaje', 'El álbum a sido creado con exito!');
+       $respuesta = 0;
+       $opcion = $request ->input('numeroPreg');
+
+        if(! ($request->input('question') == NULL) ) {
+            $array = array_values($request->input('question'));
+            
+            foreach($array as $array2) {
+                if( $array2 == "v1") {
+                    $respuesta = $respuesta +1;
+                }
+            }
+        }
+     // Reparticion de cromos
+        // 100%
+        $usuario= $request->input('valorInputUser');
+        $cromos = crom::all();
+        if($respuesta == $opcion){
+            foreach( $cromos as $cromo){
+                    DB::table('cromos_usuarios')->insert([
+                        'id' => $cromo->tematica->idAlbum,
+                        'id' => $cromo->id,
+                        'id' => $usuario
+                    ]);
+                }
+                $arrayCromosDesbloqueados[] = array($cromo->idCromo, $cromo->imgURL, $cromo->nombre);
+           // Si no obiene el 100%, entonces...
+        } 
     }
 
-    public function obtener($obtener){
-        
-    }
 
     /**
      * Display the specified resource.

@@ -25,7 +25,9 @@
                 <?php echo csrf_field(); ?>
                 <br>
                 <div class="">
-                    <input id="descripcion" type="text" class="formularioInput" name="descripcion" value="<?php echo e(old('descripcion')); ?>" required autocomplete="descripcion">
+                    <input id="descripcion" type="text" class="formularioInput" name="descripcion" 
+                    onKeyUp="document.getElementById(this.id).value=document.getElementById(this.id).value.toLowerCase()"
+                    value="<?php echo e(old('descripcion')); ?>" required autocomplete="descripcion">
                     <label for="descripcion" class="formularioLabel">Pregunta</label>
                 </div>
 
@@ -69,11 +71,6 @@
                 </div>
 
                 <div class="">
-                    <input id="nivel" type="number" class="formularioInputDos" name="nivel" value="<?php echo e(old('nivel')); ?>" required autocomplete="nivel">
-                    <label for="nivel" class="formularioLabelDos">Nivel</label>
-                </div>
-
-                <div class="">
                     <div class="">
                         <button type="submit" class="formularioSubmit">
                             <?php echo e(__('Agregar')); ?>
@@ -96,7 +93,6 @@
                     <th>Pregunta</th>
                     <th>Respuesta</th>
                     <th>Temática</th>
-                    <th>Nivel</th>
                     <th>Eliminar</th>
                     <th>Editar</th>
                 </tr>
@@ -108,7 +104,6 @@
                         <td><?php echo e($pregunta->descripcion); ?></td>
                         <td><?php echo e($pregunta->respuestaCorrecta); ?></td>
                         <td><?php echo e($pregunta->nombretematica); ?></td>
-                        <td><?php echo e($pregunta->nivel); ?></td>
                         <?php echo method_field('DELETE'); ?>
                         <td><a href="<?php echo e(route('uploadPreguntas.destroy', $pregunta->id)); ?>" 
                         onclick="return confirm('¿Seguro que deseas eliminar la pregunta <?php echo e($pregunta->id); ?>?')" class="botonEliminar">
