@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Providers\RouteServiceProvider;
-use App\Models\tematica;
 use App\Http\Controllers\Controller;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,4 +35,7 @@ class tematica extends Model
     public function album(){
         return $this->belongsTo('App\Models\album', 'id_album');
     }
+    
+    protected $table = 'tematicas';
+    protected $primaryKey = "id";
 }

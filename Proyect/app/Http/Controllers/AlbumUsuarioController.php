@@ -97,7 +97,7 @@ class AlbumUsuarioController extends Controller
             ->select('cromos_usuarios.id', 'croms.descripcion', 'croms.imgCromo', 'croms.nombreCromo')
             ->where('album_usuarios.id_usuario', '=', $usuario)
             ->where('album_usuarios.id_album', '=', $id)
-            ->orderBy('cromos_usuarios.id', 'ASC')
+            ->groupBy('cromos_usuarios.id_cromos')
             ->simplePaginate(9);
 
         return view('/usuario/album')

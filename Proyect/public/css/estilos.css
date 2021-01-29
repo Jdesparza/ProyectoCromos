@@ -262,10 +262,10 @@ div.VentanaRegistro, div.ventanaObtenerAlbum {
 	border-bottom: #000 solid 3px;
 }
 div.ventanaObtenerAlbum{
-	margin-top: 2em;
 	margin-left: 27em;
 	margin-right: 27em;
 	margin-bottom: 2em;
+	margin-block: 5em;
 }
 div label.labelInicio{
 	padding-left: 0.6em;
@@ -286,6 +286,7 @@ div.reg1, div.obtenerAlbumTitulo {
 }
 div.obtenerAlbumTitulo {
 	font-weight: 900;
+	padding-block-start: 1.6em;
 }
 div.reg2{
 	margin-left: 4em;
@@ -307,7 +308,7 @@ div.obtenerAlbum section.sectionSelectObtenerAlbum{
 	border: 1px solid black;
 }
 div.obtenerAlbum section.sectionSelectObtenerAlbum select{
-	padding: 0.5em 5.21em;
+	padding: 0.5em 4.85em;
 	background-color: rgba(255, 216, 133, 0.7);
 	text-align-last: center;
 }
@@ -343,6 +344,7 @@ div.reg8 input{
 }
 div.botonObtenerAlbum{
 	text-align: center;
+	padding-block-end: 1.6em;
 }
 div.botonObtenerAlbum button{
 	background-color: #42a5f5;
@@ -763,6 +765,7 @@ section.contenedor section.grid div.item {
 	font-size: 1.5em;
 	color: white;
 	margin: 1em;
+	font-weight: 900;
 }
 .overlay .titulo::first-letter{
 	text-transform: uppercase;
@@ -896,380 +899,6 @@ section.levels article.lev a:hover {
 	transition-duration: 2s;
 }
 
-::selection{
-    color: #fff;
-    background: #007bff;
-}
-
-.info_box,
-.quiz_box,
-.result_box{
-	position: absolute;
-    top: 50%;
-	left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.info_box.activeInfo,
-.quiz_box.activeQuiz,
-.result_box.activeResult{
-    opacity: 1;
-	z-index: 5;
-	
-	background-color: white;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.start_btn button{
-    font-size: 25px;
-    font-weight: 500;
-	color:white;
-	background-color: #42a5f5;
-    padding: 30px 60px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-	cursor: pointer;
-	margin: 6em;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.info_box{
-    width: 540px;
-    border-radius: 5px;
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.info_box .info-title{
-    height: 60px;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    border-radius: 5px 5px 0 0;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.info_box .info-list{
-    padding: 15px 30px;
-}
-
-.info_box .info-list .info{
-    margin: 5px 0;
-    font-size: 17px;
-}
-
-.info_box .info-list .info span{
-    font-weight: 600;
-    color: #007bff;
-}
-.info_box .buttons{
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 30px;
-    border-top: 1px solid lightgrey;
-}
-
-.info_box .buttons button{
-    margin: 0 5px;
-    height: 40px;
-    width: 100px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #007bff;
-    transition: all 0.3s ease;
-}
-
-.quiz_box{
-    width: 550px;
-    background: #fff;
-    border-radius: 5px;
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.quiz_box header{
-    position: relative;
-    z-index: 2;
-    height: 70px;
-    padding: 0 30px;
-    background: #fff;
-    border-radius: 5px 5px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
-}
-section.query {
-    padding: 25px 30px 20px 30px;
-}
-.quiz_box header .title{
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.quiz_box header .timer{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
-    height: 45px;
-    padding: 0 8px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 145px;
-}
-
-.quiz_box header .timer .time_left_txt{
-    font-weight: 400;
-    font-size: 17px;
-    user-select: none;
-}
-
-.quiz_box header .timer .timer_sec{
-    font-size: 18px;
-    font-weight: 500;
-    height: 30px;
-    width: 45px;
-    color: #fff;
-    border-radius: 5px;
-    line-height: 30px;
-    text-align: center;
-    background: #343a40;
-    border: 1px solid #343a40;
-    user-select: none;
-}
-
-.quiz_box header .time_line{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 3px;
-    background: #007bff;
-}
-
-section .que_text{
-    font-size: 25px;
-    font-weight: 600;
-}
-
-section .option_list{
-    padding: 20px 0px;
-    display: block;   
-}
-
-section .option_list .option{
-    background: aliceblue;
-    border: 1px solid #84c5fe;
-    border-radius: 5px;
-    padding: 8px 15px;
-    font-size: 17px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-section .option_list .option:last-child{
-    margin-bottom: 0px;
-}
-
-section .option_list .option:hover{
-    color: #004085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
-}
-
-section .option_list .option.correct{
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-
-section .option_list .option.incorrect{
-    color: #721c24;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
-}
-
-section .option_list .option.disabled{
-    pointer-events: none;
-}
-
-section .option_list .option .icon{
-    height: 26px;
-    width: 26px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 13px;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    line-height: 24px;
-}
-.option_list .option .icon.tick{
-    color: #23903c;
-    border-color: #23903c;
-    background: #d4edda;
-}
-
-.option_list .option .icon.cross{
-    color: #a42834;
-    background: #f8d7da;
-    border-color: #a42834;
-}
-
-footer{
-    height: 60px;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid lightgrey;
-}
-
-footer .total_que span{
-    display: flex;
-    user-select: none;
-}
-
-footer .total_que span p{
-    font-weight: 500;
-    padding: 0 5px;
-}
-
-footer .total_que span p:first-child{
-    padding-left: 0px;
-}
-
-footer button{
-    height: 40px;
-    padding: 0 13px;
-    font-size: 18px;
-    font-weight: 400;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    color: #fff;
-    border-radius: 5px;
-    background: #007bff;
-    border: 1px solid #007bff;
-    line-height: 10px;
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(0.95);
-    transition: all 0.3s ease;
-}
-
-footer button:hover{
-    background: #0263ca;
-}
-
-footer button.show{
-    opacity: 1;
-    pointer-events: auto;
-    transform: scale(1);
-}
-
-.result_box{
-    background: #fff;
-    border-radius: 5px;
-    display: flex;
-    padding: 25px 30px;
-    width: 450px;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-
-.result_box .icon{
-    font-size: 100px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.result_box .complete_text{
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.result_box .score_text span{
-    display: flex;
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.result_box .score_text span p{
-    padding: 0 4px;
-    font-weight: 600;
-}
-
-.result_box .buttons{
-    display: flex;
-    margin: 20px 0;
-}
-
-.result_box .buttons button{
-    margin: 0 10px;
-    height: 45px;
-    padding: 0 20px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #007bff;
-    transition: all 0.3s ease;
-}
-
-.buttons button.restart{
-    color: #fff;
-    background: #007bff;
-}
-.buttons button.restart a{
-    color: #fff;
-	background: #007bff;
-	text-decoration: none;
-}
-
-
-.buttons button.quit{
-    color: #007bff;
-    background: #fff;
-}
-
-.buttons button.quit:hover{
-    color: #fff;
-    background: #007bff;
-}
-
 section.sectionObtenerAlbum{
 	margin: 1em;
 	margin-block-start: 2em;
@@ -1287,4 +916,153 @@ section.sectionObtenerAlbum a{
 section.sectionObtenerAlbum a:hover{
 	background-color: rgba(243, 212, 128, 0.5);
 	border: 1px solid rgb(45, 133, 4);
+}
+
+/*-------------------------------------------------------------------------------*/
+section.formatoQuiz{
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.9);
+	width: 45%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-block: 3em;
+	border-radius: 20px;
+	border-block-end: 3px solid black;
+}
+section.formatoQuiz h2.tituloQuiz{
+	padding-block-start: 1em;
+	font-size: 2em;
+	font-weight: 900;
+}
+
+section.formatoQuiz form.quiz article.primerBorde{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	width: 80%;
+	margin-block: 2em;
+	border-radius: 10px;
+}
+
+section.formatoQuiz form.quiz article.primerBorde:hover{
+	background-color: rgb(241, 241, 241);
+}
+
+section.formatoQuiz form.quiz article.segundoBorde{
+	margin-left: auto;
+	margin-right: auto;
+	margin-block: 1em;
+	width: 87%;
+}
+
+section.formatoQuiz form.quiz h3{
+	text-align: left;
+	font-size: 1.3em;
+}
+
+section.formatoQuiz form.quiz h3::first-letter{
+	text-transform: uppercase;
+}
+
+section.formatoQuiz form.quiz div{
+	text-align: left;
+	margin: 0.6em 1em;
+}
+
+section.formatoQuiz form.quiz div input{
+	text-align: left;
+	margin: 0.6em 1em;
+}
+
+section.formatoQuiz form.quiz button{
+	padding: 0.7em 1.3em;
+	border: 1px solid black;
+}
+
+section.formatoQuiz form.quiz button:hover{
+	background-color: rgb(80, 150, 255);
+}
+
+section.formatoQuiz form.quiz section.apartadoFinal{
+	border: 1px solid black;
+	margin: 1em 2em;
+	padding: 0.6em;
+}
+
+section.formatoQuiz form.quiz section.apartadoFinal article.apartadoTiempo{
+	width: 72%;
+	display: inline-block;
+	text-align: left;
+}
+section.formatoQuiz form.quiz section.apartadoFinal article.apartadoBotonQuiz{
+	width: 20%;
+	display: inline-block;
+	text-align: right;
+}
+
+.containerQuiz {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 1.2em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.containerQuiz input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: rgb(255, 249, 196);
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+/* On mouse-over, add a grey background color */
+.containerQuiz:hover input ~ .checkmark {
+	background-color: rgb(255, 246, 168);
+}
+
+/* When the radio button is checked, add a blue background */
+.containerQuiz input:checked ~ .checkmark {
+	background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.containerQuiz input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.containerQuiz .checkmark:after {
+	top: 6.1px;
+	left: 6.35px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.containerQuiz::first-letter{
+	text-transform: uppercase;
 }

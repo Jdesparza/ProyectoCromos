@@ -1,41 +1,63 @@
 @extends('layouts.appNavegando')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<section class="estructuraTest">
-    <h2>Test</h2>
+<section class="formatoQuiz">
+    <h2 class="tituloQuiz">Quiz</h2>
     @php 
         $contador = 1;  
     @endphp
-    <div id="status"></div>
 
-    <form action="{{ route('test.store') }}" name="quiz"  id="myquiz">
+    <form action="{{ route('test.store') }}" name="quiz"  id="myquiz" class="quiz">
         @foreach($preguntas as $pregunta)
-            <article>
-                <h3>{{$pregunta->descripcion}}</h3>
+            <article class="primerBorde">
+                <article class="segundoBorde">
+                    <h3>{{$pregunta->descripcion}}</h3>
                     <div class="opcion{{$contador}}">
-                        <input type="radio" value="v1" name="question[{{$pregunta->descripcion}}]"> {{$pregunta->opcion1}} <br>
+                        <label class="containerQuiz">
+                            <input type="radio" value="v1" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <span class="checkmark"></span> {{$pregunta->opcion1}}
+                        </label>
                     </div>
                     <div class="opcion{{$contador}}">
-                        <input type="radio" value="v2" name="question[{{$pregunta->descripcion}}]"> {{$pregunta->opcion2}} <br>
+                        <label class="containerQuiz">
+                            <input type="radio" value="v2" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <span class="checkmark"></span>{{$pregunta->opcion2}}
+                        </label>
                     </div>
                     <div class="opcion{{$contador}}">
-                        <input type="radio" value="v3" name="question[{{$pregunta->descripcion}}]"> {{$pregunta->opcion3}} <br>
+                        <label class="containerQuiz">
+                            <input type="radio" value="v3" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <span class="checkmark"></span> {{$pregunta->opcion3}}
+                        </label>
                     </div>
                     <div class="opcion{{$contador}}">
-                        <input type="radio" value="v4" name="question[{{$pregunta->descripcion}}]"> {{$pregunta->opcion4}} <br>
+                        <label class="containerQuiz">
+                            <input type="radio" value="v4" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <span class="checkmark"></span> {{$pregunta->opcion4}}
+                        </label>
                     </div>
-                        <input type="hidden" name="numeroPreg" id="numeroPreg" value="{{$contador}}"> 
-                        <input type="hidden" name="valorInputUser" id="valorInputUser" value="{{auth()->user()->id}}"> 
-
+                        <input type="hidden" name="nPregunta" id="nPregunta" value="{{$contador}}">
+                        <input type="hidden" name="valorTematica" id="valorTematica" value="{{$tematica->id}}"> 
+                    </article>
             </article>
             @php 
-                $contador = $contador+1;  
+                $contador = $contador+1; 
             @endphp
+            @if($contador == 6)
+                @break
+            @endif 
         @endforeach
-        <button type="submit" name="submitbutton" class="btn btn-success m-auto"> Testear</button>
+        <section class="apartadoFinal">
+            <article class="apartadoTiempo">
+                <div id="status"></div>
+            </article>
+            <article class="apartadoBotonQuiz">
+                <button type="submit" name="submitbutton" class="btn btn-success m-auto" id="mensajeResultado">Finalizar</button>
+            </article>
+        </section>
     </form>
-    <!-- aletorizar respuestas -->
     <script>
         for (var x = 1; x<= 10; x++) {
             var cards = $(".opcion"+x);
@@ -46,8 +68,31 @@
             } 
         }
     </script>
-    
+    <script>
+        function countDown(secs, elem) {
+            var element = document.getElementById(elem);
+            if((secs/60) < 1){
+                element.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs) % 60 )+"</b> segundos </h3>";  
+            } else if (secs >= 60 && secs < 120){
+                element.innerHTML = "<h3>Te queda <b>"+Math.floor( (secs/60) % 60 )+ "</b> minuto <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>" 
+            } else {
+                element.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs/60) % 60 )+ "</b> minutos <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>";  
+            }
 
-
-
+            if(secs < 1) {
+                document.quiz.submit();
+            }
+            else {
+                secs--;
+                setTimeout('countDown('+secs+',"'+elem+'")',1000);
+            }
+        }
+    </script> 
+    <script type="text/javascript">countDown( <?php echo 100  ?> ,"status");</script>
+    <script>
+        document.getElementById('mensajeResultado').onclick = function(){
+            alert('Tus cromos se guardaron en el álbum');
+        }
+    </script>
+</section>
 @endsection

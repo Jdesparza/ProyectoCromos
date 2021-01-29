@@ -10,16 +10,18 @@
     </section>
     <section class="articulos">
         <?php $__currentLoopData = $tematicas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tematica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <article class="articulosTematica">
-                <a href="<?php echo e(route('juego.show', $tematica->id)); ?>" class="navTematicas">
-                    <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
-                    <section>
-                        <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
-                        <h6 class="h6Parte1">Album:</h6>
-                        <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
-                    </section>
-                </a>
-            </article>
+            <?php if(!empty($tematica)): ?>
+                <article class="articulosTematica">
+                    <a href="<?php echo e(route('juego.show', $tematica->id)); ?>" class="navTematicas">
+                        <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
+                        <section>
+                            <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
+                            <h6 class="h6Parte1">Album:</h6>
+                            <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
+                        </section>
+                    </a>
+                </article>
+            <?php endif; ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </section>
 </section>

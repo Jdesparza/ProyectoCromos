@@ -9,6 +9,7 @@ use App\Models\album;
 use App\Models\cromo_usuario;
 use App\Http\Controllers\Auth;
 use App\Models\crom;
+use App\Models\album_usuario;
 
 class JuegoController extends Controller
 {
@@ -51,8 +52,28 @@ class JuegoController extends Controller
      */
     public function store(Request $request)
     {
-       $respuesta = 0;
-       $opcion = $request ->input('numeroPreg');
+        $respuesta = 0;
+        $opcion = $request ->input('nPregunta');
+        $tematica = $request ->input('valorTematica');
+
+        $usuario = \Auth::user()->id;
+
+        $albumUser = \DB::table('album_usuarios')
+            ->join('albums', 'album_usuarios.id_album', '=', 'albums.id')
+            ->join('tematicas', 'albums.id', '=', 'tematicas.id_album')
+            ->select('album_usuarios.*')
+            ->where('album_usuarios.id_usuario', '=', $usuario)
+            ->where('tematicas.id', '=', $tematica)
+            ->get()
+            ->first();
+
+        $albumes = \DB::table('albums')
+        ->join('tematicas', 'albums.id', '=', 'tematicas.id_album')
+        ->select('albums.id')
+        ->where('tematicas.id', '=', $tematica)
+        ->get()
+        ->first();
+
 
         if(! ($request->input('question') == NULL) ) {
             $array = array_values($request->input('question'));
@@ -63,21 +84,24 @@ class JuegoController extends Controller
                 }
             }
         }
-     // Reparticion de cromos
-        // 100%
-        $usuario= $request->input('valorInputUser');
-        $cromos = crom::all();
-        if($respuesta == $opcion){
-            foreach( $cromos as $cromo){
-                    DB::table('cromos_usuarios')->insert([
-                        'id' => $cromo->tematica->idAlbum,
-                        'id' => $cromo->id,
-                        'id' => $usuario
-                    ]);
-                }
-                $arrayCromosDesbloqueados[] = array($cromo->idCromo, $cromo->imgURL, $cromo->nombre);
-           // Si no obiene el 100%, entonces...
-        } 
+        
+        for($i = 0; $i < $respuesta; $i++){
+            $cromos = \DB::table('croms')
+            ->join('tematicas', 'croms.id_tematica', '=', 'tematicas.id')
+            ->join('albums', 'tematicas.id_album', '=', 'albums.id')
+            ->select('croms.*')
+            ->where('albums.id', '=', $albumes->id)
+            ->orderByRaw("RAND()")
+            ->take(1)
+            ->get()
+            ->first();
+
+            $obtenerCromo = cromo_usuario::create([
+                'id_albumUsuario' => $albumUser->id,
+                'id_cromos' => $cromos->id
+            ]);
+        }
+        return redirect('/usuario/mostrarAlbum');
     }
 
 

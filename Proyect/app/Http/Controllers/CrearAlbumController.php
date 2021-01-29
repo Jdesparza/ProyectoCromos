@@ -12,7 +12,6 @@ class CrearAlbumController extends Controller
 {
     public function index()
     {
-        
         $albums = \DB::table('albums')
             ->select('albums.id', 'albums.nombreAlbum')
             ->orderBy('albums.id', 'ASC')
