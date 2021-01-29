@@ -646,7 +646,7 @@ section.alerta, section.alerta2{
 section.alerta2{
 	margin-block-start: 1em;
 }
-ul.alertaUlCorrecto, ul.alertaU2Correcto{
+ul.alertaUlCorrecto, ul.alertaU2Correcto, ul.alertaObtenerCromos{
 	list-style: square;
 }
 section.alertaCorrecto, section.alertaCorrecto2{
@@ -660,6 +660,19 @@ section.alertaCorrecto, section.alertaCorrecto2{
 }
 section.alertaCorrecto2{
 	margin-block-start: 1em;
+}
+section.alertaCorrecto3{
+	text-decoration: none;
+	background-color: rgba(255, 255, 255, 1);
+	width: 40%;
+	border: 1px solid black;
+	border-block-end: 3px solid black;
+	border-radius: 20px;
+	margin: 0 auto;
+	padding: 1.5em;
+	margin-block-end: 1em;
+	margin-block-start: 1em;
+	text-align: center;
 }
 tbody.tablaCuerpo tr td a{
 	padding: 0.4em 2em;

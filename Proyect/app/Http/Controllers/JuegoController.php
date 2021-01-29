@@ -101,7 +101,8 @@ class JuegoController extends Controller
                 'id_cromos' => $cromos->id
             ]);
         }
-        return redirect('/usuario/mostrarAlbum');
+        return redirect('/usuario/mostrarAlbum')
+        ->with('mensajeCromos', $respuesta);
     }
 
 

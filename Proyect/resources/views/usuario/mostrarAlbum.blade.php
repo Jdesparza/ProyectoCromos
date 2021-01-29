@@ -1,12 +1,32 @@
 @extends('layouts.appNavegando')
 
 @section('content')
-@if ($message = Session::get('mensaje'))
-	<ul class="alertaU2Correcto">
-		<section class="alertaCorrecto2">
-			<p>{{ $message }}</p>
-		</section>
-	</ul>
+@if ($message = Session::get('mensajeCromos'))
+    <ul class="alertaObtenerCromos">
+        <section class="alertaCorrecto3">
+            <img src="../../../img/confetti.png" alt="felicitacion">
+            @if($message == 5)
+                <p>Felicitaciones &#128526, Haz acertado {{ $message }} de 5 preguntas</p>
+                <p>Obtienes {{ $message }} cromos</p>
+            @else
+                @if($message  >= 3 && $message  < 5)
+                    <p>Buen Trabajo &#128512, Haz acertado {{ $message }} de 5 preguntas</p>
+                    <p>Obtienes {{ $message }} cromos</p>
+                @else
+                    @if($message < 3 && $message  >= 2)
+                        <p>Lo Sentimos &#128528, Solo haz acertado {{ $message }} de 5 preguntas</p>
+                        <p>Obtienes {{ $message }} cromos</p>
+                    @else
+                        @if($message == 1)
+                            <p>Lo Sentimos &#128528, Solo haz acertado {{ $message }} de 5 preguntas</p>
+                            <p>Obtienes {{ $message }} cromo</p>
+                        @endif
+                    @endif
+                @endif
+            @endif
+            <p>Recuerda que los cromos repetidos no se mostraran en el álbum</p>
+        </section>
+    </ul>
 @endif
 <section class="sectionTitulo">
     <h1>Álbumes</h1>
