@@ -11,6 +11,8 @@
         </div>
         <div class="slide" style="background-image: url('{{ asset('img/Frame6.png')}}')">
         </div>
+        <div class="slide" style="background-image: url('{{ asset('img/Frame7.png')}}')">
+        </div>
     </section>
 
     <!-- controls  -->

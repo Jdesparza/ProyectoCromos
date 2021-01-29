@@ -16,25 +16,25 @@
                     <h3>{{$pregunta->descripcion}}</h3>
                     <div class="opcion{{$contador}}">
                         <label class="containerQuiz">
-                            <input type="radio" value="v1" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <input type="radio" value="v1" name="question[{{$pregunta->descripcion}}]" class="inputQuizz" required>
                             <span class="checkmark"></span> {{$pregunta->opcion1}}
                         </label>
                     </div>
                     <div class="opcion{{$contador}}">
                         <label class="containerQuiz">
-                            <input type="radio" value="v2" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <input type="radio" value="v2" name="question[{{$pregunta->descripcion}}]" class="inputQuizz" required>
                             <span class="checkmark"></span>{{$pregunta->opcion2}}
                         </label>
                     </div>
                     <div class="opcion{{$contador}}">
                         <label class="containerQuiz">
-                            <input type="radio" value="v3" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <input type="radio" value="v3" name="question[{{$pregunta->descripcion}}]" class="inputQuizz" required>
                             <span class="checkmark"></span> {{$pregunta->opcion3}}
                         </label>
                     </div>
                     <div class="opcion{{$contador}}">
                         <label class="containerQuiz">
-                            <input type="radio" value="v4" name="question[{{$pregunta->descripcion}}]" class="inputQuiz" required>
+                            <input type="radio" value="v4" name="question[{{$pregunta->descripcion}}]" class="inputQuizz" required>
                             <span class="checkmark"></span> {{$pregunta->opcion4}}
                         </label>
                     </div>
@@ -59,24 +59,24 @@
         </section>
     </form>
     <script>
-        for (var x = 1; x<= 10; x++) {
-            var cards = $(".opcion"+x);
-            for(var i = 0; i < cards.length; i++){
-                var target = Math.floor(Math.random() * cards.length -1) + 1;
-                var target2 = Math.floor(Math.random() * cards.length -1) +1;
-                cards.eq(target).before(cards.eq(target2));
+        for (var i = 1; i<= 10; i++) {
+            var cr = $(".opcion"+i);
+            for(var j = 0; j < cr.length; j++){
+                var ramdom = Math.floor(Math.random() * cr.length -1) + 1;
+                var ramdom2 = Math.floor(Math.random() * cr.length -1) +1;
+                cr.eq(ramdom).before(cr.eq(ramdom2));
             } 
         }
     </script>
     <script>
         function countDown(secs, elem) {
-            var element = document.getElementById(elem);
+            var elemento = document.getElementById(elem);
             if((secs/60) < 1){
-                element.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs) % 60 )+"</b> segundos </h3>";  
+                elemento.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs) % 60 )+"</b> segundos </h3>";  
             } else if (secs >= 60 && secs < 120){
-                element.innerHTML = "<h3>Te queda <b>"+Math.floor( (secs/60) % 60 )+ "</b> minuto <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>" 
+                elemento.innerHTML = "<h3>Te queda <b>"+Math.floor( (secs/60) % 60 )+ "</b> minuto <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>" 
             } else {
-                element.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs/60) % 60 )+ "</b> minutos <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>";  
+                elemento.innerHTML = "<h3>Te quedan <b>"+Math.floor( (secs/60) % 60 )+ "</b> minutos <b>" +Math.floor( (secs) % 60 )+ "</b> segundos </h3>";  
             }
 
             if(secs < 1) {
