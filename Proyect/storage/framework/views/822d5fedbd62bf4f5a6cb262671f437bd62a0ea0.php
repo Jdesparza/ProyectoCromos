@@ -32,7 +32,7 @@
 
                 <div class="">
                     <input id="email" type="email" class="formularioInput" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email">
-                    <label for="email" class="formularioLabel"><?php echo e(__('E-Mail Address')); ?></label>
+                    <label for="email" class="formularioLabel">Correo</label>
                 </div>
 
                 <div class="">

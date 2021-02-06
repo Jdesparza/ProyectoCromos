@@ -32,7 +32,7 @@
 
                 <div class="">
                     <input id="email" type="email" class="formularioInputDos" name="email" value="{{ $adminUser->email }}">
-                    <label for="email" class="formularioLabelDos">{{ __('E-Mail Address') }}</label>
+                    <label for="email" class="formularioLabelDos">Correo</label>
                 </div>
 
                 <div class="">

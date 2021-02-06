@@ -16,7 +16,7 @@
                         <img src="<?php echo e(asset('storage').'/'.$tematica->imgTematica); ?>" width="342px" height="172px" alt="tematica">
                         <section>
                             <h5 class="nombreTematica"><?php echo e($tematica->nombretematica); ?></h5>
-                            <h6 class="h6Parte1">Album:</h6>
+                            <h6 class="h6Parte1">Álbum:</h6>
                             <h6 class="h6Parte2"><?php echo e($tematica->nombreAlbum); ?></h6>
                         </section>
                     </a>

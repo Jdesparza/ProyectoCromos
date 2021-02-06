@@ -20,10 +20,10 @@
             <?php echo csrf_field(); ?>
 
             <div class="obtenerAlbum">
-                <label for="id_album" class="labelObtenerAlbum">Album</label>
+                <label for="id_album" class="labelObtenerAlbum">Álbum</label>
                 <section class="sectionSelectObtenerAlbum">
                     <select name="id_album" id="id_album">
-                        <option value="">Selecciona un Album..</option>
+                        <option value="">Selecciona un Álbum..</option>
                         <?php $__currentLoopData = $albums; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $album): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($album -> id); ?>" <?php echo e($album->id == '{$album -> id' ? 'selected' : ''); ?>}>
                                 <?php echo e($album -> nombreAlbum); ?></option>

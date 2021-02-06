@@ -4,8 +4,9 @@
 <div class="VentanaRegistro">
     <div class="">
         <div class="reg1">
-        <img src="../../img/usuario (1) 1.png" alt="registrarse">
-            {{ __('Registro') }}</div>
+            <img src="../../img/usuario (1) 1.png" alt="registrarse">
+            Registro
+        </div>
         <div class="">
             <form method="POST" action="{{ route('register') }}">
                 @csrf

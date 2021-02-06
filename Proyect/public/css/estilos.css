@@ -14,7 +14,6 @@ body{
 	background-attachment: fixed;
 	width: 100%;
 }
-
 header.encabezado{
 	background-color:#5cadf0;
 	margin: 0 auto;
@@ -182,21 +181,23 @@ footer.piePagina{
 	align-items: center;
 }
 footer.piePagina p.informacion{
-	width: 19%;
+	width: 33%;
 	font-size: 1.25em;
 	padding: 0.45em 0em 0em 0em;
 	color: black;
+	text-align: left;
 }
 footer.piePagina ul.redesSociales{
-	padding-left: 20%;
+	width: 33%;
 }
 footer.piePagina ul.redesSociales li{
 	display: inline-block;
 	padding: 0em 0.3em 0em 0.3em;
 }
 footer.piePagina div.utpl{
+	text-align: right;
 	display: inline-block;
-	padding-left: 32%;
+	width: 33%;
 }
 div.ventanaLogeo {
 	text-align: left;
@@ -207,13 +208,12 @@ div.ventanaLogeo {
 	margin-bottom: 2em;
 	background-color:white;
 	border-bottom: #000 solid 3px;
-}
-div.ventanaLogeo img{
-	margin-left: 6em;
+	border-radius: 10px;
 }
 div.div2{
 	padding: 1em;
 	font-size: x-large;
+	text-align: center;
 }
 div.div3{
 	margin: 1em;
@@ -250,6 +250,9 @@ div.div6 button{
 }
 div.div6 a{
 	color: #42a5f5;
+}
+div.VentanaRegistro{
+	border-radius: 10px;
 }
 div.VentanaRegistro, div.ventanaObtenerAlbum {
 	text-align: left;

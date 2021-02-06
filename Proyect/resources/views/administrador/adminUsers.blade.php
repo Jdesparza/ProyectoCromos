@@ -32,7 +32,7 @@
 
                 <div class="">
                     <input id="email" type="email" class="formularioInput" name="email" value="{{ old('email') }}" required autocomplete="email">
-                    <label for="email" class="formularioLabel">{{ __('E-Mail Address') }}</label>
+                    <label for="email" class="formularioLabel">Correo</label>
                 </div>
 
                 <div class="">
