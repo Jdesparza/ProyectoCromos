@@ -14,7 +14,7 @@
         </div>
     </article>
     <article class="informacionUsers">
-        <div class="titulo2">Usuarios Normales</div>
+        <div class="titulo2">Usuarios</div>
         <div class="apartado1">
             <img src="../../img/restroom-solid 1.png" alt="contador usuarios normales">
         </div>

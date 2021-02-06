@@ -1,12 +1,32 @@
 
 
 <?php $__env->startSection('content'); ?>
-<?php if($message = Session::get('mensaje')): ?>
-	<ul class="alertaU2Correcto">
-		<section class="alertaCorrecto2">
-			<p><?php echo e($message); ?></p>
-		</section>
-	</ul>
+<?php if($message = Session::get('mensajeCromos')): ?>
+    <ul class="alertaObtenerCromos">
+        <section class="alertaCorrecto3">
+            <img src="../../../img/confetti.png" alt="felicitacion">
+            <?php if($message == 5): ?>
+                <p>Felicitaciones &#128526, Haz acertado <?php echo e($message); ?> de 5 preguntas</p>
+                <p>Obtienes <?php echo e($message); ?> cromos</p>
+            <?php else: ?>
+                <?php if($message  >= 3 && $message  < 5): ?>
+                    <p>Buen Trabajo &#128512, Haz acertado <?php echo e($message); ?> de 5 preguntas</p>
+                    <p>Obtienes <?php echo e($message); ?> cromos</p>
+                <?php else: ?>
+                    <?php if($message < 3 && $message  >= 2): ?>
+                        <p>Lo Sentimos &#128528, Solo haz acertado <?php echo e($message); ?> de 5 preguntas</p>
+                        <p>Obtienes <?php echo e($message); ?> cromos</p>
+                    <?php else: ?>
+                        <?php if($message == 1): ?>
+                            <p>Lo Sentimos &#128528, Solo haz acertado <?php echo e($message); ?> de 5 preguntas</p>
+                            <p>Obtienes <?php echo e($message); ?> cromo</p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endif; ?>
+            <p>Recuerda que los cromos repetidos no se mostrarán en el álbum</p>
+        </section>
+    </ul>
 <?php endif; ?>
 <section class="sectionTitulo">
     <h1>Álbumes</h1>

@@ -52,7 +52,7 @@
                                 <a class="menuLogout1" href="<?php echo e(route('logout')); ?>"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                    <?php echo e(__('Logout')); ?>
+                                    <?php echo e(__('Salir')); ?>
 
                                 </a>
 
@@ -71,7 +71,7 @@
     </div>
     <footer class="piePagina">
         <p class="informacion">
-            Copyright © 2020, All Rigthts Reserved
+            Copyright © 2021, All Rights Reserved
         </p>
         <ul class="redesSociales">
             <li>

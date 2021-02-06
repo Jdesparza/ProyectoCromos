@@ -53,7 +53,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="reg5">
-                    <label for="password" class="labelInicio"><?php echo e(__('Password')); ?></label>
+                    <label for="password" class="labelInicio"><?php echo e(__('Contraseña')); ?></label>
 
                     <div class="reg6">
                         <input id="password" type="password" class="inputInicio" name="password" required autocomplete="new-password" placeholder="Ingrese su contraseña">
@@ -74,7 +74,7 @@ unset($__errorArgs, $__bag); ?>
                 </div>
 
                 <div class="reg7">
-                    <label for="password-confirm" class="labelInicio"><?php echo e(__('Confirm Password')); ?></label>
+                    <label for="password-confirm" class="labelInicio"><?php echo e(__('Confirmar Contraseña')); ?></label>
 
                     <div class="reg8">
                         <input id="password-confirm" type="password" class="inputInicio" name="password_confirmation" required autocomplete="new-password" placeholder="Confirme su contraseña">

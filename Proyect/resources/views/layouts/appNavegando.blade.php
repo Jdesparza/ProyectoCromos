@@ -25,7 +25,7 @@
             </a>
             <a href="/usuario/mostrarAlbum" class="menu1">
                 <img src="../../../img/album-de-fotos (1) 1.png" alt="menu album">
-                Album
+                Álbum
             </a>
             <a href="/usuario/intercambio" class="menu1">
                 <img src="../../../img/intercambiar 1.png" alt="menu intercambio">
@@ -52,7 +52,7 @@
                                 <a class="menuLogout1" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Salir') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="">
@@ -70,7 +70,7 @@
     </div>
     <footer class="piePagina">
         <p class="informacion">
-            Copyright © 2020, All Rigthts Reserved
+            Copyright © 2021, All Rights Reserved
         </p>
         <ul class="redesSociales">
             <li>

@@ -5,7 +5,7 @@
     <div class="div1">
         <div class="div2">
         <img src="../../img/iniciar-sesion 1.png" alt="iniciar Sesion">
-            {{ __('Iniciar Sesion') }}
+            {{ __('Iniciar Sesión') }}
         </div>
 
         <div class="">
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="div3">
-                    <label for="password" class="labelInicio">{{ __('Clave') }}</label>
+                    <label for="password" class="labelInicio">{{ __('Contraseña') }}</label>
 
                     <div class="div4">
                         <input id="password" type="password" class="inputInicio" name="password" required autocomplete="current-password" placeholder="Ingrese su clave">

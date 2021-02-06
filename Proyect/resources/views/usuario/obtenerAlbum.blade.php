@@ -20,10 +20,10 @@
             @csrf
 
             <div class="obtenerAlbum">
-                <label for="id_album" class="labelObtenerAlbum">Album</label>
+                <label for="id_album" class="labelObtenerAlbum">Álbum</label>
                 <section class="sectionSelectObtenerAlbum">
                     <select name="id_album" id="id_album">
-                        <option value="">Selecciona un Album..</option>
+                        <option value="">Selecciona un Álbum..</option>
                         @foreach($albums as $album)
                                 <option value="{{ $album -> id }}" {{ $album->id == '{$album -> id' ? 'selected' : ''}}}>
                                 {{ $album -> nombreAlbum }}</option>

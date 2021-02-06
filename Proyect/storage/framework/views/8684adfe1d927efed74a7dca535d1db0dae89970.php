@@ -24,7 +24,7 @@
             </a>
             <a href="<?php echo e(route('login')); ?>" class="menu1">
                 <img src="../../img/album-de-fotos (1) 1.png" alt="menu album">
-                Album
+                Álbum
             </a>
             <a href="<?php echo e(route('login')); ?>" class="menu1">
                 <img src="../../img/intercambiar 1.png" alt="menu intercambio">
@@ -41,7 +41,7 @@
     </div>
     <footer class="piePagina">
         <p class="informacion">
-            Copyright © 2020, All Rigthts Reserved
+            Copyright © 2021, All Rights Reserved
         </p>
         <ul class="redesSociales">
             <li>
