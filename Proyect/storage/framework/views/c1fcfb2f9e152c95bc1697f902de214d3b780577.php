@@ -24,7 +24,7 @@
                     <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>
-            <p>Recuerda que los cromos repetidos no se mostraran en el álbum</p>
+            <p>Recuerda que los cromos repetidos no se mostrarán en el álbum</p>
         </section>
     </ul>
 <?php endif; ?>
